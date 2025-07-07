@@ -39,8 +39,8 @@ import fn23 from "../../assets/images/publications/fn23.jpg"
 import cv from "../../assets/images/publications/cv.jpg"
 import ChEA_voice24 from "../../assets/images/publications/ChEA_voice24.jpg"
 import ChEA_handbook24 from "../../assets/images/publications/ChEA_handbook24.png"
-import chemical from "../../assets/images/publications/chemical gazette23.png"
-import cg24 from "../../assets/images/publications/The-Chemical-Gazette25.png"
+import chemical from "../../assets/images/publications/cg23.png"
+import cg24 from "../../assets/images/publications/cg24.png"
 
 // Chemical equipment for floating animations
 const chemicalEquipment = [

@@ -1,10 +1,27 @@
 "use client"
-
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Calendar, MapPin, Users, ExternalLink, Play, ChevronLeft, ChevronRight, X } from "lucide-react"
+import { EventCard } from "./eventCard.jsx"
+import { EventDetailModal } from "./EventDetailModel.jsx"
+import { HeroSlider } from "./HeroSlider.jsx"
+import {
+  GraduationCap,
+  Theater,
+  BookOpen,
+  Mountain,
+  Trophy,
+  Users2,
+  PartyPopper,
+  MessageCircle,
+  Award,
+  Film,
+  Beaker,
+  Microscope,
+  FlaskConical,
+  TestTube,
+} from "lucide-react"
 
-// Comprehensive event data with actual image names from HTML files
+// Comprehensive event data
 const eventData = {
   "2025-2026": [
     {
@@ -228,7 +245,7 @@ const eventData = {
       id: "freshie-oreo-2022",
       title: "Freshers' Orientation 2022",
       description: "This event serves as the first major interaction between the council and the freshies.",
-      image: "fo4'.JPG",
+      image: "fo4.JPG",
       links: [
         {
           type: "photos",
@@ -243,7 +260,7 @@ const eventData = {
       id: "freshie-oreo-2019",
       title: "Freshers' Orientation 2019",
       description: "This event serves as the first major interaction between the council and the freshies.",
-      image: "fo3'.JPG",
+      image: "fo3.JPG",
       links: [
         {
           type: "photos",
@@ -258,7 +275,7 @@ const eventData = {
       id: "traditional-day-2023",
       title: "Traditional Day 2023",
       description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td4'.JPG",
+      image: "td4.JPG",
       links: [
         {
           type: "photos",
@@ -273,7 +290,7 @@ const eventData = {
       id: "traditional-day-2022",
       title: "Traditional Day 2022",
       description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td3'.JPG",
+      image: "td3.JPG",
       links: [
         {
           type: "photos",
@@ -288,7 +305,7 @@ const eventData = {
       id: "traditional-day-2019",
       title: "Traditional Day 2019",
       description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td2'.JPG",
+      image: "td2.JPG",
       links: [
         {
           type: "photos",
@@ -303,7 +320,7 @@ const eventData = {
       id: "traditional-day-2017",
       title: "Traditional Day 2017",
       description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td1'.JPG",
+      image: "td1.JPG",
       links: [
         {
           type: "photos",
@@ -334,7 +351,7 @@ const eventData = {
       id: "la-la-land-2022",
       title: "La La Land 2022",
       description: "A musical entertainment event bringing joy and celebration to the department community.",
-      image: "m1'.jpg",
+      image: "m1.JPG",
       links: [
         {
           type: "photos",
@@ -349,7 +366,7 @@ const eventData = {
       id: "career-talk-harmit-2022",
       title: "Discovering Your Career - Dr Harmit Singh Malik",
       description: "Career guidance session by Dr Harmit Singh Malik helping students discover their career paths.",
-      image: "m2'.jpg",
+      image: "m2.JPG",
       links: [
         {
           type: "video",
@@ -364,11 +381,11 @@ const eventData = {
       id: "career-talk-premnath-2022",
       title: "Discovering Your Career - Dr. V Premnath",
       description: "Career guidance session by Dr. V Premnath providing insights into career development.",
-      image: "m3'.jpg",
+      image: "m3.JPG",
       links: [
         {
           type: "photos",
-          url: "https://drive.google.com/drive/folders/1xfp3uh0V84bN1pCI8vJAjODrud2qFu1E",
+          url: "https://drive.google.com/drive/u/0/folders/1xfp3uh0V84bN1pCI8vJAjODrud2qFu1E",
           label: "View Photos",
         },
         {
@@ -523,7 +540,7 @@ const eventData = {
       id: "department-trips-2022",
       title: "Department Trips 2022",
       description: "Bhandardara and Sundhan Valley trek providing students relief from academic stress.",
-      image: "dp2'.jpg",
+      image: "dp2.JPG",
       links: [
         {
           type: "photos",
@@ -538,7 +555,7 @@ const eventData = {
       id: "department-trips-2019",
       title: "Department Trips 2019",
       description: "Ratangarh Trek and other adventure activities for department bonding.",
-      image: "dp3'.jpg",
+      image: "dp3.JPG",
       links: [
         {
           type: "photos",
@@ -628,7 +645,7 @@ const eventData = {
         },
         {
           type: "photos",
-          url: "https://drive.google.com/drive/folders/13hZ_WMNzx9uRRh1y0-g2Eo570qdNzQSY",
+          url: "https://drive.google.com/drive/u/0/folders/1-6Co-8pCrEc47X0qpyry3pdVPV2uEg6U",
           label: "Alumni Reunion 2021",
         },
       ],
@@ -659,20 +676,18 @@ const eventData = {
   ],
 }
 
-const heroImages = ["img25-v1.JPG", "img25-v.JPG", "image44.jpg", "img25-v2.JPG"]
-
-// Updated color scheme to match Links/Publications theme
+// Updated color scheme to match Footer
 const categoryColors = {
-  farewell: "from-slate-600 to-slate-700",
-  cultural: "from-blue-600 to-blue-700",
-  academic: "from-indigo-600 to-indigo-700",
-  adventure: "from-emerald-600 to-emerald-700",
-  sports: "from-orange-600 to-orange-700",
-  alumni: "from-purple-600 to-purple-700",
-  orientation: "from-teal-600 to-teal-700",
-  discussion: "from-cyan-600 to-cyan-700",
-  ceremony: "from-rose-600 to-rose-700",
-  entertainment: "from-pink-600 to-pink-700",
+  farewell: "from-violet-600 to-purple-700",
+  cultural: "from-cyan-500 to-blue-600",
+  academic: "from-emerald-500 to-teal-600",
+  adventure: "from-teal-500 to-cyan-600",
+  sports: "from-orange-500 to-red-600",
+  alumni: "from-purple-600 to-pink-700",
+  orientation: "from-emerald-600 to-cyan-700",
+  discussion: "from-blue-600 to-indigo-700",
+  ceremony: "from-rose-600 to-pink-700",
+  entertainment: "from-fuchsia-600 to-purple-700",
 }
 
 const categoryIcons = {
@@ -690,399 +705,52 @@ const categoryIcons = {
 
 const chemicalFormulas = ["C₆H₁₂O₆", "H₂SO₄", "NaCl", "CO₂", "NH₃", "CH₄", "C₂H₅OH", "CaCO₃"]
 
-const EventCard = ({ event, index, onEventClick }) => {
-  const [isHovered, setIsHovered] = useState(false)
-
-  const handleMouseEnter = useCallback(() => setIsHovered(true), [])
-  const handleMouseLeave = useCallback(() => setIsHovered(false), [])
-
-  const handleCardClick = useCallback(() => {
-    onEventClick(event)
-  }, [event, onEventClick])
-
-  return (
-    <motion.div
-      className="relative group cursor-pointer"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleCardClick}
-    >
-      {/* Chemical Formula Decoration */}
-      <motion.div
-        className="absolute -top-2 -right-2 z-10 bg-gradient-to-r from-slate-600 to-slate-700 text-white text-xs px-2 py-1 rounded-full font-bold shadow-lg"
-        animate={{
-          rotate: isHovered ? 360 : 0,
-          scale: isHovered ? 1.1 : 1,
-        }}
-        transition={{ duration: 0.6 }}
-      >
-        {chemicalFormulas[index % chemicalFormulas.length]}
-      </motion.div>
-
-      {/* Category Badge */}
-      <motion.div
-        className={`absolute top-4 left-4 z-10 bg-gradient-to-r ${categoryColors[event.category]} text-white text-xs px-3 py-1 rounded-full font-semibold shadow-lg flex items-center gap-1`}
-        animate={{
-          scale: isHovered ? 1.05 : 1,
-          y: isHovered ? -2 : 0,
-        }}
-        transition={{ duration: 0.2 }}
-      >
-        <span>{categoryIcons[event.category]}</span>
-        {event.category}
-      </motion.div>
-
-      {/* Year Badge */}
-      <motion.div
-        className="absolute top-4 right-4 z-10 bg-black/70 text-white text-xs px-2 py-1 rounded-full font-bold"
-        animate={{
-          opacity: isHovered ? 1 : 0.8,
-          scale: isHovered ? 1.05 : 1,
-        }}
-        transition={{ duration: 0.2 }}
-      >
-        {event.year}
-      </motion.div>
-
-      {/* Main Card */}
-      <motion.div
-        className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200"
-        animate={{
-          scale: isHovered ? 1.02 : 1,
-          boxShadow: isHovered ? "0 20px 40px rgba(0,0,0,0.15)" : "0 4px 6px rgba(0,0,0,0.1)",
-          borderColor: isHovered ? "#475569" : "#e5e7eb",
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        {/* Image Container */}
-        <div className="relative h-48 overflow-hidden">
-          <motion.img
-            src={event.image}
-            alt={event.title}
-            className="w-full h-full object-cover"
-            animate={{
-              scale: isHovered ? 1.1 : 1,
-            }}
-            transition={{ duration: 0.6 }}
-          />
-
-          {/* Image Overlay */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-            animate={{
-              opacity: isHovered ? 0.8 : 0.4,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-
-          {/* Hover Overlay */}
-          <AnimatePresence>
-            {isHovered && (
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-slate-500/20 to-slate-700/20 flex items-center justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <motion.button
-                  className="bg-white/90 text-slate-700 px-4 py-2 rounded-full font-semibold flex items-center gap-2 shadow-lg hover:bg-white transition-colors"
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  exit={{ scale: 0, rotate: 180 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {event.type === "video-series" ? <Play className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-                  View Details
-                </motion.button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Chemical Reaction Indicators */}
-          <motion.div
-            className="absolute bottom-2 left-2 flex gap-1"
-            animate={{
-              opacity: isHovered ? 1 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 bg-slate-400 rounded-full"
-                animate={{
-                  scale: isHovered ? [1, 1.5, 1] : 1,
-                  opacity: isHovered ? [0.5, 1, 0.5] : 0,
-                }}
-                transition={{
-                  duration: 1.5,
-                  delay: i * 0.2,
-                  repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
-                }}
-              />
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          <motion.h3
-            className="text-xl font-bold mb-2 text-gray-800"
-            animate={{
-              color: isHovered ? "#475569" : "#1f2937",
-            }}
-            transition={{ duration: 0.2 }}
-          >
-            {event.title}
-          </motion.h3>
-
-          <motion.p
-            className="text-gray-600 text-sm leading-relaxed mb-4"
-            animate={{
-              color: isHovered ? "#4b5563" : "#6b7280",
-            }}
-            transition={{ duration: 0.2 }}
-          >
-            {event.description.length > 120 ? `${event.description.substring(0, 120)}...` : event.description}
-          </motion.p>
-
-          {/* Links Count */}
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-gray-500">
-              {event.links?.length || 0} {event.links?.length === 1 ? "resource" : "resources"}
-            </span>
-            <motion.button
-              className="bg-gradient-to-r from-slate-600 to-slate-700 text-white py-2 px-4 rounded-lg font-semibold flex items-center gap-2 shadow-md text-sm"
-              animate={{
-                scale: isHovered ? 1.02 : 1,
-                boxShadow: isHovered ? "0 8px 16px rgba(71, 85, 105, 0.3)" : "0 2px 4px rgba(0,0,0,0.1)",
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              <ExternalLink className="w-4 h-4" />
-              View Details
-            </motion.button>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  )
+const categoryIconComponents = {
+  farewell: GraduationCap,
+  cultural: Theater,
+  academic: BookOpen,
+  adventure: Mountain,
+  sports: Trophy,
+  alumni: Users2,
+  orientation: PartyPopper,
+  discussion: MessageCircle,
+  ceremony: Award,
+  entertainment: Film,
 }
 
-const EventDetailModal = ({ event, onClose }) => {
-  const handleLinkClick = useCallback((url) => {
-    window.open(url, "_blank")
-  }, [])
+const heroIcons = [
+  { icon: Beaker, color: "from-emerald-500 to-teal-600" },
+  { icon: Microscope, color: "from-cyan-500 to-blue-600" },
+  { icon: FlaskConical, color: "from-teal-500 to-cyan-600" },
+  { icon: TestTube, color: "from-violet-500 to-purple-600" },
+]
 
-  return (
-    <motion.div
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
-    >
+// Chemical particle animation
+const renderChemicalParticles = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {[...Array(20)].map((_, i) => (
       <motion.div
-        className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="relative p-6 border-b border-gray-200">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
-
-          <div className="flex items-start gap-4">
-            <div
-              className={`bg-gradient-to-r ${categoryColors[event.category] || "from-slate-600 to-slate-700"} text-white p-3 rounded-xl`}
-            >
-              <span className="text-2xl">{categoryIcons[event.category] || "🎉"}</span>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>
-              <div className="flex items-center gap-4 text-sm text-gray-600">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {event.year}
-                </span>
-                <span className="capitalize bg-gray-100 px-2 py-1 rounded-full">{event.category}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          <p className="text-gray-700 leading-relaxed mb-6">{event.description}</p>
-
-          {/* Links/Resources */}
-          {event.links && event.links.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Resources & Links</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {event.links.map((link, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => handleLinkClick(link.url)}
-                    className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors text-left"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div
-                      className={`p-2 rounded-lg ${
-                        link.type === "video"
-                          ? "bg-red-100 text-red-600"
-                          : link.type === "photos"
-                            ? "bg-blue-100 text-blue-600"
-                            : "bg-green-100 text-green-600"
-                      }`}
-                    >
-                      {link.type === "video" ? <Play className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-800">{link.label}</div>
-                      <div className="text-xs text-gray-500 capitalize">{link.type}</div>
-                    </div>
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </motion.div>
-  )
-}
-
-const HeroSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const goToSlide = useCallback((index) => {
-    setCurrentSlide(index)
-  }, [])
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-  }, [])
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
-  }, [])
-
-  return (
-    <div className="relative h-96 overflow-hidden rounded-2xl shadow-2xl mb-12">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-blue-100 opacity-30" />
-
-      {/* Slides */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          className="absolute inset-0"
-          initial={{ opacity: 0, x: 300 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -300 }}
-          transition={{ duration: 0.5 }}
-        >
-          <img
-            src={heroImages[currentSlide] || "/placeholder.svg"}
-            alt={`Event slide ${currentSlide + 1}`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm transition-colors"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm transition-colors"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? "bg-slate-500 scale-125" : "bg-white/50 hover:bg-white/70"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Floating Chemical Elements */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-white/20 font-bold text-lg"
-          style={{
-            left: `${20 + i * 15}%`,
-            top: `${10 + (i % 3) * 30}%`,
-          }}
-          animate={{
-            y: [0, -10, 0],
-            rotate: [0, 5, -5, 0],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 3 + i * 0.5,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: i * 0.3,
-          }}
-        >
-          {chemicalFormulas[i]}
-        </motion.div>
-      ))}
-
-      {/* Title Overlay */}
-      <div className="absolute bottom-8 left-8">
-        <motion.h1
-          className="text-4xl font-bold text-white mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          ChEA <span className="text-slate-300">EVENTS</span>
-        </motion.h1>
-        <motion.p
-          className="text-white/90 text-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-        >
-          Celebrating Chemistry, Engineering & Community
-        </motion.p>
-      </div>
-    </div>
-  )
-}
+        key={i}
+        className="absolute w-1 h-1 bg-emerald-400/30 rounded-full"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        animate={{
+          y: [0, -20, 0],
+          opacity: [0.2, 0.8, 0.2],
+          scale: [0.5, 1, 0.5],
+        }}
+        transition={{
+          duration: 3 + Math.random() * 2,
+          repeat: Number.POSITIVE_INFINITY,
+          delay: Math.random() * 2,
+          ease: "easeInOut",
+        }}
+      />
+    ))}
+  </div>
+)
 
 export default function ChemicalEvents() {
   const [selectedYear, setSelectedYear] = useState("2024-2025")
@@ -1092,7 +760,6 @@ export default function ChemicalEvents() {
   const handleYearChange = useCallback(
     async (year) => {
       if (year === selectedYear) return
-
       setIsLoading(true)
       await new Promise((resolve) => setTimeout(resolve, 300))
       setSelectedYear(year)
@@ -1112,27 +779,34 @@ export default function ChemicalEvents() {
   const currentEvents = eventData[selectedYear] || []
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 pt-20 relative overflow-hidden">
+      {/* Chemical Particles Background */}
+      {renderChemicalParticles()}
+
       {/* Background Pattern */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fillrule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23475569&quot; fillOpacity=&quot;.1&quot;%3E%3Ccircle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;4&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] bg-repeat" />
+      <div className="fixed inset-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/20 via-cyan-800/20 to-teal-800/20" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fillrule=%22evenodd%22%3E%3Cg fill=%22%2310b981%22 fillOpacity=%22.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] bg-repeat" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-8">
+      {/* Chemical Reaction Border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+
+      <div className="relative z-10 mx-auto py-8" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
         {/* Hero Slider */}
         <HeroSlider />
 
         {/* Year Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-2 flex gap-2">
+          <div className="bg-slate-800/50 backdrop-blur-md rounded-2xl shadow-xl p-2 flex gap-2 border border-slate-700/50">
             {Object.keys(eventData).map((year) => (
               <motion.button
                 key={year}
                 onClick={() => handleYearChange(year)}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedYear === year
-                    ? "bg-gradient-to-r from-slate-600 to-slate-700 text-white shadow-lg"
-                    : "text-gray-600 hover:text-slate-600 hover:bg-slate-50"
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
+                    : "text-gray-300 hover:text-emerald-400 hover:bg-emerald-400/10"
                 }`}
                 animate={{
                   scale: selectedYear === year ? 1.05 : 1,
@@ -1158,14 +832,14 @@ export default function ChemicalEvents() {
               exit={{ opacity: 0 }}
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 border-4 border-slate-500 border-t-transparent rounded-full animate-spin" />
-                <span className="text-gray-600 font-medium">Loading events...</span>
+                <div className="w-8 h-8 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin" />
+                <span className="text-emerald-400 font-medium">Loading events...</span>
               </div>
             </motion.div>
           ) : (
             <motion.div
               key={selectedYear}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -1180,52 +854,25 @@ export default function ChemicalEvents() {
 
         {/* Empty State */}
         {!isLoading && currentEvents.length === 0 && (
-          <motion.div className="text-center py-16" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div
+            className="text-center py-16 bg-slate-800/30 backdrop-blur-sm rounded-2xl mx-4 border border-slate-700/50"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             <div className="text-6xl mb-4">🧪</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">No Events Found</h3>
-            <p className="text-gray-600">Events for this period are being planned. Stay tuned!</p>
+            <h3 className="text-2xl font-bold text-emerald-400 mb-2">No Events Found</h3>
+            <p className="text-gray-300">Events for this period are being planned. Stay tuned!</p>
           </motion.div>
         )}
-
-        {/* Statistics Section */}
-        <motion.div
-          className="mt-16 bg-white rounded-2xl shadow-lg p-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">
-            Event <span className="text-slate-600">Statistics</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { label: "Total Events", value: "50+", icon: Calendar },
-              { label: "Participants", value: "1000+", icon: Users },
-              { label: "Years Active", value: "25+", icon: Calendar },
-              { label: "Locations", value: "15+", icon: MapPin },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-              >
-                <div className="bg-gradient-to-r from-slate-600 to-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-gray-800 mb-1">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
       {/* Event Detail Modal */}
       <AnimatePresence>
         {selectedEvent && <EventDetailModal event={selectedEvent} onClose={handleCloseModal} />}
       </AnimatePresence>
+
+      {/* Bottom Chemical Border */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
     </div>
   )
 }
