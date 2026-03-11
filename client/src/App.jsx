@@ -25,6 +25,7 @@ import Link25 from "./components/links/Link25";
 import Publication from "./components/publications/Publication";
 import ChemicalBackground from "./components/ChemicalBackground";
 import Events from "./components/events/Events";
+import CheaBlogs from "./components/cheablogs";
 function App() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -69,6 +70,7 @@ function App() {
           <Route path="/links/24" element={<Link24 />} />
           <Route path="/publications" element={<Publication />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/blogs" element={<CheaBlogs />} />
         </Routes>
       </div>
       <Footer />

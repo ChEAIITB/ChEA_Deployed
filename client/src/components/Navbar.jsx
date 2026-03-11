@@ -5,20 +5,28 @@ import { Menu, X, FlaskRoundIcon as Flask, TestTube, Beaker, Atom, Droplets, Zap
 import { motion, AnimatePresence } from "framer-motion"
 import pndLogo from "../assets/images/cheaorange.png"
 import { Link } from "react-router-dom"
-
+import { 
+  Home, 
+  Calendar, 
+  FileText, 
+  BookOpen, 
+  Link as LinkIcon, 
+  Users, 
+  UserCheck 
+} from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   const navItems = [
-    { name: "Home", href: "/", icon: Flask },
-    { name: "Events", href: "/events", icon: TestTube },
-    { name: "Blogs", href: "#blogs", icon: Beaker },
-    { name: "Publications", href: "/publications", icon: Atom },
-    { name: "Links", href: "/links/25", icon: Droplets },
-    { name: "Our Council", href: "/contact", icon: Zap },
-    { name: "Facads", href: "/facad/24", icon: Flask },
-  ]
+  { name: "Home", href: "/", icon: Home },
+  { name: "Events", href: "/events", icon: Calendar },
+  { name: "Blogs", href: "/blogs", icon: FileText },
+  { name: "Publications", href: "/publications", icon: BookOpen },
+  { name: "Links", href: "/links/25", icon: LinkIcon },
+  { name: "Our Council", href: "/contact", icon: Users },
+  { name: "Facads", href: "/facad/24", icon: UserCheck },
+];
 
   // Handle scroll effect
   useEffect(() => {

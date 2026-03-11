@@ -361,7 +361,7 @@ export default function Footer() {
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Zap size={20} className="text-emerald-400" />
                 <p className="text-lg font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
-                  Laboratory maintained by
+                  Website created by <span className="text-amber-400">RAHUL PAL</span>  &  Maintained by
                 </p>
                 <Flask size={20} className="text-cyan-400" />
               </div>
@@ -382,9 +382,9 @@ export default function Footer() {
               {/* Chemical Equipment Footer */}
               <div className="flex justify-center items-center gap-4 mt-4 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                 <TestTube size={16} className="text-cyan-400" />
-                <span className="text-xs font-mono text-emerald-400">C₆H₁₂O₆</span>
+                {/* <span className="text-xs font-mono text-emerald-400">C₆H₁₂O₆</span> */}
                 <Beaker size={16} className="text-violet-400" />
-                <span className="text-xs font-mono text-cyan-400">H₂O</span>
+                {/* <span className="text-xs font-mono text-cyan-400">H₂O</span> */}
                 <Atom size={16} className="text-teal-400" />
               </div>
             </div>
