@@ -87,7 +87,7 @@ const chemicalBubbles = [
   },
 ]
 
-// Publication data with enhanced metadata - Starting from 2024
+// Publication data with enhanced metadata
 const publicationData = {
   2024: {
     title: "Latest Research",
@@ -356,19 +356,26 @@ const publicationData = {
   },
 }
 
+// Sort years descending (latest first), with "Pre-2019" always last
+const sortedPublicationEntries = Object.entries(publicationData).sort(([a], [b]) => {
+  if (a === "Pre-2019") return 1
+  if (b === "Pre-2019") return -1
+  return Number(b) - Number(a)
+})
+
 export default function Publication() {
+  // 2024 is open by default
   const [expandedSections, setExpandedSections] = useState({ 2024: true })
   const [selectedPublication, setSelectedPublication] = useState(null)
   const [previewModalOpen, setPreviewModalOpen] = useState(false)
-  const [filterType, setFilterType] = useState("All")
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  const x = useTransform(mouseX, (x) => (x - window.innerWidth / 2) * 0.01)
-  const y = useTransform(mouseY, (y) => (y - window.innerHeight / 2) * 0.01)
+  const x = useTransform(mouseX, (val) => (val - window.innerWidth / 2) * 0.01)
+  const y = useTransform(mouseY, (val) => (val - window.innerHeight / 2) * 0.01)
 
   useEffect(() => {
     AOS.init({ duration: 1000 })
@@ -383,12 +390,7 @@ export default function Publication() {
     [mouseX, mouseY],
   )
 
-  const getTransform = useCallback(
-    (mult = 0.01) => {
-      return { x, y }
-    },
-    [x, y],
-  )
+  const getTransform = useCallback(() => ({ x, y }), [x, y])
 
   const toggleSection = useCallback((year) => {
     setExpandedSections((prev) => ({
@@ -446,7 +448,7 @@ export default function Publication() {
           opacity: equipment.opacity,
           left: `${15 + i * 20}%`,
           top: `${10 + i * 15}%`,
-          ...getTransform(0.02 + i * 0.01),
+          ...getTransform(),
         }}
         animate={{
           rotate: [0, equipment.rotation, -equipment.rotation, 0],
@@ -487,7 +489,7 @@ export default function Publication() {
     </div>
   )
 
-  // Enhanced publication card with chemical theme and optimized hover
+  // Enhanced publication card
   const ChemicalPubliCard = ({ publication, index, yearData }) => {
     const [isHovered, setIsHovered] = useState(false)
 
@@ -543,7 +545,7 @@ export default function Publication() {
               transition={{ duration: 0.3 }}
             />
 
-            {/* Chemical Overlay Effect */}
+            {/* Hover Overlay */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-center justify-center"
               animate={{ opacity: isHovered ? 1 : 0 }}
@@ -638,11 +640,7 @@ export default function Publication() {
               opacity: isHovered ? 1 : 0,
             }}
             transition={{
-              scale: {
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              },
+              scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
               opacity: { duration: 0.3 },
             }}
           />
@@ -651,7 +649,7 @@ export default function Publication() {
     )
   }
 
-  // Preview Modal Component
+  // Preview Modal
   const PreviewModal = () => (
     <AnimatePresence>
       {previewModalOpen && selectedPublication && (
@@ -663,7 +661,7 @@ export default function Publication() {
           onClick={closePreviewModal}
         >
           <motion.div
-            className="relative max-w-4xl max-h-[90vh] bg-slate-900/95 backdrop-blur-sm rounded-2xl border border-emerald-400/30 overflow-hidden"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900/95 backdrop-blur-sm rounded-2xl border border-emerald-400/30 overflow-hidden"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -699,7 +697,7 @@ export default function Publication() {
             </div>
 
             {/* Modal Content */}
-            <div className="p-6">
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Publication Image */}
                 <div className="space-y-4">
@@ -791,22 +789,10 @@ export default function Publication() {
           <motion.div
             key={i}
             className={`absolute rounded-full ${droplet.size} ${droplet.color} ${droplet.glow} shadow-lg`}
-            style={{
-              top: droplet.top,
-              left: droplet.left,
-              ...getTransform(0.02),
-            }}
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.6, 1, 0.6],
-            }}
-            transition={{
-              duration: 3 + i * 0.4,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
+            style={{ top: droplet.top, left: droplet.left, ...getTransform() }}
+            animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 3 + i * 0.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           >
-            {/* Chemical Formula Label */}
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
               {droplet.formula}
             </div>
@@ -818,23 +804,10 @@ export default function Publication() {
           <motion.div
             key={i}
             className={`absolute rounded-full ${bubble.size} ${bubble.color} opacity-40 shadow-lg`}
-            style={{
-              top: bubble.top,
-              left: bubble.left,
-              ...getTransform(0.04),
-            }}
-            animate={{
-              y: [0, -25, 0],
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.7, 0.3],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
+            style={{ top: bubble.top, left: bubble.left, ...getTransform() }}
+            animate={{ y: [0, -25, 0], scale: [1, 1.2, 1], opacity: [0.3, 0.7, 0.3] }}
+            transition={{ duration: 4 + i, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           >
-            {/* Chemical Formula */}
             <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
               {bubble.formula}
             </div>
@@ -843,7 +816,7 @@ export default function Publication() {
 
         {/* Main Content */}
         <section className="relative z-10 px-6 lg:px-16 py-20">
-          {/* Header with Chemical Theme */}
+          {/* Header */}
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: -50 }}
@@ -875,7 +848,6 @@ export default function Publication() {
               Explore our comprehensive collection of chemical engineering research, innovations, and discoveries
             </p>
 
-            {/* Chemical Equipment Decoration */}
             <div className="flex justify-center items-center gap-6 mt-8 opacity-60">
               <TestTube size={24} className="text-emerald-400" />
               <Beaker size={24} className="text-cyan-400" />
@@ -884,9 +856,9 @@ export default function Publication() {
             </div>
           </motion.div>
 
-          {/* Publications by Year - Starting from 2024 */}
+          {/* Publications by Year — sorted latest first, 2024 open by default */}
           <div className="space-y-12">
-            {Object.entries(publicationData).map(([year, yearData], yearIndex) => (
+            {sortedPublicationEntries.map(([year, yearData], yearIndex) => (
               <motion.div
                 key={year}
                 className="relative"
@@ -894,7 +866,7 @@ export default function Publication() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: yearIndex * 0.2, duration: 0.8 }}
               >
-                {/* Year Header with Chemical Theme */}
+                {/* Year Header */}
                 <motion.div
                   className="flex items-center justify-between mb-8 cursor-pointer group"
                   onClick={() => toggleSection(year)}
