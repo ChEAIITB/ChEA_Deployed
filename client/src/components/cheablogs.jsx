@@ -1,39 +1,50 @@
-import { useState, useEffect, useRef } from "react";
-
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FlaskRoundIcon as Flask,
+  TestTube,
+  Beaker,
+  Atom,
+  BookOpen,
+  Users,
+  Briefcase,
+  GraduationCap,
+  Globe,
+  Star,
+  ChevronDown,
+  ArrowLeft,
+  X,
+} from "lucide-react";
+import Anushka from "../assets/blogs/internship/anushka0_25.jpg"
 /* ══════════════════════════════════════════════
-   DESIGN DIRECTION: Deep Bioluminescent Green
-   - Midnight black base (#050d07)
-   - Neon jade / emerald accents (#00ff87, #00d96e)
-   - Liquid blob morphing borders via SVG filter
-   - Glass-liquid cards with shimmer sweep
-   - Organic border-radius keyframe animation
-   - Glowing particle dust in background
+   COLOR THEME: Matches site — slate-900/emerald-950
+   Accents: emerald-400, cyan-400, violet-400, teal-400
 ══════════════════════════════════════════════ */
 
 const YEARS = ["2025", "2023", "2022", "2021", "2020", "Pre-2020"];
 
 const BLOG_CARDS = [
-  { id:"internship-blogs", title:"Internship\nBlogs",  subtitle:"Your guide for a perfect start on the journey of internships",                      icon:"◈", tag:"INTERNSHIP"    },
-  { id:"placement-blogs",  title:"Placement\nBlogs",   subtitle:"Your guide for a perfect start on the journey of placements",                        icon:"⬡", tag:"PLACEMENT"     },
-  { id:"internera",        title:"InternEra",          subtitle:"Special blog series for CHE'25 by the CHE'24 batch covering all major profiles",      icon:"◉", tag:"2ND YEARS"     },
-  { id:"apping-guide",     title:"Apping\nGuide",      subtitle:"The one-stop solution to all your apping doubts",                                    icon:"⬢", tag:"APP-IN"        },
-  { id:"icy-didnt-know",   title:"ICY Didn't\nKnow",  subtitle:"In Case You Didn't Know – bite-sized facts & insights",                              icon:"◆", tag:"DID YOU KNOW"  },
-  { id:"then-vs-now",      title:"Then Vs\nNow",       subtitle:"Let's hear what respected alumni of the institute have to say",                      icon:"◎", tag:"ALUMNI"        },
-  { id:"semex",            title:"SemEx",              subtitle:"Semester exchange experiences from students across the globe",                       icon:"⬟", tag:"SEM EXCHANGE"  },
-  { id:"coming-soon",      title:"Stay\nTuned !!",     subtitle:"Something exciting is on the way. Watch this space!",                                icon:"✦", tag:"SOON", comingSoon:true },
+  { id: "internship-blogs", title: "Internship\nBlogs",   subtitle: "Your guide for a perfect start on the journey of internships",                 icon: Briefcase,     tag: "INTERNSHIP",   color: "from-emerald-500 to-teal-600"   },
+  { id: "placement-blogs",  title: "Placement\nBlogs",    subtitle: "Your guide for a perfect start on the journey of placements",                   icon: GraduationCap, tag: "PLACEMENT",    color: "from-cyan-500 to-blue-600"      },
+  { id: "internera",        title: "InternEra",           subtitle: "Special blog series for CHE'25 by the CHE'24 batch covering all major profiles", icon: Star,          tag: "2ND YEARS",    color: "from-violet-500 to-purple-600"  },
+  { id: "apping-guide",     title: "Apping\nGuide",       subtitle: "The one-stop solution to all your apping doubts",                               icon: Globe,         tag: "APP-IN",       color: "from-teal-500 to-cyan-600"      },
+  { id: "icy-didnt-know",   title: "ICY Didn't\nKnow",   subtitle: "In Case You Didn't Know – bite-sized facts & insights",                         icon: Atom,          tag: "DID YOU KNOW", color: "from-emerald-600 to-cyan-700"   },
+  { id: "then-vs-now",      title: "Then Vs\nNow",        subtitle: "Let's hear what respected alumni of the institute have to say",                  icon: Users,         tag: "ALUMNI",       color: "from-purple-600 to-pink-700"    },
+  { id: "semex",            title: "SemEx",               subtitle: "Semester exchange experiences from students across the globe",                   icon: BookOpen,      tag: "SEM EXCHANGE", color: "from-teal-600 to-emerald-700"   },
+  { id: "coming-soon",      title: "Stay\nTuned !!",      subtitle: "Something exciting is on the way. Watch this space!",                           icon: Flask,         tag: "SOON",         color: "from-slate-600 to-slate-700",   comingSoon: true },
 ];
 
 const DATA = {
   "internship-blogs": {
     "2025": [
-      { id:"anushka-25", name:"Anushka Khowala",    company:"Hindustan Unilever",   image:"assets/blogs/internship-blogs/2025/anushka.jpg",    domain:"R&D / FMCG",
+      { id:"anushka-25", name:"Anushka Khowala",    company:"Hindustan Unilever",   image:Anushka ,    domain:"R&D / FMCG",
         qna:[
-          {q:"What motivated you to apply to HUL?",          a:"I was curious about how research works in the FMCG space and wanted to explore that side of things beyond textbooks."},
-          {q:"What was the recruitment process like?",        a:"We applied via the IAF with resumes and a form. Almost everyone got selected for an aptitude + logical-reasoning test plus a HireVue interview, then ~10 were shortlisted for interviews."},
-          {q:"How was your interview?",                       a:"Mostly HR-based with some technical questions on one of my core projects. Many were waitlisted but the list never opened."},
-          {q:"How was the work culture at HUL?",             a:"Very collaborative and open. My mentor guided me closely throughout and the team was genuinely welcoming."},
-          {q:"What did you actually work on?",               a:"Product formulation in the R&D domain — incredibly hands-on with exposure to the full research workflow."},
-          {q:"Tips for juniors applying to FMCG?",           a:"Know your core projects inside-out, and show genuine curiosity about consumer products and market trends."},
+          {q:"Myself",          a:"Hi, I am Anushka Khowala, 4th year student from the Chemical department. I interned in Hindustan Unilever over the summer in the R&D domain."},
+          {q:"What was your motivation for the internship and what was the recruitment process like?",        a:"I was curious about how research works in the FMCG space and wanted to explore that side of things. The recruitment process was quite straightforward. We applied for the IAF with our resumes and a form. Almost everyone got selected for a basic aptitude and logical reasoning test alongwith a Hirevue interview. After that, around 10 people were shortlisted for interviews. Many people were waitlisted but they never opened up the waitlist. My interview was mostly HR-based along with some technical questions around one of my core projects."},
+          {q:"Can you explain your role in the internship? What jobs were you expected to perform and what projects were you involved with?",                       a:"I worked on building an AI tool to assist with surfactant formulation. My main job was to create machine learning models that could predict properties like viscosity and mildness, and then build an interactive assistant using agentic AI. I got to work on everything — data, models, backend, frontend — basically the entire pipeline. I was in touch with many different stakeholders, but was also given a lot of freedom to lead the project and figure out how to make it work."},
+          {q:"What were the most exciting aspects of the internship? What were the most challenging aspects?",             a:"The most exciting part was seeing the real impact of my work. I got to demo the tool to senior leaders at HUL and their feedback was super encouraging. It was satisfying to know that something built in just a few weeks could actually be useful in the long run. The biggest challenge was learning everything from scratch — I had no prior experience in ML or agentic AI. But what made it easier was getting to learn directly from experienced people at HUL rather than relying on tutorials or books."},
+          {q:"What was the culture like in your office? How did the company treat the interns and what were you provided with?",               a:"I was at the Bangalore R&D centre and honestly, the culture surprised me. I expected a more formal, corporate vibe, but it was actually really warm and welcoming. People were approachable and always happy to help, no matter how senior or busy they were."},
+          {q:"What were your key learnings from the internship?",           a:"I got to see how R&D directly helps solve real-world problems and how companies are starting to use AI in a smarter, more integrated way. It also made me more curious about research and innovation as a whole."},
         ]},
       { id:"prashabdhi-25", name:"Prashabdhi Athawale", company:"Hindustan Unilever", image:"assets/blogs/internship-blogs/2025/prashabdhi.jpg", domain:"R&D / FMCG",
         qna:[
@@ -280,124 +291,38 @@ function getAvailableYears(blogId) {
   return YEARS.filter(y => d[y] && d[y].length > 0);
 }
 
-// ══════════════════════════════════════════════
-// LIQUID BLOB SVG filter (feTurbulence distortion)
-// ══════════════════════════════════════════════
-function LiquidFilter() {
+// Chemical particle background — matches site style
+function ChemicalParticles() {
   return (
-    <svg style={{ position:"absolute", width:0, height:0 }}>
-      <defs>
-        <filter id="liquid">
-          <feTurbulence type="turbulence" baseFrequency="0.012 0.008" numOctaves="3" seed="5" result="noise">
-            <animate attributeName="baseFrequency" values="0.012 0.008;0.016 0.012;0.012 0.008" dur="8s" repeatCount="indefinite"/>
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-        <filter id="liquid-strong">
-          <feTurbulence type="turbulence" baseFrequency="0.018 0.012" numOctaves="4" seed="9" result="noise">
-            <animate attributeName="baseFrequency" values="0.018 0.012;0.024 0.016;0.018 0.012" dur="6s" repeatCount="indefinite"/>
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-        <filter id="glow-green">
-          <feGaussianBlur stdDeviation="4" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-    </svg>
-  );
-}
-
-// ══════════════════════════════════════════════
-// FLOATING PARTICLE BACKGROUND
-// ══════════════════════════════════════════════
-function Particles() {
-  const particles = Array.from({length: 18}, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    dur: Math.random() * 8 + 6,
-    delay: Math.random() * -10,
-    opacity: Math.random() * 0.35 + 0.08,
-  }));
-  return (
-    <div style={{ position:"fixed", inset:0, pointerEvents:"none", zIndex:0, overflow:"hidden" }}>
-      {particles.map(p => (
-        <div key={p.id} style={{
-          position:"absolute",
-          left:`${p.x}%`, top:`${p.y}%`,
-          width: p.size, height: p.size,
-          borderRadius:"50%",
-          background:"#00ff87",
-          opacity: p.opacity,
-          animation:`particleDrift ${p.dur}s ${p.delay}s ease-in-out infinite alternate`,
-          boxShadow:`0 0 ${p.size*3}px rgba(0,255,135,0.6)`,
-        }}/>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(18)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-emerald-400/20 rounded-full"
+          style={{ left: `${(i * 17 + 5) % 100}%`, top: `${(i * 13 + 8) % 100}%` }}
+          animate={{ y: [0, -25, 0], opacity: [0.1, 0.5, 0.1], scale: [0.5, 1.2, 0.5] }}
+          transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }}
+        />
       ))}
     </div>
   );
 }
 
-// ══════════════════════════════════════════════
-// FALLBACK AVATAR
-// ══════════════════════════════════════════════
-function FallbackAvatar({ name="?", size=80 }) {
-  const initials = name.split(" ").filter(Boolean).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+// Fallback avatar
+function FallbackAvatar({ name = "?", size = 80 }) {
+  const initials = name.split(" ").filter(Boolean).map(w => w[0]).join("").slice(0, 2).toUpperCase();
   return (
-    <div style={{
-      width:size, height:size, borderRadius:"50%",
-      background:"linear-gradient(135deg,#003d1a,#00a84f)",
-      display:"flex", alignItems:"center", justifyContent:"center",
-      fontSize:size*0.34, fontWeight:800, color:"#00ff87",
-      fontFamily:"'Orbitron',sans-serif", letterSpacing:1, flexShrink:0,
-      border:"2px solid rgba(0,255,135,0.4)",
-      boxShadow:"0 0 20px rgba(0,255,135,0.25)",
-    }}>{initials}</div>
-  );
-}
-
-function SmartImage({ src, alt, style, fallbackSize }) {
-  const [err, setErr] = useState(false);
-  if (err || !src) return <FallbackAvatar name={alt} size={fallbackSize||80}/>;
-  return <img src={src} alt={alt} style={style} onError={()=>setErr(true)}/>;
-}
-
-// ══════════════════════════════════════════════
-// LIQUID ICON — morphing blob with symbol
-// ══════════════════════════════════════════════
-function LiquidIcon({ symbol, size=56, index=0 }) {
-  return (
-    <div style={{
-      width:size, height:size, flexShrink:0,
-      display:"flex", alignItems:"center", justifyContent:"center",
-      position:"relative",
-    }}>
-      {/* Morphing blob background */}
-      <div style={{
-        position:"absolute", inset:0,
-        background:"linear-gradient(135deg,#00ff87,#00d96e,#007a3d)",
-        borderRadius:"60% 40% 55% 45% / 45% 55% 40% 60%",
-        animation:`blobMorph ${4 + index*0.7}s ease-in-out infinite`,
-        animationDelay:`${index*0.4}s`,
-        boxShadow:"0 0 22px rgba(0,255,135,0.55), inset 0 1px 0 rgba(255,255,255,0.2)",
-        filter:"url(#liquid)",
-      }}/>
-      {/* Shimmer inside blob */}
-      <div style={{
-        position:"absolute", inset:0,
-        background:"linear-gradient(135deg,rgba(255,255,255,0.25) 0%,transparent 50%,rgba(0,255,135,0.1) 100%)",
-        borderRadius:"inherit",
-        animation:`shimmerSpin ${6+index}s linear infinite`,
-      }}/>
-      <span style={{
-        position:"relative", zIndex:1,
-        fontSize:size*0.38, color:"#001a0a",
-        filter:"drop-shadow(0 1px 2px rgba(0,255,135,0.5))",
-        fontWeight:900, lineHeight:1,
-      }}>{symbol}</span>
+    <div className="rounded-full bg-gradient-to-br from-emerald-900 to-emerald-700 flex items-center justify-center border-2 border-emerald-400/40 flex-shrink-0"
+      style={{ width: size, height: size, fontSize: size * 0.34, fontWeight: 800, color: "#34d399" }}>
+      {initials}
     </div>
   );
+}
+
+function SmartImage({ src, alt, className, fallbackSize }) {
+  const [err, setErr] = useState(false);
+  if (err || !src) return <FallbackAvatar name={alt} size={fallbackSize || 80} />;
+  return <img src={src} alt={alt} className={className} onError={() => setErr(true)} />;
 }
 
 // ══════════════════════════════════════════════
@@ -405,102 +330,93 @@ function LiquidIcon({ symbol, size=56, index=0 }) {
 // ══════════════════════════════════════════════
 function PersonDetail({ person, onBack }) {
   const [activeQ, setActiveQ] = useState(null);
-  const [vis, setVis] = useState(false);
-  useEffect(()=>{ const t=setTimeout(()=>setVis(true),40); return ()=>clearTimeout(t); },[]);
 
   return (
-    <div onClick={e=>e.target===e.currentTarget&&onBack()} style={{
-      position:"fixed", inset:0, zIndex:1000,
-      background:"rgba(0,5,2,0.92)",
-      display:"flex", alignItems:"center", justifyContent:"center",
-      backdropFilter:"blur(18px)", padding:20,
-      opacity:vis?1:0, transition:"opacity 0.3s ease",
-    }}>
-      <div style={{
-        background:"linear-gradient(160deg,#050e07 0%,#021005 100%)",
-        borderRadius:24, maxWidth:760, width:"100%", maxHeight:"90vh", overflowY:"auto",
-        border:"1px solid rgba(0,255,135,0.2)",
-        boxShadow:"0 0 60px rgba(0,255,135,0.08), 0 0 120px rgba(0,255,135,0.04)",
-        transform:vis?"translateY(0) scale(1)":"translateY(40px) scale(0.94)",
-        transition:"transform 0.5s cubic-bezier(0.34,1.56,0.64,1)",
-        position:"relative", overflow:"hidden",
-      }}>
+    <motion.div
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      onClick={e => e.target === e.currentTarget && onBack()}
+    >
+      <motion.div
+        className="relative bg-slate-900/95 backdrop-blur-md rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-emerald-400/20 shadow-2xl shadow-emerald-400/10"
+        initial={{ scale: 0.9, opacity: 0, y: 30 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 30 }}
+        transition={{ duration: 0.35, ease: [0.34, 1.56, 0.64, 1] }}
+      >
         {/* Top glow strip */}
-        <div style={{ position:"absolute", top:0, left:0, right:0, height:2, background:"linear-gradient(90deg,transparent,#00ff87,#00d96e,transparent)", opacity:0.8 }}/>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
 
         {/* Header */}
-        <div style={{
-          padding:"28px 28px 22px",
-          display:"flex", gap:22, alignItems:"center", flexWrap:"wrap",
-          borderBottom:"1px solid rgba(0,255,135,0.1)",
-          background:"linear-gradient(135deg,rgba(0,255,135,0.04) 0%,transparent 60%)",
-        }}>
-          <div style={{ position:"relative" }}>
-            <div style={{
-              width:96, height:96, borderRadius:"50%", overflow:"hidden", flexShrink:0,
-              border:"2px solid rgba(0,255,135,0.5)",
-              boxShadow:"0 0 24px rgba(0,255,135,0.3)",
-              filter:"url(#liquid)",
-            }}>
-              <SmartImage src={person.image} alt={person.name} fallbackSize={96} style={{ width:"100%", height:"100%", objectFit:"cover" }}/>
-            </div>
-            <div style={{ position:"absolute", bottom:-3, right:-3, width:24, height:24, borderRadius:"50%", background:"linear-gradient(135deg,#00ff87,#00a84f)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, boxShadow:"0 0 10px rgba(0,255,135,0.6)" }}>✦</div>
+        <div className="p-6 border-b border-slate-700/50 flex gap-5 items-center flex-wrap bg-gradient-to-r from-emerald-400/5 to-transparent">
+          <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-emerald-400/40 shadow-lg shadow-emerald-400/20 flex-shrink-0">
+            <SmartImage src={person.image} alt={person.name} className="w-full h-full object-cover" fallbackSize={80} />
           </div>
           <div>
-            <div style={{ fontSize:26, fontWeight:800, color:"#e0ffe8", fontFamily:"'Orbitron',sans-serif", letterSpacing:1, textShadow:"0 0 20px rgba(0,255,135,0.3)" }}>{person.name||"Anonymous"}</div>
-            <div style={{ color:"#00ff87", fontWeight:600, marginTop:5, fontSize:13 }}>{person.company||"Company not available"}</div>
-            <div style={{ display:"flex", gap:7, marginTop:9, flexWrap:"wrap" }}>
-              {person.domain&&<span style={{ background:"rgba(0,255,135,0.1)", border:"1px solid rgba(0,255,135,0.3)", borderRadius:20, padding:"2px 11px", fontSize:11, color:"#00d96e" }}>{person.domain}</span>}
-              {person.year&&<span style={{ background:"rgba(0,255,135,0.06)", border:"1px solid rgba(0,255,135,0.15)", borderRadius:20, padding:"2px 11px", fontSize:11, color:"rgba(0,255,135,0.6)" }}>Batch {person.year}</span>}
+            <h2 className="text-2xl font-bold text-white">{person.name || "Anonymous"}</h2>
+            <p className="text-emerald-400 font-semibold mt-1">{person.company || "Company N/A"}</p>
+            <div className="flex gap-2 mt-2 flex-wrap">
+              {person.domain && (
+                <span className="bg-emerald-400/10 border border-emerald-400/30 rounded-full px-3 py-0.5 text-xs text-emerald-400">
+                  {person.domain}
+                </span>
+              )}
+              {person.year && (
+                <span className="bg-slate-700/60 border border-slate-600/50 rounded-full px-3 py-0.5 text-xs text-gray-400">
+                  Batch {person.year}
+                </span>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Q&A Accordion */}
-        <div style={{ padding:"20px 26px 26px" }}>
-          {(person.qna||[]).length===0 ? (
-            <div style={{ textAlign:"center", color:"rgba(0,255,135,0.3)", padding:"40px 0", fontSize:14 }}>No Q&A available yet — check back soon!</div>
-          ) : (person.qna||[]).map((item,i)=>(
-            <div key={i} style={{
-              marginBottom:10, borderRadius:12, overflow:"hidden",
-              border:"1px solid rgba(0,255,135,0.12)",
-              animation:`fadeSlide 0.4s ease ${i*0.07}s both`,
-              transition:"border-color 0.2s",
-              ...(activeQ===i ? { borderColor:"rgba(0,255,135,0.3)" } : {}),
-            }}>
-              <button onClick={()=>setActiveQ(activeQ===i?null:i)} style={{
-                width:"100%", background:activeQ===i?"rgba(0,255,135,0.07)":"rgba(0,255,135,0.02)",
-                border:"none", padding:"13px 18px", textAlign:"left", cursor:"pointer",
-                display:"flex", justifyContent:"space-between", alignItems:"center", gap:10,
-                transition:"background 0.25s",
-              }}>
-                <span style={{ color:activeQ===i?"#00ff87":"#b8d4bc", fontWeight:600, fontSize:13.5, transition:"color 0.2s", fontFamily:"'DM Sans',sans-serif" }}>
-                  <span style={{ color:"#00ff87", marginRight:8, fontSize:11, fontFamily:"'Orbitron',sans-serif" }}>Q{i+1}.</span>{item.q}
+        {/* Q&A */}
+        <div className="p-6 space-y-3">
+          {(person.qna || []).length === 0 ? (
+            <p className="text-center text-gray-500 py-10">No Q&A available yet.</p>
+          ) : (person.qna || []).map((item, i) => (
+            <motion.div key={i}
+              className={`rounded-xl border overflow-hidden transition-all duration-200 ${activeQ === i ? "border-emerald-400/30" : "border-slate-700/50"}`}
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}
+            >
+              <button
+                onClick={() => setActiveQ(activeQ === i ? null : i)}
+                className={`w-full px-5 py-3.5 text-left flex justify-between items-center gap-3 transition-colors duration-200 ${activeQ === i ? "bg-emerald-400/8" : "bg-slate-800/40 hover:bg-slate-800/70"}`}
+              >
+                <span className="text-sm font-semibold text-gray-200">
+                  <span className="text-emerald-400 mr-2 font-mono text-xs">Q{i + 1}.</span>{item.q}
                 </span>
-                <span style={{ color:"#00ff87", fontSize:16, transform:activeQ===i?"rotate(180deg)":"rotate(0)", transition:"transform 0.35s cubic-bezier(0.34,1.56,0.64,1)", flexShrink:0 }}>▾</span>
+                <motion.span animate={{ rotate: activeQ === i ? 180 : 0 }} transition={{ duration: 0.3 }} className="text-emerald-400 flex-shrink-0">
+                  <ChevronDown size={16} />
+                </motion.span>
               </button>
-              <div style={{ maxHeight:activeQ===i?300:0, overflow:"hidden", transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1)" }}>
-                <div style={{ padding:"12px 18px 16px", color:"rgba(180,220,190,0.75)", fontSize:13.5, lineHeight:1.78, borderTop:"1px solid rgba(0,255,135,0.08)", background:"rgba(0,20,8,0.4)", fontFamily:"'DM Sans',sans-serif" }}>{item.a}</div>
-              </div>
-            </div>
+              <AnimatePresence>
+                {activeQ === i && (
+                  <motion.div
+                    initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-5 py-4 text-sm text-gray-300 leading-relaxed bg-slate-900/50 border-t border-slate-700/30">
+                      {item.a}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
 
-        <button onClick={onBack} style={{
-          position:"sticky", bottom:0, width:"100%",
-          background:"linear-gradient(90deg,#003d1a,#00a84f,#003d1a)",
-          border:"none", color:"#e0ffe8", padding:14, fontSize:15,
-          fontWeight:700, cursor:"pointer", letterSpacing:2,
-          fontFamily:"'Orbitron',sans-serif", fontSize:13,
-          borderTop:"1px solid rgba(0,255,135,0.2)",
-          transition:"filter 0.2s",
-          backgroundSize:"200%",
-          animation:"liquidShift 4s linear infinite",
-        }} onMouseEnter={e=>e.currentTarget.style.filter="brightness(1.2)"} onMouseLeave={e=>e.currentTarget.style.filter="brightness(1)"}>
-          ← BACK TO LIST
-        </button>
-      </div>
-    </div>
+        <div className="sticky bottom-0 p-4 bg-slate-900/90 backdrop-blur-sm border-t border-slate-700/50">
+          <button
+            onClick={onBack}
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-400/10 hover:bg-emerald-400/20 text-emerald-400 border border-emerald-400/20 font-semibold text-sm transition-all duration-200"
+          >
+            <ArrowLeft size={16} /> Back to List
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -509,111 +425,132 @@ function PersonDetail({ person, onBack }) {
 // ══════════════════════════════════════════════
 function PersonCard({ person, index, onClick }) {
   const [hov, setHov] = useState(false);
-  return (
-    <div onClick={onClick} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} style={{
-      borderRadius:18, overflow:"hidden", cursor:"pointer",
-      background:"linear-gradient(160deg,#040e06 0%,#021005 100%)",
-      border:`1px solid rgba(0,255,135,${hov?0.5:0.12})`,
-      transition:"all 0.35s cubic-bezier(0.34,1.56,0.64,1)",
-      transform:hov?"translateY(-8px) scale(1.03)":"translateY(0) scale(1)",
-      boxShadow:hov?"0 0 40px rgba(0,255,135,0.2), 0 16px 40px rgba(0,0,0,0.5)":"0 4px 16px rgba(0,0,0,0.5)",
-      animation:`cardIn 0.5s ease ${index*0.09}s both`,
-      position:"relative",
-    }}>
-      {/* Liquid border glow on hover */}
-      {hov && <div style={{ position:"absolute", inset:-1, borderRadius:18, background:"linear-gradient(135deg,rgba(0,255,135,0.3),rgba(0,217,110,0.1),rgba(0,255,135,0.3))", backgroundSize:"300%", animation:"liquidShift 3s linear infinite", zIndex:0, filter:"blur(2px)" }}/>}
 
-      <div style={{ position:"relative", zIndex:1, height:148, overflow:"hidden", background:"linear-gradient(135deg,#010d04,#022810)", display:"flex", alignItems:"center", justifyContent:"center" }}>
-        <SmartImage src={person.image} alt={person.name} fallbackSize={80} style={{ width:"100%", height:"100%", objectFit:"cover", transition:"transform 0.45s ease, filter 0.45s ease", transform:hov?"scale(1.1)":"scale(1)", filter:hov?"saturate(1.2) brightness(1.1)":"saturate(0.8) brightness(0.85)" }}/>
-        <div style={{ position:"absolute", inset:0, background:hov?"linear-gradient(to top,rgba(0,8,2,0.75) 0%,rgba(0,8,2,0.1) 55%,transparent)":"linear-gradient(to top,rgba(0,8,2,0.9) 0%,transparent 55%)", transition:"all 0.35s" }}/>
-        {/* Shimmer sweep on hover */}
-        {hov && <div style={{ position:"absolute", inset:0, background:"linear-gradient(105deg,transparent 40%,rgba(0,255,135,0.12) 50%,transparent 60%)", animation:"shimmerSweep 1.2s ease forwards" }}/>}
-        {person.domain && <div style={{ position:"absolute", top:10, left:10, background:"rgba(0,10,4,0.82)", backdropFilter:"blur(6px)", borderRadius:5, padding:"3px 9px", fontSize:10, color:"#00ff87", fontWeight:700, border:"1px solid rgba(0,255,135,0.2)", fontFamily:"'Orbitron',sans-serif", letterSpacing:0.5 }}>{person.domain}</div>}
-        {/* Liquid corner accent */}
-        <div style={{ position:"absolute", bottom:0, right:0, width:40, height:40, background:"radial-gradient(circle at 100% 100%,rgba(0,255,135,0.2),transparent 70%)" }}/>
+  return (
+    <motion.div
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      className="group relative cursor-pointer rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-300"
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
+      whileHover={{ scale: 1.03, y: -6 }}
+    >
+      {/* Chemical reaction bg */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-cyan-400/5"
+        animate={{ opacity: hov ? 1 : 0 }} transition={{ duration: 0.3 }}
+      />
+
+      {/* Image */}
+      <div className="h-36 overflow-hidden bg-slate-700/30 relative">
+        <SmartImage
+          src={person.image} alt={person.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110 saturate-[0.8] group-hover:saturate-100"
+          fallbackSize={80}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+        {person.domain && (
+          <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-emerald-400 border border-emerald-400/20 font-mono">
+            {person.domain}
+          </div>
+        )}
       </div>
 
-      <div style={{ position:"relative", zIndex:1, padding:"12px 14px 14px" }}>
-        <div style={{ fontSize:14, fontWeight:700, color:"#d4f5da", marginBottom:3, fontFamily:"'DM Sans',sans-serif" }}>{person.name||"Name N/A"}</div>
-        <div style={{ fontSize:11.5, color:"#00d96e", marginBottom:9, fontWeight:600, fontFamily:"'DM Sans',sans-serif" }}>{person.company||"Company N/A"}</div>
-        <div style={{ display:"flex", alignItems:"center", color:"rgba(0,255,135,0.4)", fontSize:11, fontFamily:"'DM Sans',sans-serif" }}>
-          <span>{(person.qna||[]).length} Q&As</span>
-          <span style={{ color:"#00ff87", marginLeft:"auto", fontSize:16, transform:hov?"translateX(4px)":"translateX(0)", transition:"transform 0.25s", filter:hov?"drop-shadow(0 0 4px rgba(0,255,135,0.8))":"none" }}>{hov?"→":"›"}</span>
+      {/* Info */}
+      <div className="p-4">
+        <p className="font-bold text-white text-sm group-hover:text-emerald-400 transition-colors duration-200 truncate">{person.name || "Name N/A"}</p>
+        <p className="text-emerald-400 text-xs font-semibold mt-0.5 truncate">{person.company || "Company N/A"}</p>
+        <div className="flex items-center justify-between mt-3 text-xs text-gray-500">
+          <span>{(person.qna || []).length} Q&As</span>
+          <motion.span
+            className="text-emerald-400 text-base"
+            animate={{ x: hov ? 3 : 0 }} transition={{ duration: 0.2 }}
+          >›</motion.span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 // ══════════════════════════════════════════════
-// PEOPLE GRID VIEW (with Year Tabs)
+// PEOPLE GRID VIEW
 // ══════════════════════════════════════════════
 function PeopleGrid({ blog, onBack, onSelectPerson }) {
   const avail = getAvailableYears(blog.id);
-  const [activeYear, setActiveYear] = useState(avail[0]||"2025");
+  const [activeYear, setActiveYear] = useState(avail[0] || "2025");
   const [gridKey, setGridKey] = useState(0);
-  const [vis, setVis] = useState(false);
-  useEffect(()=>{ const t=setTimeout(()=>setVis(true),50); return ()=>clearTimeout(t); },[]);
 
-  const handleYear = y => { setActiveYear(y); setGridKey(k=>k+1); };
-  const people = (DATA[blog.id]||{})[activeYear]||[];
+  const handleYear = y => { setActiveYear(y); setGridKey(k => k + 1); };
+  const people = (DATA[blog.id] || {})[activeYear] || [];
+
+  const BlogIcon = blog.icon;
 
   return (
-    <div style={{ opacity:vis?1:0, transform:vis?"translateY(0)":"translateY(28px)", transition:"all 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
       {/* Back + title */}
-      <div style={{ marginBottom:26, display:"flex", alignItems:"flex-start", gap:16, flexWrap:"wrap" }}>
-        <button onClick={onBack} style={{
-          background:"rgba(0,255,135,0.07)", border:"1px solid rgba(0,255,135,0.3)", color:"#00ff87",
-          padding:"8px 18px", borderRadius:10, cursor:"pointer", fontWeight:700, fontSize:12,
-          transition:"all 0.2s", marginTop:6, fontFamily:"'Orbitron',sans-serif", letterSpacing:1,
-        }} onMouseEnter={e=>{e.currentTarget.style.background="rgba(0,255,135,0.15)";e.currentTarget.style.boxShadow="0 0 16px rgba(0,255,135,0.2)"}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(0,255,135,0.07)";e.currentTarget.style.boxShadow="none"}}>
-          ← BACK
+      <div className="mb-8 flex items-start gap-4 flex-wrap">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 mt-1 px-4 py-2 bg-slate-800/50 hover:bg-emerald-400/10 border border-slate-700/50 hover:border-emerald-400/30 rounded-xl text-emerald-400 text-xs font-semibold transition-all duration-200"
+        >
+          <ArrowLeft size={14} /> Back
         </button>
         <div>
-          <div style={{ fontSize:30, fontWeight:800, color:"#e0ffe8", fontFamily:"'Orbitron',sans-serif", letterSpacing:1, textShadow:"0 0 20px rgba(0,255,135,0.3)" }}>{blog.title.replace("\n"," ")}</div>
-          <div style={{ color:"rgba(0,255,135,0.45)", fontSize:13, marginTop:3, fontFamily:"'DM Sans',sans-serif" }}>{blog.subtitle}</div>
+          <div className="flex items-center gap-3">
+            <div className={`p-2 rounded-xl bg-gradient-to-br ${blog.color} shadow-lg`}>
+              <BlogIcon size={20} className="text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-white">{blog.title.replace("\n", " ")}</h2>
+          </div>
+          <p className="text-gray-400 text-sm mt-1 ml-11">{blog.subtitle}</p>
         </div>
       </div>
 
       {/* Year tabs */}
-      <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:24 }}>
-        {YEARS.map(y=>{
-          const has=avail.includes(y), active=activeYear===y;
+      <div className="flex gap-2 flex-wrap mb-6">
+        {YEARS.map(y => {
+          const has = avail.includes(y), active = activeYear === y;
           return (
-            <button key={y} onClick={()=>has&&handleYear(y)} style={{
-              padding:"7px 20px", borderRadius:40, cursor:has?"pointer":"not-allowed",
-              fontSize:12, fontWeight:700, fontFamily:"'Orbitron',sans-serif", letterSpacing:1.5,
-              transition:"all 0.3s cubic-bezier(0.34,1.56,0.64,1)",
-              background:active?"linear-gradient(135deg,#00ff87,#00d96e)":has?"rgba(0,255,135,0.1)":"rgba(0,255,135,0.03)",
-              color:active?"#001a0a":has?"#00ff87":"rgba(0,255,135,0.2)",
-              border:active?"2px solid #00ff87":has?"2px solid rgba(0,255,135,0.35)":"2px solid rgba(0,255,135,0.08)",
-              transform:active?"scale(1.08)":"scale(1)",
-              boxShadow:active?"0 0 20px rgba(0,255,135,0.4), 0 0 40px rgba(0,255,135,0.15)":"none",
-              opacity:has?1:0.35,
-              filter:active?"url(#liquid)":"none",
-            }}>{y}</button>
+            <button key={y} onClick={() => has && handleYear(y)}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all duration-200 ${
+                active
+                  ? "bg-emerald-400 text-slate-900 shadow-lg shadow-emerald-400/30"
+                  : has
+                    ? "bg-slate-800/60 text-emerald-400 border border-emerald-400/30 hover:bg-emerald-400/10"
+                    : "bg-slate-800/30 text-gray-600 border border-slate-700/30 cursor-not-allowed"
+              }`}
+            >{y}</button>
           );
         })}
       </div>
 
       {/* Count */}
-      {people.length>0 && <div style={{ marginBottom:16, color:"rgba(0,255,135,0.35)", fontSize:12, fontFamily:"'Orbitron',sans-serif", letterSpacing:1 }}>{people.length} {people.length===1?"ENTRY":"ENTRIES"} · {activeYear}</div>}
+      {people.length > 0 && (
+        <p className="text-xs text-gray-500 font-mono mb-4 tracking-widest uppercase">
+          {people.length} {people.length === 1 ? "Entry" : "Entries"} · {activeYear}
+        </p>
+      )}
 
       {/* Grid */}
-      {people.length===0 ? (
-        <div style={{ textAlign:"center", padding:"65px 36px", background:"rgba(0,255,135,0.02)", borderRadius:20, border:"1px dashed rgba(0,255,135,0.15)" }}>
-          <div style={{ fontSize:46, marginBottom:14, filter:"drop-shadow(0 0 12px rgba(0,255,135,0.4))" }}>◈</div>
-          <div style={{ color:"#00ff87", fontSize:18, fontWeight:800, fontFamily:"'Orbitron',sans-serif", letterSpacing:2 }}>NO ENTRIES FOR {activeYear}</div>
-          <div style={{ color:"rgba(0,255,135,0.35)", marginTop:8, fontSize:13, fontFamily:"'DM Sans',sans-serif" }}>Content for this year isn't available yet. Try another year!</div>
-        </div>
+      {people.length === 0 ? (
+        <motion.div
+          className="text-center py-16 bg-slate-800/20 rounded-2xl border border-dashed border-slate-700/40"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        >
+          <Beaker size={40} className="text-emerald-400/30 mx-auto mb-4" />
+          <p className="text-emerald-400 font-bold text-lg tracking-wider">No entries for {activeYear}</p>
+          <p className="text-gray-500 text-sm mt-2">Try selecting another year above.</p>
+        </motion.div>
       ) : (
-        <div key={gridKey} style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(210px,1fr))", gap:16 }}>
-          {people.map((p,i)=>(
-            <PersonCard key={p.id} person={{...p,year:activeYear}} index={i} onClick={()=>onSelectPerson({...p,year:activeYear})}/>
+        <div key={gridKey} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {people.map((p, i) => (
+            <PersonCard key={p.id} person={{ ...p, year: activeYear }} index={i} onClick={() => onSelectPerson({ ...p, year: activeYear })} />
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
@@ -622,92 +559,80 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
 // ══════════════════════════════════════════════
 function BlogCard({ card, index, onClick }) {
   const [hov, setHov] = useState(false);
-  const [tick, setTick] = useState(0);
-
-  useEffect(()=>{
-    const id = setInterval(()=>setTick(t=>t+1), 50);
-    return ()=>clearInterval(id);
-  },[]);
+  const CardIcon = card.icon;
 
   return (
-    <div
-      onClick={card.comingSoon?undefined:onClick}
-      onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
-      style={{
-        position:"relative", minHeight:200,
-        borderRadius:20, overflow:"hidden",
-        cursor:card.comingSoon?"default":"pointer",
-        animation:`cardIn 0.55s ease ${index*0.07}s both`,
-        transition:"transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease",
-        transform:hov&&!card.comingSoon?"translateY(-9px) scale(1.03)":"scale(1)",
-        boxShadow:hov&&!card.comingSoon
-          ?"0 0 50px rgba(0,255,135,0.25), 0 20px 50px rgba(0,0,0,0.6)"
-          :"0 4px 20px rgba(0,0,0,0.5)",
-      }}
+    <motion.div
+      onClick={card.comingSoon ? undefined : onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      className={`relative rounded-2xl overflow-hidden border transition-all duration-300 min-h-[200px] ${
+        card.comingSoon
+          ? "border-slate-700/30 cursor-default"
+          : "border-slate-700/50 hover:border-emerald-400/30 cursor-pointer"
+      } bg-slate-800/50 backdrop-blur-sm`}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay: index * 0.07, duration: 0.5 }}
+      whileHover={!card.comingSoon ? { scale: 1.03, y: -6 } : {}}
     >
-      {/* Base gradient */}
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(145deg,#030f05 0%,#010d04 50%,#021408 100%)" }}/>
+      {/* Hover glow bg */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-cyan-400/5"
+        animate={{ opacity: hov && !card.comingSoon ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
 
-      {/* Liquid border — animated gradient outline */}
-      <div style={{
-        position:"absolute", inset:0, borderRadius:20,
-        background:`conic-gradient(from ${tick*2}deg at 50% 50%, rgba(0,255,135,0.6), rgba(0,100,50,0.1), rgba(0,217,110,0.6), rgba(0,50,25,0.05), rgba(0,255,135,0.6))`,
-        padding:1.5,
-        WebkitMask:"linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-        WebkitMaskComposite:"xor",
-        maskComposite:"exclude",
-        opacity:hov?1:0.4,
-        transition:"opacity 0.4s",
-        filter:"url(#liquid)",
-      }}/>
-
-      {/* Corner liquid blobs */}
-      <div style={{ position:"absolute", top:-20, right:-20, width:80, height:80, background:"radial-gradient(circle,rgba(0,255,135,0.18) 0%,transparent 70%)", borderRadius:"50%", animation:"blobPulse 4s ease-in-out infinite", animationDelay:`${index*0.5}s` }}/>
-      <div style={{ position:"absolute", bottom:-15, left:-15, width:60, height:60, background:"radial-gradient(circle,rgba(0,217,110,0.12) 0%,transparent 70%)", borderRadius:"50%", animation:"blobPulse 5s ease-in-out infinite", animationDelay:`${index*0.3}s` }}/>
-
-      {/* Inner shimmer on hover */}
-      {hov && <div style={{ position:"absolute", inset:0, background:"linear-gradient(105deg,transparent 30%,rgba(0,255,135,0.07) 50%,transparent 70%)", animation:"shimmerSweep 0.9s ease forwards" }}/>}
+      {/* Corner accent */}
+      <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl ${card.color} opacity-10 rounded-bl-full`} />
 
       {/* Content */}
-      <div style={{ position:"relative", zIndex:1, padding:20, height:"100%", display:"flex", flexDirection:"column", justifyContent:"space-between", minHeight:200 }}>
-        {/* Tag */}
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
-          <span style={{
-            background:"rgba(0,255,135,0.1)", border:"1px solid rgba(0,255,135,0.3)",
-            color:"#00ff87", padding:"3px 10px", borderRadius:5,
-            fontSize:9.5, fontWeight:800, letterSpacing:1.5, fontFamily:"'Orbitron',sans-serif",
-            boxShadow:hov?"0 0 10px rgba(0,255,135,0.3)":"none", transition:"box-shadow 0.3s",
-          }}>{card.tag}</span>
-          <LiquidIcon symbol={card.icon} size={48} index={index}/>
+      <div className="relative z-10 p-5 flex flex-col h-full min-h-[200px]">
+        {/* Tag + icon */}
+        <div className="flex items-start justify-between mb-3">
+          <span className="bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest">
+            {card.tag}
+          </span>
+          <motion.div
+            className={`p-2.5 rounded-xl bg-gradient-to-br ${card.color} shadow-lg`}
+            animate={{ rotate: hov && !card.comingSoon ? [0, 8, -8, 0] : 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <CardIcon size={20} className="text-white" />
+          </motion.div>
         </div>
 
         {/* Title */}
-        <div>
-          <div style={{
-            fontSize:22, fontWeight:800, color:"#e0ffe8",
-            fontFamily:"'Orbitron',sans-serif", letterSpacing:0.5, lineHeight:1.15, marginBottom:7,
-            textShadow:hov?"0 0 15px rgba(0,255,135,0.4)":"none", transition:"text-shadow 0.3s",
-            whiteSpace:"pre-line",
-          }}>{card.title}</div>
-          <div style={{ fontSize:11.5, color:"rgba(0,255,135,0.45)", lineHeight:1.55, fontFamily:"'DM Sans',sans-serif" }}>{card.subtitle}</div>
-        </div>
+        <h3 className={`text-xl font-extrabold leading-tight mb-2 whitespace-pre-line transition-colors duration-200 ${hov && !card.comingSoon ? "text-emerald-400" : "text-white"}`}>
+          {card.title}
+        </h3>
 
-        {/* CTA or Coming Soon */}
+        {/* Subtitle */}
+        <p className="text-xs text-gray-400 leading-relaxed flex-1">{card.subtitle}</p>
+
+        {/* CTA */}
         {!card.comingSoon ? (
-          <div style={{
-            marginTop:14, display:"flex", alignItems:"center", gap:6,
-            color:"#00ff87", fontSize:12, fontWeight:700,
-            fontFamily:"'Orbitron',sans-serif", letterSpacing:1,
-            opacity:hov?1:0.5, transform:hov?"translateX(5px)":"translateX(0)", transition:"all 0.25s",
-            textShadow:hov?"0 0 10px rgba(0,255,135,0.7)":"none",
-          }}>EXPLORE →</div>
+          <motion.div
+            className="mt-4 flex items-center gap-1.5 text-emerald-400 text-xs font-bold tracking-wider"
+            animate={{ x: hov ? 4 : 0, opacity: hov ? 1 : 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
+            Explore →
+          </motion.div>
         ) : (
-          <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", background:"rgba(0,5,2,0.7)", borderRadius:19 }}>
-            <span style={{ color:"#00ff87", fontFamily:"'Orbitron',sans-serif", fontSize:15, letterSpacing:4, textShadow:"0 0 20px rgba(0,255,135,0.8)", animation:"liquidGlow 2s ease-in-out infinite" }}>COMING SOON</span>
+          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px] rounded-2xl flex items-center justify-center">
+            <span className="text-emerald-400 font-bold text-sm tracking-[0.25em]">COMING SOON</span>
           </div>
         )}
       </div>
-    </div>
+
+      {/* Bottom glow on hover */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent"
+        animate={{ opacity: hov && !card.comingSoon ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.div>
   );
 }
 
@@ -719,106 +644,96 @@ export default function CheaBlogs() {
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   return (
-    <div style={{ minHeight:"100vh", background:"#020a04", fontFamily:"'DM Sans',sans-serif", padding:"38px 22px", position:"relative", overflow:"hidden" }}>
-      <LiquidFilter/>
-      <Particles/>
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white relative overflow-hidden">
+      {/* Chemical particles — same as rest of site */}
+      <ChemicalParticles />
 
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
-
-        @keyframes blobMorph {
-          0%   { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
-          25%  { border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
-          50%  { border-radius: 50% 50% 60% 40% / 40% 60% 45% 55%; }
-          75%  { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
-          100% { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
-        }
-        @keyframes blobPulse {
-          0%,100% { transform: scale(1) translateY(0); opacity:0.8; }
-          50%      { transform: scale(1.3) translateY(-4px); opacity:1; }
-        }
-        @keyframes cardIn {
-          from { opacity:0; transform:translateY(20px) scale(0.96); }
-          to   { opacity:1; transform:translateY(0) scale(1); }
-        }
-        @keyframes fadeSlide {
-          from { opacity:0; transform:translateY(10px); }
-          to   { opacity:1; transform:translateY(0); }
-        }
-        @keyframes particleDrift {
-          from { transform: translateY(0) translateX(0); }
-          to   { transform: translateY(-30px) translateX(15px); }
-        }
-        @keyframes liquidShift {
-          0%   { background-position: 0% 50%; }
-          50%  { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        @keyframes liquidGlow {
-          0%,100% { text-shadow: 0 0 20px rgba(0,255,135,0.8); opacity:0.9; }
-          50%      { text-shadow: 0 0 40px rgba(0,255,135,1), 0 0 60px rgba(0,217,110,0.6); opacity:1; }
-        }
-        @keyframes shimmerSpin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
-        }
-        @keyframes shimmerSweep {
-          from { transform: translateX(-100%); opacity:0; }
-          to   { transform: translateX(100%); opacity:1; }
-        }
-        @keyframes headerGlow {
-          0%,100% { text-shadow: 0 0 30px rgba(0,255,135,0.4); }
-          50%      { text-shadow: 0 0 60px rgba(0,255,135,0.7), 0 0 90px rgba(0,217,110,0.3); }
-        }
-        @keyframes scanLine {
-          from { transform: translateY(-100%); }
-          to   { transform: translateY(100vh); }
-        }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        ::-webkit-scrollbar { width:5px; }
-        ::-webkit-scrollbar-track { background:#010a03; }
-        ::-webkit-scrollbar-thumb { background:linear-gradient(#00ff87,#00d96e); border-radius:3px; }
-      `}</style>
-
-      {/* Scan line effect */}
-      <div style={{ position:"fixed", top:0, left:0, right:0, height:"2px", background:"linear-gradient(90deg,transparent,rgba(0,255,135,0.4),transparent)", animation:"scanLine 8s linear infinite", zIndex:0, pointerEvents:"none" }}/>
-
-      {/* Background mesh */}
-      <div style={{ position:"fixed", inset:0, zIndex:0, pointerEvents:"none", background:"radial-gradient(ellipse at 20% 50%,rgba(0,60,25,0.15) 0%,transparent 60%), radial-gradient(ellipse at 80% 20%,rgba(0,100,40,0.1) 0%,transparent 50%)" }}/>
-
-      <div style={{ maxWidth:1100, margin:"0 auto", position:"relative", zIndex:1 }}>
-        {/* Header */}
-        <div style={{ textAlign:"center", marginBottom:50 }}>
-          <div style={{ fontSize:10, letterSpacing:5, color:"rgba(0,255,135,0.6)", fontWeight:700, marginBottom:10, fontFamily:"'Orbitron',sans-serif", textTransform:"uppercase" }}>
-            Chemical Engineering Association · IIT Bombay
-          </div>
-          <h1 style={{ fontSize:"clamp(36px,7vw,68px)", fontFamily:"'Orbitron',sans-serif", color:"#e0ffe8", letterSpacing:3, lineHeight:1, marginBottom:12, animation:"headerGlow 3s ease-in-out infinite" }}>
-            CHEA{" "}
-            <span style={{ color:"#00ff87", position:"relative" }}>
-              BLOGS
-              <span style={{ position:"absolute", bottom:-4, left:0, right:0, height:2, background:"linear-gradient(90deg,transparent,#00ff87,transparent)", borderRadius:1 }}/>
-            </span>
-          </h1>
-          <div style={{ color:"rgba(0,255,135,0.38)", fontSize:14, maxWidth:460, margin:"0 auto", fontFamily:"'DM Sans',sans-serif" }}>
-            Stories, insights, and guidance from students who've been there
-          </div>
-          {/* Liquid divider */}
-          <div style={{ width:80, height:3, background:"linear-gradient(90deg,transparent,#00ff87,#00d96e,transparent)", margin:"18px auto 0", borderRadius:2, filter:"url(#glow-green)" }}/>
+      {/* Chemical formula side decorations — same as rest of site */}
+      {["left", "right"].map(side => (
+        <div key={side} className={`absolute ${side}-4 top-0 bottom-0 flex flex-col justify-around z-0 pointer-events-none`}>
+          {["H₂SO₄", "NaOH", "C₆H₁₂O₆", "NH₃", "CO₂", "H₂O"].map((f, i) => (
+            <motion.div key={i} className="text-emerald-300/25 text-sm font-mono font-bold"
+              animate={{ opacity: [0.15, 0.45, 0.15], rotate: [0, 4, -4, 0] }}
+              transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+            >{f}</motion.div>
+          ))}
         </div>
+      ))}
+
+      {/* Top border — same as rest of site */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="text-xs font-bold tracking-[0.3em] text-emerald-400/60 uppercase mb-3">
+            Chemical Engineering Association · IIT Bombay
+          </p>
+
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+              <Atom size={36} className="text-emerald-400" />
+            </motion.div>
+            <h1 className="text-5xl lg:text-6xl font-black">
+              ChEA{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+                BLOGS
+              </span>
+            </h1>
+            <motion.div animate={{ y: [-4, 4, -4] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
+              <BookOpen size={36} className="text-cyan-400" />
+            </motion.div>
+          </div>
+
+          <p className="text-gray-300 max-w-xl mx-auto text-base">
+            Stories, insights, and guidance from students who've been there
+          </p>
+
+          {/* Divider — matches site style */}
+          <motion.div
+            className="w-20 h-0.5 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent mx-auto mt-6"
+            initial={{ width: 0 }} animate={{ width: 80 }} transition={{ delay: 0.5, duration: 0.8 }}
+          />
+        </motion.div>
 
         {/* Content */}
-        {!selectedBlog ? (
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(235px,1fr))", gap:18 }}>
-            {BLOG_CARDS.map((card,i)=>(
-              <BlogCard key={card.id} card={card} index={i} onClick={()=>setSelectedBlog(card)}/>
-            ))}
-          </div>
-        ) : (
-          <PeopleGrid blog={selectedBlog} onBack={()=>setSelectedBlog(null)} onSelectPerson={setSelectedPerson}/>
-        )}
+        <AnimatePresence mode="wait">
+          {!selectedBlog ? (
+            <motion.div
+              key="grid"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            >
+              {BLOG_CARDS.map((card, i) => (
+                <BlogCard key={card.id} card={card} index={i} onClick={() => setSelectedBlog(card)} />
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div key="people" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <PeopleGrid
+                blog={selectedBlog}
+                onBack={() => setSelectedBlog(null)}
+                onSelectPerson={setSelectedPerson}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {selectedPerson && <PersonDetail person={selectedPerson} onBack={()=>setSelectedPerson(null)}/>}
+      {/* Bottom border — matches site */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
+
+      {/* Person detail modal */}
+      <AnimatePresence>
+        {selectedPerson && (
+          <PersonDetail person={selectedPerson} onBack={() => setSelectedPerson(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

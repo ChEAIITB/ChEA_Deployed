@@ -555,7 +555,7 @@ export default function Link24() {
 
   return (
     <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
-      <div className="relative bg-gradient-to-b from-slate-900 via-orange-950 to-slate-950 text-white min-h-screen">
+      <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
         {/* Chemical Particles Background */}
         {renderChemicalParticles()}
 
