@@ -57,7 +57,7 @@ const categoryIconComponents = {
   entertainment: Film,
 }
 
-const chemicalFormulas = ["C₆H₁₂O₆", "H₂SO₄", "NaCl", "CO₂", "NH₃", "CH₄", "C₂H₅OH", "CaCO₃"]
+const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
 
 export const EventCard = ({ event, index, onEventClick }) => {
   const [isHovered, setIsHovered] = useState(false)

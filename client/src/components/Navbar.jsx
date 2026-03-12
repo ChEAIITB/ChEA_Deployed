@@ -11,16 +11,16 @@ import {
 } from "lucide-react"
 
 const navItems = [
-  { name: "Home",         href: "/",            icon: Home,     formula: "H₂O"  },
-  { name: "Events",       href: "/events",      icon: Calendar, formula: "CO₂"  },
-  { name: "Blogs",        href: "/blogs",       icon: FileText, formula: "NaCl" },
-  { name: "Publications", href: "/publications",icon: BookOpen, formula: "NH₃"  },
-  { name: "Links",        href: "/links/25",    icon: LinkIcon, formula: "CH₄"  },
-  { name: "Our Council",  href: "/contact",     icon: Users,    formula: "O₂"   },
-  { name: "Facads",       href: "/facad/24",    icon: UserCheck,formula: "N₂"   },
+  { name: "Home",         href: "/",            icon: Home  },
+  { name: "Events",       href: "/events",      icon: Calendar },
+  { name: "Blogs",        href: "/blogs",       icon: FileText },
+  { name: "Publications", href: "/publications",icon: BookOpen },
+  { name: "Links",        href: "/links/25",    icon: LinkIcon },
+  { name: "Our Council",  href: "/contact",     icon: Users },
+  { name: "Facads",       href: "/facad/24",    icon: UserCheck },
 ]
 
-const TICKER_FORMULAS = ["H₂SO₄", "NaOH", "C₆H₁₂O₆", "NH₃", "CO₂", "CaCO₃", "C₂H₅OH", "HCl", "KMnO₄"]
+const TICKER_FORMULAS = ["Valfi", "Convo", "F_Party", "Trip", "Trek", "MCL", "", "GCs", "many_m"]
 
 function OrbitDot({ radius = 14, duration = 3, delay = 0, color = "bg-emerald-400" }) {
   return (

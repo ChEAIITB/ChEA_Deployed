@@ -44,11 +44,11 @@ const warningLights = [
 
 // Floating industrial equipment - positioned to avoid text areas
 const floatingIndustrial = [
-  { top: "15%", left: "2%", icon: Factory, color: "text-emerald-300", size: 36 },
-  { top: "45%", left: "95%", icon: Gauge, color: "text-cyan-300", size: 32 },
-  { top: "25%", left: "97%", icon: Settings, color: "text-teal-300", size: 30 },
-  { top: "65%", left: "2%", icon: AlertTriangle, color: "text-emerald-400", size: 28 },
-  { top: "35%", left: "1%", icon: Flame, color: "text-cyan-400", size: 26 },
+  // { top: "15%", left: "2%", icon: Factory, color: "text-emerald-300", size: 36 },
+  // { top: "45%", left: "95%", icon: Gauge, color: "text-cyan-300", size: 32 },
+  // { top: "25%", left: "97%", icon: Settings, color: "text-teal-300", size: 30 },
+  // { top: "65%", left: "2%", icon: AlertTriangle, color: "text-emerald-400", size: 28 },
+  // { top: "35%", left: "1%", icon: Flame, color: "text-cyan-400", size: 26 },
 ]
 
 export default function Hero() {
@@ -438,9 +438,9 @@ export default function Hero() {
               
               {/* Chemical Formula Decoration */}
               <div className="flex justify-end mt-6 gap-4 text-sm text-emerald-400/60 font-mono">
-                <span>C₆H₁₂O₆</span>
+                {/* <span>C₆H₁₂O₆</span>
                 <span>H₂SO₄</span>
-                <span>NaOH</span>
+                <span>NaOH</span> */}
               </div>
             </motion.div>
           </div>

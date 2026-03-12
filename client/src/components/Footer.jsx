@@ -31,7 +31,7 @@ export default function Footer() {
       value: 1,
       icon: Award,
       color: "text-emerald-400",
-      formula: "Au",
+      // formula: "Au",
       description: "Gold Standard",
     },
     {
@@ -39,7 +39,7 @@ export default function Footer() {
       value: 45,
       icon: GraduationCap,
       color: "text-cyan-400",
-      formula: "H₂SO₄",
+      // formula: "H₂SO₄",
       description: "Expert Catalysts",
     },
     {
@@ -47,7 +47,7 @@ export default function Footer() {
       value: 750,
       icon: Users,
       color: "text-violet-400",
-      formula: "C₆H₁₂O₆",
+      // formula: "C₆H₁₂O₆",
       description: "Future Innovators",
     },
     {
@@ -55,7 +55,7 @@ export default function Footer() {
       value: 20,
       icon: Calendar,
       color: "text-teal-400",
-      formula: "NaCl",
+      // formula: "NaCl",
       description: "Annual Reactions",
     },
   ]
@@ -63,35 +63,35 @@ export default function Footer() {
   const socialIcons = [
     {
       icon: Facebook,
-      link: "#",
+      link: "https://www.facebook.com/cheaiitb",
       color: "hover:text-blue-400",
       bgColor: "hover:bg-blue-400/10",
       formula: "FB",
     },
     {
       icon: Instagram,
-      link: "#",
+      link: "https://www.instagram.com/chea_iitb",
       color: "hover:text-pink-400",
       bgColor: "hover:bg-pink-400/10",
       formula: "IG",
     },
     {
       icon: Linkedin,
-      link: "#",
+      link: "https://www.linkedin.com/company/chea-iit-bombay/",
       color: "hover:text-blue-500",
       bgColor: "hover:bg-blue-500/10",
       formula: "Li",
     },
     {
       icon: Youtube,
-      link: "#",
+      link: "https://www.youtube.com/@ChEAIITB/featured",
       color: "hover:text-red-400",
       bgColor: "hover:bg-red-400/10",
       formula: "YT",
     },
     {
       icon: Twitter,
-      link: "#",
+      link: "https://x.com/CheEnggIITB",
       color: "hover:text-sky-400",
       bgColor: "hover:bg-sky-400/10",
       formula: "X",

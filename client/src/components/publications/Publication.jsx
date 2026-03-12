@@ -51,15 +51,15 @@ const chemicalEquipment = [
 ]
 
 // Chemical formulas to replace plus signs
-const chemicalFormulas = ["H₂SO₄", "NaOH", "C₆H₁₂O₆", "NH₃", "CO₂", "H₂O", "CaCO₃"]
+const chemicalFormulas = []
 
 // Floating chemical droplets with different colors
 const chemicalDroplets = [
-  { top: "15%", left: "10%", size: "w-6 h-6", color: "bg-emerald-400", glow: "shadow-emerald-400/50", formula: "H₂O" },
-  { top: "35%", left: "80%", size: "w-4 h-4", color: "bg-cyan-400", glow: "shadow-cyan-400/50", formula: "CO₂" },
-  { top: "65%", left: "15%", size: "w-5 h-5", color: "bg-violet-400", glow: "shadow-violet-400/50", formula: "NaCl" },
-  { top: "75%", left: "90%", size: "w-4 h-4", color: "bg-teal-400", glow: "shadow-teal-400/50", formula: "NH₃" },
-  { top: "25%", left: "60%", size: "w-3 h-3", color: "bg-lime-400", glow: "shadow-lime-400/50", formula: "CH₄" },
+  { top: "15%", left: "10%", size: "w-6 h-6", color: "bg-emerald-400", glow: "shadow-emerald-400/50"},
+  { top: "35%", left: "80%", size: "w-4 h-4", color: "bg-cyan-400", glow: "shadow-cyan-400/50"},
+  { top: "65%", left: "15%", size: "w-5 h-5", color: "bg-violet-400", glow: "shadow-violet-400/50"},
+  { top: "75%", left: "90%", size: "w-4 h-4", color: "bg-teal-400", glow: "shadow-teal-400/50"},
+  { top: "25%", left: "60%", size: "w-3 h-3", color: "bg-lime-400", glow: "shadow-lime-400/50"},
 ]
 
 // Larger chemical bubbles
@@ -69,21 +69,21 @@ const chemicalBubbles = [
     left: "30%",
     size: "w-8 h-8",
     color: "bg-gradient-to-br from-emerald-400 to-cyan-500",
-    formula: "H₂SO₄",
+    
   },
   {
     top: "50%",
     left: "75%",
     size: "w-10 h-10",
     color: "bg-gradient-to-br from-cyan-400 to-violet-500",
-    formula: "C₆H₁₂O₆",
+    
   },
   {
     top: "85%",
     left: "20%",
     size: "w-6 h-6",
     color: "bg-gradient-to-br from-violet-400 to-teal-500",
-    formula: "CaCO₃",
+   
   },
 ]
 
@@ -94,7 +94,7 @@ const publicationData = {
     icon: Flask,
     color: "text-emerald-400",
     bgColor: "from-emerald-950/20",
-    formula: "C₆H₁₂O₆",
+    
     data: [
       {
         id: "cg24",
@@ -150,7 +150,7 @@ const publicationData = {
     icon: TestTube,
     color: "text-cyan-400",
     bgColor: "from-cyan-950/20",
-    formula: "H₂SO₄",
+    
     data: [
       {
         id: "voice23",
@@ -181,7 +181,7 @@ const publicationData = {
     icon: Beaker,
     color: "text-violet-400",
     bgColor: "from-violet-950/20",
-    formula: "NaOH",
+    
     data: [
       {
         id: "oracle22",
@@ -224,7 +224,7 @@ const publicationData = {
     icon: Atom,
     color: "text-teal-400",
     bgColor: "from-teal-950/20",
-    formula: "NH₃",
+    
     data: [
       {
         id: "gazette21",
@@ -266,7 +266,7 @@ const publicationData = {
     icon: Droplets,
     color: "text-emerald-400",
     bgColor: "from-emerald-950/20",
-    formula: "CO₂",
+   
     data: [
       {
         id: "gazette20",
@@ -297,7 +297,7 @@ const publicationData = {
     icon: Microscope,
     color: "text-cyan-400",
     bgColor: "from-cyan-950/20",
-    formula: "H₂O",
+ 
     data: [
       {
         id: "gazette19",
@@ -328,7 +328,7 @@ const publicationData = {
     icon: Dna,
     color: "text-violet-400",
     bgColor: "from-violet-950/20",
-    formula: "CaCO₃",
+   
     data: [
       {
         id: "gazette18",

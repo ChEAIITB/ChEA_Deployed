@@ -10,7 +10,7 @@ const heroIcons = [
   { icon: TestTube, color: "from-purple-600 to-green-700" },
 ]
 
-const chemicalFormulas = ["C₆H₁₂O₆", "H₂SO₄", "NaCl", "CO₂", "NH₃", "CH₄", "C₂H₅OH", "CaCO₃"]
+const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
 
 export const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -133,7 +133,7 @@ export const HeroSlider = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
         >
-          Celebrating Chemistry, Engineering & Community
+          Celebrating Chemicals, Engineering & Community
         </motion.p>
       </div>
     </div>
