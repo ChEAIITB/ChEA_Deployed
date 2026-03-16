@@ -43,6 +43,10 @@ import Ratul from "../../assets/images/facadmtech/Ratul.jpg"
 import Mani from "../../assets/images/facadphd/Mani.jpg"
 import Partha from "../../assets/images/facadphd/Partha.jpg"
 import malani from "../../assets/images/facadphd/malani.png"
+import sunthar from "../../assets/images/facad25/p_sunthar.jpg"
+import sonali from "../../assets/images/facad25/Sonali.jpeg"
+import venkat from "../../assets/images/facad25/VenkatG.jpg"
+import nagappan from "../../assets/images/facad25/nagappan.jpg"
 
 // Chemical equipment for floating animations
 const chemicalEquipment = [
@@ -91,6 +95,119 @@ const chemicalBubbles = [
 
 // Comprehensive faculty data with additional members
 const facultyData = {
+  "2025": {
+    title: "Current Batch",
+    icon: Flask,
+    color: "text-emerald-400",
+    bgColor: "from-emerald-950/20",
+    formula: "25B",
+    data: [
+      {
+  "name": "Prof. P. Sunthar",
+  "image": sunthar,
+  "email": "sunthar@che.iitb.ac.in",
+  "phone": "+91 (22) 2576 7229",
+  "url": "https://www.che.iitb.ac.in/faculty-page/p-sunthar",
+  "roll": "24B0301 – 24B0333",
+  "position": "Professor",
+  "department": "Chemical Engineering",
+  "specialization": "Computational Flow Modelling & Transport Phenomena",
+  "education": {
+    "BTech": "CECRI, 1993",
+    "MS": "IIT Madras, 1995",
+    "PhD": "IISc Bangalore, 2002",
+    "PostDoc": "Research Fellow, Monash University, 2003-2006"
+  },
+  "courses": [
+    "CL254: Process Fluid Mechanics",
+    "CL657: Computational Flow Modelling",
+    "CL427: Polymer Thermodynamics",
+    "CL336: Advanced Transport Phenomena"
+  ],
+  "researchAreas": [
+    "Blood flow in coronary arteries (Ischemia modeling)",
+    "Colloidal fingering (Double-diffusive instability)",
+    "Self-assembly of vesicles",
+    "Polymer Simulation & Brownian Dynamics"
+  ],
+  "experience": "20+ years"
+},
+      {
+  "name": "Prof. Sonali Das",
+  "image": sonali,
+  "email": "sonali.das@iitb.ac.in",
+  "phone": "+91 (22) 2576 7265",
+  "url": "https://www.che.iitb.ac.in/faculty-page/sonali-das",
+  "roll": "24B0334 – 24B0366",
+  "position": "Assistant Professor",
+  "department": "Chemical Engineering",
+  "specialization": "Chemical and Electrochemical Reaction Engineering",
+  "education": {
+    "BE": "Jadavpur University, 2012",
+    "PhD": "National University of Singapore, 2021",
+    "PostDoc": "University of California, Davis, 2021-22"
+  },
+  "researchAreas": [
+    "Chemical and Electrochemical Reaction Engineering",
+    "Energy, Climate and Sustainability",
+    "Softmatter Engineering"
+  ],
+  "experience": "3+ years (Post-PhD)"
+},
+      {
+  "name": "Prof. Venkat Gundabala",
+  "image": venkat,
+  "email": "venkatg@iitb.ac.in",
+  "phone": "+91 (22) 2576 7208",
+  "url": "http://che.iitb.ac.in/faculty-page/venkat-gundabala",
+  "roll": "24B0367 – 24B0399",
+  "position": "Associate Professor",
+  "department": "Chemical Engineering",
+  "specialization": "Microfluidics and Soft Matter Engineering",
+  "education": {
+    "BTech": "Andhra University, 2000",
+    "MS": "Drexel University, 2002",
+    "PhD": "University of Sheffield, 2006",
+    "PostDoc": [
+      "University of Cambridge, 2007-2008",
+      "Georgia Institute of Technology, 2008-2012"
+    ]
+  },
+  "courses": [
+    "CL152: Introduction to Chemical Engineering"
+  ],
+  "researchAreas": [
+    "Microfluidics for Bioengineering Applications",
+    "Water-based Antimicrobial Coatings",
+    "Bio-based Packaging Films",
+    "Latex Nanocomposites"
+  ],
+  "experience": "12+ years (Faculty at IITB)"
+},
+      {
+  "name": "Prof. Nagappan Ramaswamy",
+  "image": nagappan,
+  "email": "nagappan@iitb.ac.in",
+  "phone": "+91 (22) 2576 7217",
+  "url": "https://www.che.iitb.ac.in/faculty-page/nagappan-ramaswamy",
+  "roll": "24B0400 – 24B0432",
+  "position": "Associate Professor",
+  "department": "Chemical Engineering",
+  "specialization": "Chemical and Electrochemical Reaction Engineering",
+  "education": {
+    "BTech": "CECRI Karaikudi, 2005",
+    "PhD": "Northeastern University, Boston, 2011"
+  },
+  "researchAreas": [
+    "Water Electrolyzers and Fuel Cells",
+    "Redox-flow Batteries",
+    "Desalination Batteries",
+    "Energy, Climate and Sustainability"
+  ],
+  "experience": "10+ years"
+}
+    ],
+  },
   "2024": {
     title: "Current Batch",
     icon: Flask,

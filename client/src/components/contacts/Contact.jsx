@@ -49,6 +49,7 @@ import Saransh from "../../assets/images/contact25/Saransh.jpg"
 import Siya from "../../assets/images/contact25/Siya.jpg"
 import Tanmay from "../../assets/images/contact25/Tanmay.JPG"
 import Kalash from "../../assets/images/contact25/Kalash.webp"
+import sanbed from "../../assets/images/contact25/Sanbed.jpg"
 
 // Chemical equipment for floating animations
 const chemicalEquipment = [
@@ -226,23 +227,23 @@ const ugData = [
 
 // PG Council Data
 const pgData = [
+  // {
+  //   name: "Mohammed Saud Shaikh",
+  //   image: sanbed,
+  //   position: "M. Tech Representative",
+  //   phone: "9930247998",
+  //   email: "sauddjhs@gmail.com",
+  //   linkedin: "https://www.linkedin.com/in/mohammedsaud786/",
+  //   specialty: "Graduate Research",
+  // },
   {
-    name: "Mohammed Saud Shaikh",
-    image: mdsaud,
-    position: "M. Tech Representative",
-    phone: "9930247998",
-    email: "sauddjhs@gmail.com",
-    linkedin: "https://www.linkedin.com/in/mohammedsaud786/",
-    specialty: "Graduate Research",
-  },
-  {
-    name: "Prehas Madke",
-    image: Prehas,
+    name: "Sanbed Das",
+    image: sanbed,
     position: "PhD Representative",
-    phone: "9834706856",
-    email: "23D0125@iitb.ac.in",
-    instagram: "https://www.instagram.com/prehasmadke/",
-    linkedin: "https://www.linkedin.com/in/prehasmadke",
+    phone: "8583935116",
+    email: "sanbed@iitb.ac.in",
+    // instagram: "https://www.instagram.com/prehasmadke/",
+    linkedin: "https://www.linkedin.com/in/sanbed-d-265491185",
     specialty: "Doctoral Research",
   },
 ]

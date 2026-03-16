@@ -41,6 +41,9 @@ import ChEA_voice24 from "../../assets/images/publications/ChEA_voice24.jpg"
 import ChEA_handbook24 from "../../assets/images/publications/ChEA_handbook24.png"
 import chemical from "../../assets/images/publications/cg23.png"
 import cg24 from "../../assets/images/publications/cg24.png"
+import cheavoice from "../../assets/images/publications/chea_voice_2025.png"
+import cheahandbook from "../../assets/images/publications/chea_handbook25.jpg"
+
 
 // Chemical equipment for floating animations
 const chemicalEquipment = [
@@ -89,6 +92,62 @@ const chemicalBubbles = [
 
 // Publication data with enhanced metadata
 const publicationData = {
+  2025: {
+    title: "Latest Research",
+    icon: Flask,
+    color: "text-emerald-400",
+    bgColor: "from-emerald-950/20",
+    
+    data: [
+      // {
+      //   id: "cg24",
+      //   name: "Chemical Gazette 2024",
+      //   image: cg24,
+      //   url: "https://drive.google.com/file/d/1lfb-LiRb9J3I8TSdONUlhcO9v50ceYV8/view?usp=sharing",
+      //   type: "Research Paper",
+      //   pages: 12,
+      //   description:
+      //     "Annual research compilation featuring cutting-edge chemical engineering innovations and breakthroughs.",
+      //   publishDate: "December 2024",
+      //   category: "Research",
+      // },
+      {
+        id: "handbook24",
+        name: "ChEA Handbook 2025",
+        image: cheahandbook,
+        url: "https://drive.google.com/file/d/1nf5ltIQwkLZGsvB8S2XlylvOyf9aQb3R/view",
+        type: "Handbook",
+        pages: 37,
+        description:
+          "Comprehensive guide for chemical engineering students covering academic policies, procedures, and resources.",
+        publishDate: "August 2025",
+        category: "Academic",
+      },
+      {
+        id: "voice24",
+        name: "ChEA Voice 2025",
+        image: cheavoice,
+        url: "https://drive.google.com/file/d/1VxF446lQXywyuFZeRH_5cme_DZ6cfj0O/view",
+        type: "Newsletter",
+        pages: 4,
+        description:
+          "Student newsletter highlighting achievements, events, and departmental updates throughout the year.",
+        publishDate: "November 2025",
+        category: "Newsletter",
+      },
+      // {
+      //   id: "oracle24",
+      //   name: "Alum Oracle 2024",
+      //   image: Alum_Oracle24,
+      //   url: "https://drive.google.com/file/d/1968eL3oUEAJ5oMToeAiojZSwIesJtVXO/view?usp=sharing",
+      //   type: "Alumni Magazine",
+      //   pages: 8,
+      //   description: "Alumni magazine featuring success stories, industry insights, and networking opportunities.",
+      //   publishDate: "October 2024",
+      //   category: "Alumni",
+      // },
+    ],
+  },
   2024: {
     title: "Latest Research",
     icon: Flask,

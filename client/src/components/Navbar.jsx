@@ -16,7 +16,7 @@ const navItems = [
   { name: "Blogs",        href: "/blogs",       icon: FileText },
   { name: "Publications", href: "/publications",icon: BookOpen },
   { name: "Links",        href: "/links/25",    icon: LinkIcon },
-  { name: "Our Council",  href: "/contact",     icon: Users },
+  { name: "Contacts",  href: "/contact",     icon: Users },
   { name: "Facads",       href: "/facad/24",    icon: UserCheck },
 ]
 
@@ -368,7 +368,7 @@ export default function Navbar() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <span className="text-[10px] font-mono text-slate-600 tracking-widest">IITB · CHEA</span>
+                  <span className="text-[10px] font-mono text-slate-600 tracking-widest">IITB · ChEA</span>
                   <div className="flex items-center gap-2">
                     {[Atom, Flask, TestTube, Beaker].map((Icon, i) => (
                       <motion.div
