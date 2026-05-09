@@ -781,7 +781,7 @@ export default function ChemicalEvents() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 pt-20 relative overflow-hidden">
       {/* Chemical Particles Background */}
-      {renderChemicalParticles()}
+      {/* {renderChemicalParticles()} */}
 
       {/* Background Pattern */}
       <div className="fixed inset-0 opacity-10 pointer-events-none">
@@ -809,7 +809,7 @@ export default function ChemicalEvents() {
                     : "text-gray-300 hover:text-emerald-400 hover:bg-emerald-400/10"
                 }`}
                 animate={{
-                  scale: selectedYear === year ? 1.05 : 1,
+                  scale: selectedYear === year ? 1.02 : 1,
                 }}
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.02 }}

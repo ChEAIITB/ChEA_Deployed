@@ -60,10 +60,6 @@ import Ayush from '../../assets/images/contact2024/Ayush.png';
 
 // Chemical equipment for floating animations
 const chemicalEquipment = [
-  { size: 100, opacity: 0.08, rotation: 45, icon: Flask },
-  { size: 80, opacity: 0.12, rotation: -30, icon: TestTube },
-  { size: 120, opacity: 0.06, rotation: 60, icon: Beaker },
-  { size: 90, opacity: 0.15, rotation: -45, icon: Atom },
 ]
 
 // Chemical formulas for decorative elements
@@ -71,36 +67,11 @@ const chemicalFormulas = ["Team", "Lead", "Org", "Comm", "Mgmt", "Coord", "Admin
 
 // Chemical droplets with enhanced properties
 const chemicalDroplets = [
-  { top: "15%", left: "10%", size: "w-6 h-6", color: "bg-emerald-400", glow: "shadow-emerald-400/50", formula: "UG" },
-  { top: "35%", left: "80%", size: "w-4 h-4", color: "bg-cyan-400", glow: "shadow-cyan-400/50", formula: "PG" },
-  { top: "65%", left: "15%", size: "w-5 h-5", color: "bg-violet-400", glow: "shadow-violet-400/50", formula: "PhD" },
-  { top: "75%", left: "90%", size: "w-4 h-4", color: "bg-teal-400", glow: "shadow-teal-400/50", formula: "MTech" },
-  { top: "25%", left: "60%", size: "w-3 h-3", color: "bg-lime-400", glow: "shadow-lime-400/50", formula: "Team" },
 ]
 
 // Enhanced chemical bubbles
 const chemicalBubbles = [
-  {
-    top: "10%",
-    left: "30%",
-    size: "w-8 h-8",
-    color: "bg-gradient-to-br from-emerald-400 to-cyan-500",
-    formula: "Council",
-  },
-  {
-    top: "50%",
-    left: "75%",
-    size: "w-10 h-10",
-    color: "bg-gradient-to-br from-cyan-400 to-violet-500",
-    formula: "Leaders",
-  },
-  {
-    top: "85%",
-    left: "20%",
-    size: "w-6 h-6",
-    color: "bg-gradient-to-br from-violet-400 to-teal-500",
-    formula: "ChEA",
-  },
+ 
 ]
 
 // Position hierarchy with chemical theming
@@ -285,7 +256,7 @@ export default function Contact() {
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-
+  const [currentYear, updateYear] = useState(0);
   const x = useTransform(mouseX, (x) => (x - window.innerWidth / 2) * 0.01)
   const y = useTransform(mouseY, (y) => (y - window.innerHeight / 2) * 0.01)
 
@@ -413,8 +384,8 @@ export default function Contact() {
     return (
       <motion.div
         className="group relative"
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, }}
         transition={{ delay: index * 0.1, duration: 0.6 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
@@ -422,7 +393,7 @@ export default function Contact() {
         <motion.div
           className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 transition-all duration-300 overflow-hidden min-h-[400px]"
           animate={{
-            scale: isHovered ? 1.02 : 1,
+            // scale: isHovered ? 1.02 : 1,
             borderColor: isHovered ? "rgba(16, 185, 129, 0.3)" : "rgba(71, 85, 105, 0.5)",
           }}
           transition={{ duration: 0.2 }}
@@ -435,22 +406,22 @@ export default function Contact() {
           />
 
           {/* Position Icon */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-4 right-4"
             animate={{ opacity: isHovered ? 0.6 : 0.2 }}
             transition={{ duration: 0.3 }}
           >
             <positionData.icon size={24} className={positionData.color} />
-          </motion.div>
+          </motion.div> */}
 
           {/* Chemical Formula */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-2 left-2 text-xs font-mono text-emerald-400/40"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
           >
             {positionData.formula}
-          </motion.div>
+          </motion.div> */}
 
           {/* Member Photo */}
           <div className="relative mb-4 overflow-hidden rounded-lg">
@@ -459,7 +430,7 @@ export default function Contact() {
                 src={member.image || "/placeholder.svg"}
                 alt={member.name}
                 className="w-full h-full object-cover cursor-pointer"
-                animate={{ scale: isHovered ? 1.05 : 1 }}
+                animate={{ scale: isHovered ? 1.02 : 1 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => openMemberModal(member)}
               />
@@ -473,6 +444,7 @@ export default function Contact() {
             >
               <motion.button
                 onClick={() => openMemberModal(member)}
+                style={{"cursor":"pointer"}}
                 className="bg-emerald-400/20 backdrop-blur-sm px-3 py-1 rounded-full text-emerald-400 border border-emerald-400/30 flex items-center gap-2 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -483,9 +455,9 @@ export default function Contact() {
             </motion.div>
 
             {/* Level Badge */}
-            <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
+            {/* <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
               Level {positionData.level}
-            </div>
+            </div> */}
           </div>
 
           {/* Member Info */}
@@ -627,6 +599,7 @@ export default function Contact() {
                 </div>
                 <button
                   onClick={closeMemberModal}
+                  style={{"cursor":"pointer"}}
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <X size={20} />
@@ -670,7 +643,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 bg-pink-400/20 hover:bg-pink-400/30 rounded-lg text-pink-400 transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Instagram size={16} />
@@ -683,7 +656,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 bg-blue-400/20 hover:bg-blue-400/30 rounded-lg text-blue-400 transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Linkedin size={16} />
@@ -696,7 +669,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg text-blue-600 transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Facebook size={16} />
@@ -713,20 +686,20 @@ export default function Contact() {
   )
 
   return (
-    <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
+    <div ref={ref} className="overflow-hidden">
       <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
         {/* Chemical Particles Background */}
-        {renderChemicalParticles()}
+        {/* {renderChemicalParticles()} */}
 
         {/* Floating Chemical Equipment */}
-        {renderFloatingEquipment()}
+        {/* {renderFloatingEquipment()} */}
 
         {/* Chemical Formulas */}
-        {renderChemicalFormulas("left")}
-        {renderChemicalFormulas("right")}
+        {/* {renderChemicalFormulas("left")}
+        {renderChemicalFormulas("right")} */}
 
         {/* Chemical Droplets */}
-        {chemicalDroplets.map((droplet, i) => (
+        {/* {chemicalDroplets.map((droplet, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${droplet.size} ${droplet.color} ${droplet.glow} shadow-lg`}
@@ -744,16 +717,16 @@ export default function Contact() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-          >
+          > */}
             {/* Chemical Formula Label */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
+            {/* <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
               {droplet.formula}
             </div>
           </motion.div>
-        ))}
+        ))} */}
 
         {/* Chemical Bubbles */}
-        {chemicalBubbles.map((bubble, i) => (
+        {/* {chemicalBubbles.map((bubble, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${bubble.size} ${bubble.color} opacity-40 shadow-lg`}
@@ -774,20 +747,20 @@ export default function Contact() {
             }}
           >
             {/* Chemical Formula */}
-            <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
+            {/* <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
               {bubble.formula}
             </div>
           </motion.div>
-        ))}
+        ))}  */}
 
         {/* Main Content */}
-        <section className="relative z-10 px-6 lg:px-16 py-20">
+        <section className="relative z-10 px-6 lg:px-16 py-40">
           {/* Header with Chemical Theme */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: -50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            // initial={{ opacity: 0, y: -50 }}
+            // animate={isInView ? { opacity: 1, y: 0 } : {}}
+            // transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <motion.div
@@ -819,12 +792,13 @@ export default function Contact() {
   {years.map(({ label, path }, index) => (
     <Link to={path} key={label}>
       <motion.button
+      style={{"cursor":"pointer"}}
         className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
-          index === 0
+          index === 1
             ? "bg-emerald-400/20 hover:bg-emerald-400/30 text-emerald-400 border-emerald-400/30"
             : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
         }`}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
       >
         {label}
@@ -834,19 +808,19 @@ export default function Contact() {
 </div>
 
             {/* Chemical Equipment Decoration */}
-            <div className="flex justify-center items-center gap-6 opacity-60">
+            {/* <div className="flex justify-center items-center gap-6 opacity-60">
               <Crown size={24} className="text-emerald-400" />
               <Users size={24} className="text-cyan-400" />
               <Briefcase size={24} className="text-violet-400" />
               <GraduationCap size={24} className="text-teal-400" />
-            </div>
+            </div> */}
           </motion.div>
 
           {/* UG Council Section */}
           <motion.div
-            className="mb-20"
-            initial={{ opacity: 0, x: -100 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            className="mb-20 py-10"
+            initial={{ opacity: 0,}}
+            animate={isInView ? { opacity: 1} : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-12">
@@ -859,13 +833,13 @@ export default function Contact() {
               <h2 className="text-4xl font-bold">
                 UG <span className="text-emerald-400">Council</span>
               </h2>
-              <motion.div
+              {/* <motion.div
                 className="text-sm font-mono text-emerald-400/60"
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
               >
-                UG₂4
-              </motion.div>
+                UG₂₅
+              </motion.div> */}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -895,8 +869,8 @@ export default function Contact() {
 
           {/* PG Council Section */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0,}}
+            animate={isInView ? { opacity: 1} : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-12">
@@ -909,13 +883,6 @@ export default function Contact() {
               <h2 className="text-4xl font-bold">
                 PG <span className="text-orange-400">Council</span>
               </h2>
-              <motion.div
-                className="text-sm font-mono text-orange-400/60"
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-              >
-                PG₂4
-              </motion.div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">

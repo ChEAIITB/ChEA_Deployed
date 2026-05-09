@@ -34,6 +34,7 @@ import fn21 from "../../assets/images/publications/fn21.webp"
 import fn19 from "../../assets/images/publications/fn19.webp"
 import image21 from "../../assets/images/publications/image21.webp"
 import image22 from "../../assets/images/publications/image22.webp"
+import gazette25 from "../../assets/images/publications/gazette25.png"
 import fn20 from "../../assets/images/publications/fn20.jpg"
 import fn23 from "../../assets/images/publications/fn23.jpg"
 import cv from "../../assets/images/publications/cv.jpg"
@@ -111,6 +112,18 @@ const publicationData = {
       //   publishDate: "December 2024",
       //   category: "Research",
       // },
+      {
+        id: "chemicalgazette",
+        name: "Chemical Gazette 2025",
+        image: gazette25,
+        url: "https://drive.google.com/file/d/1Chjcs59yPTRr7yM7IQ1r26GgsdFDng1b/view?usp=sharing",
+        type: "Research Paper",
+        pages: 10,
+        description:
+          "A comprehensive annual chronicle of IIT Bombay’s chemical engineering legacy, pioneering departmental research, and global student achievements.",
+        publishDate: "May 2026",
+        category: "Research",
+      },
       {
         id: "handbook24",
         name: "ChEA Handbook 2025",
@@ -424,7 +437,7 @@ const sortedPublicationEntries = Object.entries(publicationData).sort(([a], [b])
 
 export default function Publication() {
   // 2024 is open by default
-  const [expandedSections, setExpandedSections] = useState({ 2024: true })
+  const [expandedSections, setExpandedSections] = useState({ 2025: true })
   const [selectedPublication, setSelectedPublication] = useState(null)
   const [previewModalOpen, setPreviewModalOpen] = useState(false)
   const ref = useRef(null)
@@ -555,16 +568,16 @@ export default function Publication() {
     return (
       <motion.div
         className="group relative"
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: index * 0.1, duration: 0.6 }}
+        // initial={{ opacity: 0, y: 50, scale: 0.9 }}
+        // animate={{ opacity: 1, y: 0, scale: 1 }}
+        // transition={{ delay: index * 0.1, duration: 0.6 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
         <motion.div
           className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 transition-all duration-300 overflow-hidden"
           animate={{
-            scale: isHovered ? 1.02 : 1,
+            // scale: isHovered ? 1.02 : 1,
             borderColor: isHovered ? "rgba(16, 185, 129, 0.3)" : "rgba(71, 85, 105, 0.5)",
           }}
           transition={{ duration: 0.2 }}
@@ -577,13 +590,13 @@ export default function Publication() {
           />
 
           {/* Chemical Equipment Icon */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-4 right-4"
             animate={{ opacity: isHovered ? 0.6 : 0.2 }}
             transition={{ duration: 0.3 }}
           >
             <yearData.icon size={24} className={yearData.color} />
-          </motion.div>
+          </motion.div> */}
 
           {/* Chemical Formula */}
           <motion.div
@@ -610,32 +623,23 @@ export default function Publication() {
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.button
-                onClick={() => openPreviewModal(publication)}
-                className="bg-emerald-400/20 backdrop-blur-sm px-4 py-2 rounded-full text-emerald-400 border border-emerald-400/30 flex items-center gap-2"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Eye size={16} />
-                Preview
-              </motion.button>
             </motion.div>
 
             {/* Publication Type Badge */}
-            <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
+            {/* <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
               {publication.type}
-            </div>
+            </div> */}
 
             {/* Pages Count */}
-            <div className="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-gray-300 flex items-center gap-1">
+            {/* <div className="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-gray-300 flex items-center gap-1">
               <BookOpen size={12} />
               {publication.pages}p
-            </div>
+            </div> */}
 
             {/* Category Badge */}
-            <div className="absolute bottom-2 left-2 bg-cyan-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30">
+            {/* <div className="absolute bottom-2 left-2 bg-cyan-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30">
               {publication.category}
-            </div>
+            </div> */}
           </div>
 
           {/* Publication Info */}
@@ -655,11 +659,12 @@ export default function Publication() {
             </div>
 
             {/* Action Buttons */}
-            <motion.div className="flex gap-2" animate={{ opacity: isHovered ? 1 : 0 }} transition={{ duration: 0.3 }}>
+            <motion.div className="flex gap-2" >
               <motion.button
                 onClick={() => openPreviewModal(publication)}
                 className="flex items-center gap-2 px-3 py-2 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 text-sm transition-colors duration-300 flex-1 justify-center"
                 whileHover={{ scale: 1.05 }}
+                style={{"cursor":"pointer"}}
                 whileTap={{ scale: 0.95 }}
               >
                 <Eye size={14} />
@@ -676,7 +681,7 @@ export default function Publication() {
                 <ExternalLink size={14} />
                 Open
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href={publication.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -686,7 +691,7 @@ export default function Publication() {
               >
                 <Download size={14} />
                 Download
-              </motion.a>
+              </motion.a> */}
             </motion.div>
           </div>
 
@@ -809,7 +814,7 @@ export default function Publication() {
                       <ExternalLink size={16} />
                       Open Publication
                     </motion.a>
-                    <motion.a
+                    {/* <motion.a
                       href={selectedPublication.url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -819,7 +824,7 @@ export default function Publication() {
                     >
                       <Download size={16} />
                       Download
-                    </motion.a>
+                    </motion.a> */}
                   </div>
                 </div>
               </div>
@@ -831,20 +836,21 @@ export default function Publication() {
   )
 
   return (
-    <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
+    // <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
+    <div ref={ref} className="overflow-hidden">
       <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
         {/* Chemical Particles Background */}
-        {renderChemicalParticles()}
+        {/* {renderChemicalParticles()} */}
 
         {/* Floating Chemical Equipment */}
-        {renderFloatingEquipment()}
+        {/* {renderFloatingEquipment()} */}
 
         {/* Chemical Formulas */}
-        {renderChemicalFormulas("left")}
-        {renderChemicalFormulas("right")}
+        {/* {renderChemicalFormulas("left")}
+        {renderChemicalFormulas("right")} */}
 
         {/* Chemical Droplets */}
-        {chemicalDroplets.map((droplet, i) => (
+        {/* {chemicalDroplets.map((droplet, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${droplet.size} ${droplet.color} ${droplet.glow} shadow-lg`}
@@ -856,10 +862,10 @@ export default function Publication() {
               {droplet.formula}
             </div>
           </motion.div>
-        ))}
+        ))} */}
 
         {/* Chemical Bubbles */}
-        {chemicalBubbles.map((bubble, i) => (
+        {/* {chemicalBubbles.map((bubble, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${bubble.size} ${bubble.color} opacity-40 shadow-lg`}
@@ -871,16 +877,16 @@ export default function Publication() {
               {bubble.formula}
             </div>
           </motion.div>
-        ))}
+        ))} */}
 
         {/* Main Content */}
-        <section className="relative z-10 px-6 lg:px-16 py-20">
+        <section className="relative z-10 px-6 lg:px-16 py-40">
           {/* Header */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: -50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            // initial={{ opacity: 0, y: -50 }}
+            // animate={isInView ? { opacity: 1, y: 0 } : {}}
+            // transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <motion.div
@@ -921,8 +927,8 @@ export default function Publication() {
               <motion.div
                 key={year}
                 className="relative"
-                initial={{ opacity: 0, x: -100 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0,}}
+                animate={isInView ? { opacity: 1,} : {}}
                 transition={{ delay: yearIndex * 0.2, duration: 0.8 }}
               >
                 {/* Year Header */}

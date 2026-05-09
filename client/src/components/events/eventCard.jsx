@@ -57,7 +57,8 @@ const categoryIconComponents = {
   entertainment: Film,
 }
 
-const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
+const chemicalFormulas = [];
+// const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
 
 export const EventCard = ({ event, index, onEventClick }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -72,11 +73,11 @@ export const EventCard = ({ event, index, onEventClick }) => {
   return (
     <motion.div
       className="group relative max-w-sm mx-auto"
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      // animate={{ opacity: 1, y: 0, scale: 1 }}
+      // transition={{ delay: index * 0.1, duration: 0.6 }}
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
       onClick={handleCardClick}
     >
       <motion.div
@@ -99,10 +100,10 @@ export const EventCard = ({ event, index, onEventClick }) => {
           animate={{ opacity: isHovered ? 0.8 : 0.4 }}
           transition={{ duration: 0.3 }}
         >
-          {(() => {
+          {/* {(() => {
             const IconComponent = categoryIconComponents[event.category] || Beaker
             return <IconComponent size={20} className="text-emerald-400" />
-          })()}
+          })()} */}
         </motion.div>
 
         {/* Chemical Formula */}
@@ -140,7 +141,7 @@ export const EventCard = ({ event, index, onEventClick }) => {
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.button
+            {/* <motion.button
               onClick={() => onEventClick(event)}
               className="bg-emerald-400/20 backdrop-blur-sm px-4 py-2 rounded-full text-emerald-400 border border-emerald-400/30 flex items-center gap-1 text-sm font-medium"
               whileHover={{ scale: 1.1 }}
@@ -148,7 +149,7 @@ export const EventCard = ({ event, index, onEventClick }) => {
             >
               <Eye size={14} />
               View
-            </motion.button>
+            </motion.button> */}
           </motion.div>
 
           {/* Event Type Badge */}
@@ -165,9 +166,9 @@ export const EventCard = ({ event, index, onEventClick }) => {
           </div>
 
           {/* Links Count Badge */}
-          <div className="absolute bottom-1.5 left-1.5 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
+          {/* <div className="absolute bottom-1.5 left-1.5 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
             {event.links?.length || 0}
-          </div>
+          </div> */}
         </div>
 
         {/* Event Info */}
@@ -193,21 +194,22 @@ export const EventCard = ({ event, index, onEventClick }) => {
           <motion.div className="flex gap-2" animate={{ opacity: isHovered ? 1 : 0.8 }} transition={{ duration: 0.3 }}>
             <motion.button
               onClick={() => onEventClick(event)}
+              style={{"cursor":"pointer"}}
               className="flex items-center gap-1 px-3 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg text-white text-sm font-medium transition-colors duration-300 flex-1 justify-center"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <Eye size={14} />
               View Details
             </motion.button>
-            <motion.button
+            {/* <motion.button
               onClick={() => onEventClick(event)}
               className="flex items-center gap-1 px-3 py-2 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg text-gray-300 text-sm font-medium transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <ExternalLink size={14} />
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </div>
 
@@ -230,7 +232,7 @@ export const EventCard = ({ event, index, onEventClick }) => {
         />
 
         {/* Chemical Particles */}
-        <motion.div
+        {/* <motion.div
           className="absolute bottom-3 right-3 flex gap-0.5"
           animate={{
             opacity: isHovered ? 1 : 0,
@@ -252,7 +254,7 @@ export const EventCard = ({ event, index, onEventClick }) => {
               }}
             />
           ))}
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </motion.div>
   )

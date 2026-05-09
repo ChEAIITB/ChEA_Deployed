@@ -48,7 +48,6 @@ const BLOG_CARDS = [
   { id: "icy-didnt-know",   title: "ICY Didn't\nKnow",   subtitle: "In Case You Didn't Know – bite-sized facts & insights",                         icon: Atom,          tag: "DID YOU KNOW", color: "from-emerald-600 to-cyan-700"   },
   { id: "then-vs-now",      title: "Then Vs\nNow",        subtitle: "Let's hear what respected alumni of the institute have to say",                  icon: Users,         tag: "ALUMNI",       color: "from-purple-600 to-pink-700"    },
   { id: "semex",            title: "SemEx",               subtitle: "Semester exchange experiences from students across the globe",                   icon: BookOpen,      tag: "SEM EXCHANGE", color: "from-teal-600 to-emerald-700"   },
-  { id: "coming-soon",      title: "Stay\nTuned !!",      subtitle: "Something exciting is on the way. Watch this space!",                           icon: Flask,         tag: "SOON",         color: "from-slate-600 to-slate-700",   comingSoon: true },
 ];
 
 const DATA = {
@@ -1043,10 +1042,10 @@ function BlogCard({ card, index, onClick }) {
           ? "border-slate-700/30 cursor-default"
           : "border-slate-700/50 hover:border-emerald-400/30 cursor-pointer"
       } bg-slate-800/50 backdrop-blur-sm`}
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.07, duration: 0.5 }}
-      whileHover={!card.comingSoon ? { scale: 1.03, y: -6 } : {}}
+      // whileHover={!card.comingSoon ? { scale: 1.03, y: -6 } : {}}
     >
       {/* Hover glow bg */}
       <motion.div
@@ -1116,12 +1115,12 @@ export default function CheaBlogs() {
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white relative overflow-hidden" style={{paddingTop:'50px'}}>
       {/* Chemical particles — same as rest of site */}
-      <ChemicalParticles />
+      {/* <ChemicalParticles /> */}
 
       {/* Chemical formula side decorations — same as rest of site */}
-      {["left", "right"].map(side => (
+      {/* {["left", "right"].map(side => (
         <div key={side} className={`absolute ${side}-4 top-0 bottom-0 flex flex-col justify-around z-0 pointer-events-none`}>
           {["H₂SO₄", "NaOH", "C₆H₁₂O₆", "NH₃", "CO₂", "H₂O"].map((f, i) => (
             <motion.div key={i} className="text-emerald-300/25 text-sm font-mono font-bold"
@@ -1130,7 +1129,7 @@ export default function CheaBlogs() {
             >{f}</motion.div>
           ))}
         </div>
-      ))}
+      ))} */}
 
       {/* Top border — same as rest of site */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />

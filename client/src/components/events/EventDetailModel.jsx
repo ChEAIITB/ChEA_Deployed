@@ -45,7 +45,8 @@ const categoryIconComponents = {
   entertainment: Film,
 }
 
-const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
+// const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
+const chemicalFormulas = []
 
 export const EventDetailModal = ({ event, onClose }) => {
   const handleLinkClick = useCallback((url) => {
@@ -180,7 +181,7 @@ export const EventDetailModal = ({ event, onClose }) => {
                 Resources & Links
                 <motion.div
                   className="text-xs bg-emerald-400/20 text-emerald-400 px-2 py-1 rounded-full border border-emerald-400/30"
-                  animate={{ scale: [1, 1.05, 1] }}
+                  animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 >
                   {event.links.length} items

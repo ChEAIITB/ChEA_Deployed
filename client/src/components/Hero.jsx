@@ -52,23 +52,23 @@ const floatingIndustrial = [
 ]
 
 export default function Hero() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 })
-  }, [])
+  // useEffect(() => {
+  //   AOS.init({ duration: 1000 })
+  // }, [])
 
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
+  // const mouseX = useMotionValue(0)
+  // const mouseY = useMotionValue(0)
 
-  const handleMouseMove = (e) => {
-    mouseX.set(e.clientX)
-    mouseY.set(e.clientY)
-  }
+  // const handleMouseMove = (e) => {
+  //   mouseX.set(e.clientX)
+  //   mouseY.set(e.clientY)
+  // }
 
-  const getTransform = (mult = 0.01) => {
-    const x = useTransform(mouseX, (x) => (x - window.innerWidth / 2) * mult)
-    const y = useTransform(mouseY, (y) => (y - window.innerHeight / 2) * mult)
-    return { x, y }
-  }
+  // const getTransform = (mult = 0.01) => {
+  //   const x = useTransform(mouseX, (x) => (x - window.innerWidth / 2) * mult)
+  //   const y = useTransform(mouseY, (y) => (y - window.innerHeight / 2) * mult)
+  //   return { x, y }
+  // }
 
   const renderIndustrialStructures = () =>
     industrialEquipment.map((equipment, i) => (
@@ -85,7 +85,7 @@ export default function Hero() {
         }}
         animate={{
           rotate: equipment.type === 'reactor' ? 360 : 0,
-          scale: [1, 1.05, 1],
+          scale: [1, 1.02, 1],
         }}
         transition={{
           rotate: { duration: 30 + i * 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
@@ -239,24 +239,25 @@ export default function Hero() {
     ))
 
   return (
-    <div onMouseMove={handleMouseMove} className="overflow-hidden">
+    // <div onMouseMove={handleMouseMove} className="overflow-hidden">
+    <div className="overflow-hidden">
       <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-cyan-950 text-white">
         {/* Industrial Smoke Background */}
-        {renderIndustrialSmoke()}
+        {/* {renderIndustrialSmoke()} */}
         
         {/* Industrial Structures */}
-        <div className="absolute inset-0" style={{ zIndex: 1 }}>
+        {/* <div className="absolute inset-0" style={{ zIndex: 1 }}>
           {renderIndustrialStructures()}
           {renderChemicalPlants()}
-        </div>
+        </div> */}
 
         {/* Warning Lights */}
-        {renderWarningLights()}
+        {/* {renderWarningLights()} */}
 
         {/* Hero Section */}
         <section className="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-16 py-20 relative" style={{ zIndex: 20 }}>
           {/* Floating Industrial Equipment - positioned at edges only */}
-          {floatingIndustrial.map((equipment, i) => (
+          {/* {floatingIndustrial.map((equipment, i) => (
             <motion.div
               key={i}
               className="absolute pointer-events-none"
@@ -278,33 +279,37 @@ export default function Hero() {
             >
               <equipment.icon size={equipment.size} className={`${equipment.color} opacity-40`} />
             </motion.div>
-          ))}
+          ))} */}
 
           {/* Hero Content */}
           <div className="w-full lg:w-1/2 space-y-6 ml-7 relative" style={{ zIndex: 30 }}>
-            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight" data-aos="fade-right">
+            {/* <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}> */}
+              {/* <h1 className="text-5xl lg:text-6xl font-bold leading-tight" data-aos="fade-right"> */}
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight"> 
                 CHEMICAL Engineering <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
                   Association, IIT Bombay
                 </span>
               </h1>
-            </motion.div>
+            {/* </motion.div> */}
             
-            <motion.div
+            {/* <motion.div
               className="flex items-center gap-4 my-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
               style={{ zIndex: 30 }}
-            >
+            > */}
+            <div className="flex items-center gap-4 my-6">
               <Flask className="text-emerald-400" size={32} />
               <TestTube className="text-cyan-400" size={28} />
               <Beaker className="text-violet-400" size={30} />
               <Droplets className="text-teal-400" size={26} />
-            </motion.div>
+              </div>
+            {/* </motion.div> */}
             
-            <p className="text-lg text-gray-300 relative" data-aos="fade-left" style={{ zIndex: 30 }}>
+            <p className="text-lg text-gray-300 relative" style={{ zIndex: 30 }}>
+            {/* <p className="text-lg text-gray-300 relative" data-aos="fade-left" style={{ zIndex: 30 }}> */}
               <span className="text-emerald-400 font-bold flex items-center gap-2">
                 <Zap size={20} />
                 Transforming atoms into innovations:
@@ -318,8 +323,9 @@ export default function Hero() {
           </div>
 
           {/* Image with Industrial Effects */}
-          <div className="lg:flex w-1/2 justify-center relative" data-aos="fade-up" style={{ zIndex: 25 }}>
-            <div className="relative">
+          <div className="lg:flex w-1/2 justify-center relative" style={{ zIndex: 25 }}>
+          {/* <div className="lg:flex w-1/2 justify-center relative" data-aos="fade-up" style={{ zIndex: 25 }}> */}
+            <div className="relative" style={{padding:'25px', marginTop:'35px', marginBottom:'25px'}}>
               <img
                 src={loading || "/placeholder.svg?height=500&width=500&query=massive chemical industrial plant with smokestacks and cooling towers"}
                 alt="Chemical Industrial Plant"
@@ -348,9 +354,9 @@ export default function Hero() {
         {/* Industrial Divider */}
         <div className="relative text-white" style={{ zIndex: 20 }}>
           <div className="flex justify-center my-8">
-            <motion.div
+            <div
               className="w-4/5 h-[4px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 relative"
-              data-aos="fade-right"
+              
               animate={{
                 boxShadow: [
                   "0 0 10px rgba(16, 185, 129, 0.5)",
@@ -360,14 +366,14 @@ export default function Hero() {
               }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
             >
-              <motion.div
+              {/* <motion.div
                 className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl text-emerald-400 font-bold"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <Atom size={36} />
-              </motion.div>
-            </motion.div>
+              > */}
+                {/* <Atom size={36} /> */}
+              {/* </motion.div> */}
+            </div>
           </div>
         </div>
 
@@ -384,7 +390,7 @@ export default function Hero() {
             {/* YouTube Embed with Industrial Frame */}
             <motion.div
               className="w-full lg:w-1/2 aspect-video relative"
-              data-aos="fade-up-right"
+              // data-aos="fade-up-right"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               style={{ zIndex: 30 }}
@@ -409,9 +415,10 @@ export default function Hero() {
             {/* Description with Industrial Theme */}
             <motion.div
               className="w-full lg:w-1/2 text-lg leading-relaxed bg-gradient-to-br from-slate-900/90 to-emerald-950/80 p-8 rounded-xl shadow-2xl backdrop-blur-md text-gray-300 border border-emerald-400/30 relative"
-              data-aos="fade-up-left"
+              // data-aos="fade-up-left"
               whileHover={{
-                boxShadow: "0 0 40px rgba(16, 185, 129, 0.4)",
+                boxShadow: "0 0 5px rgba(16, 185, 129, 0.1)",
+                // transitionDuration:'.5s',
                 borderColor: "rgba(16, 185, 129, 0.6)",
               }}
               transition={{ duration: 0.3 }}

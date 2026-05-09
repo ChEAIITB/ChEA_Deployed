@@ -36,7 +36,7 @@ const chemicalEquipment = [
 ]
 
 // Chemical formulas for decorative elements (legacy tech terms)
-const chemicalFormulas = ["HTML", "CSS", "PHP", "SQL", "XML", "FTP", "SMTP"]
+const chemicalFormulas = []
 
 // Chemical droplets with enhanced properties
 const chemicalDroplets = [
@@ -257,11 +257,11 @@ export default function Link24() {
     return (
       <motion.div
         className="group relative"
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: index * 0.2, duration: 0.6 }}
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
+        // initial={{ opacity: 0, y: 50, scale: 0.9 }}
+        // animate={{ opacity: 1, y: 0, scale: 1 }}
+        // transition={{ delay: index * 0.2, duration: 0.6 }}
+        // onHoverStart={() => setIsHovered(true)}
+        // onHoverEnd={() => setIsHovered(false)}
       >
         <motion.div
           className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 transition-all duration-300 overflow-hidden min-h-[400px]"
@@ -279,27 +279,27 @@ export default function Link24() {
           />
 
           {/* Chemical Equipment Icon */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-4 right-4"
             animate={{ opacity: isHovered ? 0.6 : 0.2 }}
             transition={{ duration: 0.3 }}
           >
             <link.icon size={24} className={link.color} />
-          </motion.div>
+          </motion.div> */}
 
           {/* Chemical Formula */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-2 left-2 text-xs font-mono text-emerald-400/40"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
           >
             {link.formula}
-          </motion.div>
+          </motion.div> */}
 
           {/* Year Badge */}
-          <div className="absolute top-2 right-12 bg-orange-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-orange-400 border border-orange-400/30">
+          {/* <div className="absolute top-2 right-12 bg-orange-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-orange-400 border border-orange-400/30">
             {link.year}
-          </div>
+          </div> */}
 
           {/* Link Image with Full Visibility */}
           <div className="relative mb-4 overflow-hidden rounded-lg">
@@ -308,7 +308,7 @@ export default function Link24() {
                 src={link.image || "/placeholder.svg"}
                 alt={link.name}
                 className="w-full h-full object-contain bg-white/5 cursor-pointer"
-                animate={{ scale: isHovered ? 1.05 : 1 }}
+                animate={{ scale: isHovered ? 1.02 : 1 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => openImageModal(link)}
               />
@@ -320,7 +320,7 @@ export default function Link24() {
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.button
+              {/* <motion.button
                 onClick={() => openImageModal(link)}
                 className="bg-emerald-400/20 backdrop-blur-sm px-4 py-2 rounded-full text-emerald-400 border border-emerald-400/30 flex items-center gap-2"
                 whileHover={{ scale: 1.1 }}
@@ -328,21 +328,21 @@ export default function Link24() {
               >
                 <Eye size={16} />
                 View Full Image
-              </motion.button>
+              </motion.button> */}
             </motion.div>
 
             {/* Category Badge */}
-            <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
+            {/* <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
               {link.category}
-            </div>
+            </div> */}
 
             {/* Type Badge */}
-            <div className="absolute bottom-2 right-2 bg-cyan-400/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30">
+            {/* <div className="absolute bottom-2 right-2 bg-cyan-400/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30">
               {link.type}
-            </div>
+            </div> */}
 
             {/* Status Badge */}
-            <div
+            {/* <div
               className={`absolute bottom-2 left-2 backdrop-blur-sm px-3 py-1 rounded-full text-xs border ${
                 link.status === "Active"
                   ? "bg-green-400/20 text-green-400 border-green-400/30"
@@ -350,7 +350,7 @@ export default function Link24() {
               }`}
             >
               {link.status}
-            </div>
+            </div> */}
           </div>
 
           {/* Link Info */}
@@ -369,15 +369,15 @@ export default function Link24() {
             {/* Action Buttons */}
             <motion.div
               className="flex gap-2 pt-4"
-              animate={{ opacity: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
+              // animate={{ opacity: isHovered ? 1 : 0 }}
+              // transition={{ duration: 0.3 }}
             >
               <motion.a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 text-sm transition-colors duration-300 flex-1 justify-center"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <ExternalLink size={14} />
@@ -385,8 +385,9 @@ export default function Link24() {
               </motion.a>
               <motion.button
                 onClick={() => openImageModal(link)}
+                style={{"cursor":"pointer"}}
                 className="flex items-center gap-2 px-4 py-2 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 text-sm transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Eye size={14} />
@@ -515,7 +516,7 @@ export default function Link24() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 transition-colors duration-300 flex-1 justify-center"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <ExternalLink size={16} />
@@ -525,7 +526,7 @@ export default function Link24() {
                       href={selectedLink.image}
                       download
                       className="flex items-center gap-2 px-4 py-2 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Download size={16} />
@@ -557,17 +558,17 @@ export default function Link24() {
     <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
       <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
         {/* Chemical Particles Background */}
-        {renderChemicalParticles()}
+        {/* {renderChemicalParticles()} */}
 
         {/* Floating Chemical Equipment */}
-        {renderFloatingEquipment()}
+        {/* {renderFloatingEquipment()} */}
 
         {/* Chemical Formulas */}
-        {renderChemicalFormulas("left")}
-        {renderChemicalFormulas("right")}
+        {/* {renderChemicalFormulas("left")}
+        {renderChemicalFormulas("right")} */}
 
         {/* Chemical Droplets */}
-        {chemicalDroplets.map((droplet, i) => (
+        {/* {chemicalDroplets.map((droplet, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${droplet.size} ${droplet.color} ${droplet.glow} shadow-lg`}
@@ -585,16 +586,16 @@ export default function Link24() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-          >
+          > */}
             {/* Chemical Formula Label */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
+            {/* <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
               {droplet.formula}
             </div>
           </motion.div>
-        ))}
+        ))} */}
 
         {/* Chemical Bubbles */}
-        {chemicalBubbles.map((bubble, i) => (
+        {/* {chemicalBubbles.map((bubble, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${bubble.size} ${bubble.color} opacity-40 shadow-lg`}
@@ -613,16 +614,16 @@ export default function Link24() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-          >
+          > */}
             {/* Chemical Formula */}
-            <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
+            {/* <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
               {bubble.formula}
             </div>
           </motion.div>
-        ))}
+        ))} */}
 
         {/* Main Content */}
-        <section className="relative z-10 px-6 lg:px-16 py-20">
+        <section className="relative z-10 px-6 lg:px-16 py-40">
           {/* Header with Chemical Theme */}
           <motion.div
             className="text-center mb-16"
@@ -660,7 +661,8 @@ export default function Link24() {
   <Link to="/links/25">
     <motion.button
       className="px-6 py-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg text-gray-300 border border-slate-600/50 transition-colors duration-300"
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
+      style={{"cursor":"pointer"}}
       whileTap={{ scale: 0.95 }}
     >
       2025
@@ -670,7 +672,8 @@ export default function Link24() {
   <Link to="/links/24">
     <motion.button
       className="px-6 py-3 bg-orange-400/20 hover:bg-orange-400/30 rounded-lg text-orange-400 border border-orange-400/30 transition-colors duration-300"
-      whileHover={{ scale: 1.05 }}
+      style={{"cursor":"pointer"}}
+      whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.95 }}
     >
       Pre-2025
@@ -682,18 +685,18 @@ export default function Link24() {
             <div className="flex justify-center mb-8">
               <div className="bg-orange-400/10 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-400/30 flex items-center gap-3">
                 <Calendar size={20} className="text-orange-400" />
-                <span className="text-orange-400 font-semibold">Legacy Archive Collection</span>
-                <div className="text-xs font-mono text-orange-400/60">2024</div>
+                <span className="text-orange-400 font-semibold">Legacy Archive Collection 2024</span>
+                {/* <div className="text-xs font-mono text-orange-400/60">2024</div> */}
               </div>
             </div>
 
             {/* Chemical Equipment Decoration */}
-            <div className="flex justify-center items-center gap-6 opacity-60">
+            {/* <div className="flex justify-center items-center gap-6 opacity-60">
               <Users size={24} className="text-orange-400" />
               <FileText size={24} className="text-emerald-400" />
               <Briefcase size={24} className="text-cyan-400" />
               <GraduationCap size={24} className="text-violet-400" />
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Links Grid */}

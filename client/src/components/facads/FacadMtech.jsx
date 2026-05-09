@@ -103,15 +103,15 @@ export default function FacadMtech() {
           <section className="min-h-screen lg:flex-row items-center justify-between px-6 lg:px-16 py-20 relative z-10">
             {/* Orbit Circles */}
             <div className="absolute inset-0 flex justify-center items-center z-0 pointer-events-none">
-              {renderOrbitCircles()}
+              {/* {renderOrbitCircles()} */}
             </div>
 
             {/* Vertical Lines with Plus */}
-            {renderPlusLines("left")}
-            {renderPlusLines("right")}
+            {/* {renderPlusLines("left")}
+            {renderPlusLines("right")} */}
 
             {/* Orbit Balls */}
-            {orbitBalls.map((ball, i) => (
+            {/* {orbitBalls.map((ball, i) => (
               <motion.div
                 key={i}
                 className={`absolute rounded-full ${ball.size} ${ball.color}`}
@@ -121,8 +121,8 @@ export default function FacadMtech() {
                   ...getTransform(0.02),
                 }}
               />
-            ))}
-                        <h1 className="text-center font-black text-4xl mt-4 mb-4" data-aos='fade-left'>KNOW YOUR <span className="text-purple-600">FACAD</span></h1>
+            ))} */}
+                        <h1 className="text-center font-black text-4xl mt-4 mb-4">KNOW YOUR <span className="text-purple-600">FACAD</span></h1>
             {/* NavButton content */}
 
             <div className="w-full px-[10%] py-4">

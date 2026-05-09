@@ -52,8 +52,8 @@ function App() {
         <Navbar user={user} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/register" element={<Register setUser={setUser} />} />
+          {/* <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register setUser={setUser} />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact/24" element={<Contact24 />} />
           <Route path="/contact/23" element={<Contact23 />} />

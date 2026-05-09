@@ -50,47 +50,20 @@ import nagappan from "../../assets/images/facad25/nagappan.jpg"
 
 // Chemical equipment for floating animations
 const chemicalEquipment = [
-  { size: 100, opacity: 0.08, rotation: 45, icon: Flask },
-  { size: 80, opacity: 0.12, rotation: -30, icon: TestTube },
-  { size: 120, opacity: 0.06, rotation: 60, icon: Beaker },
-  { size: 90, opacity: 0.15, rotation: -45, icon: Atom },
+  
 ]
 
 // Chemical formulas for decorative elements
-const chemicalFormulas = ["Prof", "PhD", "MTech", "BTech", "Facad", "Guide", "Mentor"]
+const chemicalFormulas = []
 
 // Chemical droplets with enhanced properties
 const chemicalDroplets = [
-  { top: "15%", left: "10%", size: "w-6 h-6", color: "bg-emerald-400", glow: "shadow-emerald-400/50", formula: "Prof" },
-  { top: "35%", left: "80%", size: "w-4 h-4", color: "bg-cyan-400", glow: "shadow-cyan-400/50", formula: "PhD" },
-  { top: "65%", left: "15%", size: "w-5 h-5", color: "bg-violet-400", glow: "shadow-violet-400/50", formula: "MTech" },
-  { top: "75%", left: "90%", size: "w-4 h-4", color: "bg-teal-400", glow: "shadow-teal-400/50", formula: "BTech" },
-  { top: "25%", left: "60%", size: "w-3 h-3", color: "bg-lime-400", glow: "shadow-lime-400/50", formula: "Facad" },
+
 ]
 
 // Enhanced chemical bubbles
 const chemicalBubbles = [
-  {
-    top: "10%",
-    left: "30%",
-    size: "w-8 h-8",
-    color: "bg-gradient-to-br from-emerald-400 to-cyan-500",
-    formula: "Faculty",
-  },
-  {
-    top: "50%",
-    left: "75%",
-    size: "w-10 h-10",
-    color: "bg-gradient-to-br from-cyan-400 to-violet-500",
-    formula: "Advisor",
-  },
-  {
-    top: "85%",
-    left: "20%",
-    size: "w-6 h-6",
-    color: "bg-gradient-to-br from-violet-400 to-teal-500",
-    formula: "Mentor",
-  },
+
 ]
 
 // Comprehensive faculty data with additional members
@@ -676,8 +649,8 @@ export default function Facad() {
     return (
       <motion.div
         className="group relative"
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0,}}
+        animate={{ opacity: 1, }}
         transition={{ delay: index * 0.1, duration: 0.6 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
@@ -693,27 +666,27 @@ export default function Facad() {
           {/* Chemical Reaction Background */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-cyan-400/5"
-            animate={{ opacity: isHovered ? 1 : 0 }}
+            // animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           />
 
           {/* Position Icon */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-4 right-4"
             animate={{ opacity: isHovered ? 0.6 : 0.2 }}
             transition={{ duration: 0.3 }}
           >
             <positionData.icon size={24} className={positionData.color} />
-          </motion.div>
+          </motion.div> */}
 
           {/* Chemical Formula */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-2 left-2 text-xs font-mono text-emerald-400/40"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
           >
             {positionData.formula}
-          </motion.div>
+          </motion.div> */}
 
           {/* Faculty Photo */}
           <div className="relative mb-4 overflow-hidden rounded-lg">
@@ -722,7 +695,7 @@ export default function Facad() {
                 src={faculty.image || "/placeholder.svg"}
                 alt={faculty.name}
                 className="w-full h-full object-cover cursor-pointer"
-                animate={{ scale: isHovered ? 1.05 : 1 }}
+                animate={{ scale: isHovered ? 1.02 : 1 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => openFacultyModal(faculty)}
               />
@@ -731,24 +704,16 @@ export default function Facad() {
             {/* Photo Overlay */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent flex items-end justify-center pb-4"
-              animate={{ opacity: isHovered ? 1 : 0 }}
+              // animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.button
-                onClick={() => openFacultyModal(faculty)}
-                className="bg-emerald-400/20 backdrop-blur-sm px-3 py-1 rounded-full text-emerald-400 border border-emerald-400/30 flex items-center gap-2 text-sm"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Eye size={14} />
-                View Profile
-              </motion.button>
+              
             </motion.div>
 
             {/* Experience Badge */}
-            <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
+            {/* <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
               {faculty.experience}
-            </div>
+            </div> */}
           </div>
 
           {/* Faculty Info */}
@@ -808,7 +773,7 @@ export default function Facad() {
             {/* Action Buttons */}
             <motion.div
               className="flex gap-2 pt-2"
-              animate={{ opacity: isHovered ? 1 : 0 }}
+              // animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
               <motion.a
@@ -816,7 +781,7 @@ export default function Facad() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-3 py-1 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 text-xs transition-colors duration-300 flex-1 justify-center"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <ExternalLink size={12} />
@@ -825,8 +790,9 @@ export default function Facad() {
               <motion.button
                 onClick={() => openFacultyModal(faculty)}
                 className="flex items-center gap-2 px-3 py-1 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 text-xs transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
+                style={{"cursor":"pointer"}}
               >
                 <Eye size={12} />
                 Details
@@ -965,7 +931,7 @@ export default function Facad() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-3 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <ExternalLink size={16} />
@@ -974,7 +940,7 @@ export default function Facad() {
                 <motion.a
                   href={`mailto:${selectedFaculty.email}`}
                   className="flex items-center gap-2 px-6 py-3 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Mail size={16} />
@@ -994,17 +960,17 @@ export default function Facad() {
     <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
       <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
         {/* Chemical Particles Background */}
-        {renderChemicalParticles()}
+        {/* {renderChemicalParticles()} */}
 
         {/* Floating Chemical Equipment */}
-        {renderFloatingEquipment()}
+        {/* {renderFloatingEquipment()} */}
 
         {/* Chemical Formulas */}
-        {renderChemicalFormulas("left")}
-        {renderChemicalFormulas("right")}
+        {/* {renderChemicalFormulas("left")}
+        {renderChemicalFormulas("right")} */}
 
         {/* Chemical Droplets */}
-        {chemicalDroplets.map((droplet, i) => (
+        {/* {chemicalDroplets.map((droplet, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${droplet.size} ${droplet.color} ${droplet.glow} shadow-lg`}
@@ -1022,16 +988,16 @@ export default function Facad() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-          >
+          > */}
             {/* Chemical Formula Label */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
+            {/* <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
               {droplet.formula}
             </div>
           </motion.div>
-        ))}
+        ))} */}
 
         {/* Chemical Bubbles */}
-        {chemicalBubbles.map((bubble, i) => (
+        {/* {chemicalBubbles.map((bubble, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${bubble.size} ${bubble.color} opacity-40 shadow-lg`}
@@ -1050,22 +1016,22 @@ export default function Facad() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-          >
+          > */}
             {/* Chemical Formula */}
-            <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
+            {/* <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
               {bubble.formula}
-            </div>
-          </motion.div>
-        ))}
+            </div> */}
+          {/* </motion.div>
+        ))} */}
 
         {/* Main Content */}
-        <section className="relative z-10 px-6 lg:px-16 py-20">
+        <section className="relative z-10 px-6 lg:px-16 py-40">
           {/* Header with Chemical Theme */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: -50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            // initial={{ opacity: 0, y: -50 }}
+            // animate={isInView ? { opacity: 1, y: 0 } : {}}
+            // transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <motion.div
@@ -1097,13 +1063,14 @@ export default function Facad() {
               {Object.entries(facultyData).map(([key, data]) => (
                 <motion.button
                   key={key}
+                  style={{"cursor":"pointer"}}
                   onClick={() => setSelectedCategory(key)}
                   className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
                     selectedCategory === key
                       ? "bg-emerald-400/20 hover:bg-emerald-400/30 text-emerald-400 border-emerald-400/30"
                       : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
                   }`}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {key === "2024"
@@ -1120,19 +1087,19 @@ export default function Facad() {
             </div>
 
             {/* Chemical Equipment Decoration */}
-            <div className="flex justify-center items-center gap-6 opacity-60">
+            {/* <div className="flex justify-center items-center gap-6 opacity-60">
               <Flask size={24} className="text-emerald-400" />
               <TestTube size={24} className="text-cyan-400" />
               <Beaker size={24} className="text-violet-400" />
               <Atom size={24} className="text-teal-400" />
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Faculty Section */}
           <motion.div
             className="mb-20"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            // initial={{ opacity: 0, y: 50 }}
+            // animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-12">
@@ -1145,13 +1112,13 @@ export default function Facad() {
               <h2 className="text-4xl font-bold">
                 {selectedCategory} <span className={currentCategoryData.color}>{currentCategoryData.title}</span>
               </h2>
-              <motion.div
+              {/* <motion.div
                 className={`text-sm font-mono ${currentCategoryData.color}/60`}
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
               >
                 {currentCategoryData.formula}
-              </motion.div>
+              </motion.div> */}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

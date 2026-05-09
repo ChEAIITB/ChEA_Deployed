@@ -77,21 +77,22 @@ export default function Navbar() {
     <>
       {/* Top accent bar */}
       <div className="fixed top-0 left-0 w-full z-50 h-[3px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/0 via-emerald-400 to-cyan-400/60" />
-        <motion.div
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/0 via-emerald-400 to-cyan-400/60" /> */}
+        {/* <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent w-1/3"
           animate={{ x: ["-100%", "400%"] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }}
-        />
-        <div className="absolute inset-0 blur-sm bg-gradient-to-r from-emerald-400/40 via-cyan-400/60 to-emerald-400/40" />
+        /> */}
+        {/* <div className="absolute inset-0 blur-sm bg-gradient-to-r from-emerald-400/40 via-cyan-400/60 to-emerald-400/40" /> */}
       </div>
 
       {/* Main Navbar */}
       <motion.nav
-        style={{ height: springHeight }}
-        className={`fixed top-[3px] left-0 w-full z-50 transition-shadow duration-500 ${
+        // style={{ height: springHe/ight }}
+        className={`fixed top-[0px] left-0 w-full z-50 transition-shadow duration-500 ${
           scrolled ? "shadow-[0_8px_60px_rgba(16,185,129,0.15),0_2px_20px_rgba(0,0,0,0.4)]" : ""
         }`}
+        // style={{paddingTop:'10px', paddingBottom:'10px'}}
       >
         {/* Background layers */}
         <div className="absolute inset-0 overflow-hidden">
@@ -119,23 +120,23 @@ export default function Navbar() {
         </div>
 
         {/* Nav content */}
-        <div className="relative h-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between">
+        <div className="relative h-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between" >
 
           {/* Logo */}
           <Link to="/" className="relative group flex items-center gap-3 flex-shrink-0 py-2">
             <motion.div
               className="absolute -inset-3 rounded-2xl bg-emerald-400/0"
-              whileHover={{ backgroundColor: "rgba(52,211,153,0.07)" }}
+              // whileHover={{ backgroundColor: "rgba(52,211,153,0.07)" }}
               transition={{ duration: 0.4 }}
             />
             <motion.div
               className="relative"
-              whileHover={{ scale: 1.08, rotate: -2 }}
+              // whileHover={{ scale: 1.08, rotate: -2 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="absolute inset-0 rounded-xl bg-emerald-400/0 group-hover:bg-emerald-400/20 blur-lg transition-all duration-500" />
+              <div className="absolute inset-0 rounded-xl bg-emerald-400/0 group-hover:bg-emerald-400/20 blur-lg transition-all duration-500"/>
               <img
-                className="h-10 relative z-10 drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] group-hover:drop-shadow-[0_0_20px_rgba(16,185,129,0.7)] transition-all duration-300"
+                className="h-10 relative z-10 drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] transition-all duration-300"
                 src={pndLogo}
                 alt="ChEA Logo"
               />
@@ -153,9 +154,9 @@ export default function Navbar() {
                     <motion.span
                       key={tickerIdx}
                       className="absolute text-[11px] font-mono text-cyan-400/60 whitespace-nowrap leading-none"
-                      initial={{ y: -14, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: 14, opacity: 0 }}
+                      // initial={{ y: -14, opacity: 0 }}
+                      // animate={{ y: 0, opacity: 1 }}
+                      // exit={{ y: 14, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       {TICKER_FORMULAS[tickerIdx]}
@@ -175,8 +176,9 @@ export default function Navbar() {
               return (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  // initial={{ opacity: 0, y: -20 }}
+                  // animate={{ opacity: 1, y: 0 }}
+                  style={{marginTop:'12.5px', marginBottom:'12.5px'}}
                   transition={{ delay: 0.05 + index * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <Link
@@ -201,8 +203,8 @@ export default function Navbar() {
                     )}
                     {active && (
                       <div className="absolute inset-0 pointer-events-none">
-                        <OrbitDot radius={22} duration={4} delay={0} color="bg-emerald-400" />
-                        <OrbitDot radius={18} duration={3} delay={1.5} color="bg-cyan-400" />
+                        {/* <OrbitDot radius={22} duration={4} delay={0} color="bg-emerald-400" />
+                        <OrbitDot radius={18} duration={3} delay={1.5} color="bg-cyan-400" /> */}
                       </div>
                     )}
                     <div className="relative flex flex-col items-center gap-1">

@@ -10,7 +10,8 @@ const heroIcons = [
   { icon: TestTube, color: "from-purple-600 to-green-700" },
 ]
 
-const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
+const chemicalFormulas = []
+// const chemicalFormulas = ["Party", "Maaje", "Dance", "Lectures", "Exams", "Sports"]
 
 export const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -55,7 +56,7 @@ export const HeroSlider = () => {
             return (
               <motion.div
                 className={`bg-gradient-to-br ${heroIcons[currentSlide].color} p-16 rounded-full shadow-2xl`}
-                animate={{ scale: [1, 1.05, 1], rotate: [0, 5, -5, 0] }}
+                animate={{ scale: [1, 1.02, 1], rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
               >
                 <SlideIcon className="w-24 h-24 text-white" />
