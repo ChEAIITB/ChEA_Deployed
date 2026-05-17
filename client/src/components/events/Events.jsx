@@ -676,81 +676,6 @@ const eventData = {
   ],
 }
 
-// Updated color scheme to match Footer
-const categoryColors = {
-  farewell: "from-violet-600 to-purple-700",
-  cultural: "from-cyan-500 to-blue-600",
-  academic: "from-emerald-500 to-teal-600",
-  adventure: "from-teal-500 to-cyan-600",
-  sports: "from-orange-500 to-red-600",
-  alumni: "from-purple-600 to-pink-700",
-  orientation: "from-emerald-600 to-cyan-700",
-  discussion: "from-blue-600 to-indigo-700",
-  ceremony: "from-rose-600 to-pink-700",
-  entertainment: "from-fuchsia-600 to-purple-700",
-}
-
-const categoryIcons = {
-  farewell: "🎓",
-  cultural: "🎭",
-  academic: "📚",
-  adventure: "🏔️",
-  sports: "⚽",
-  alumni: "👥",
-  orientation: "🎉",
-  discussion: "💬",
-  ceremony: "🎖️",
-  entertainment: "🎬",
-}
-
-const chemicalFormulas = ["C₆H₁₂O₆", "H₂SO₄", "NaCl", "CO₂", "NH₃", "CH₄", "C₂H₅OH", "CaCO₃"]
-
-const categoryIconComponents = {
-  farewell: GraduationCap,
-  cultural: Theater,
-  academic: BookOpen,
-  adventure: Mountain,
-  sports: Trophy,
-  alumni: Users2,
-  orientation: PartyPopper,
-  discussion: MessageCircle,
-  ceremony: Award,
-  entertainment: Film,
-}
-
-const heroIcons = [
-  { icon: Beaker, color: "from-emerald-500 to-teal-600" },
-  { icon: Microscope, color: "from-cyan-500 to-blue-600" },
-  { icon: FlaskConical, color: "from-teal-500 to-cyan-600" },
-  { icon: TestTube, color: "from-violet-500 to-purple-600" },
-]
-
-// Chemical particle animation
-const renderChemicalParticles = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {[...Array(20)].map((_, i) => (
-      <motion.div
-        key={i}
-        className="absolute w-1 h-1 bg-emerald-400/30 rounded-full"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-        }}
-        animate={{
-          y: [0, -20, 0],
-          opacity: [0.2, 0.8, 0.2],
-          scale: [0.5, 1, 0.5],
-        }}
-        transition={{
-          duration: 3 + Math.random() * 2,
-          repeat: Number.POSITIVE_INFINITY,
-          delay: Math.random() * 2,
-          ease: "easeInOut",
-        }}
-      />
-    ))}
-  </div>
-)
 
 export default function ChemicalEvents() {
   const [selectedYear, setSelectedYear] = useState("2024-2025")
@@ -779,24 +704,18 @@ export default function ChemicalEvents() {
   const currentEvents = eventData[selectedYear] || []
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 pt-20 relative overflow-hidden">
-      {/* Chemical Particles Background */}
-      {/* {renderChemicalParticles()} */}
+    <div style={{background:"#0b1e38"}} className="min-h-screen pt-20 relative overflow-hidden">
 
-      {/* Background Pattern */}
-      <div className="fixed inset-0 opacity-10 pointer-events-none">
+      {/* <div className="fixed inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/20 via-cyan-800/20 to-teal-800/20" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fillrule=%22evenodd%22%3E%3Cg fill=%22%2310b981%22 fillOpacity=%22.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] bg-repeat" />
-      </div>
+      </div> */}
 
-      {/* Chemical Reaction Border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px " />
 
       <div className="relative z-10 mx-auto py-8" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
-        {/* Hero Slider */}
         <HeroSlider />
 
-        {/* Year Navigation */}
         <div className="flex justify-center mb-12">
           <div className="bg-slate-800/50 backdrop-blur-md rounded-2xl shadow-xl p-2 flex gap-2 border border-slate-700/50">
             {Object.keys(eventData).map((year) => (
@@ -805,8 +724,8 @@ export default function ChemicalEvents() {
                 onClick={() => handleYearChange(year)}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedYear === year
-                    ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg"
-                    : "text-gray-300 hover:text-emerald-400 hover:bg-emerald-400/10"
+                    ? "bg-gradient-to-r from-[#3B6FC4] to-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/10"
+                    : "text-gray-300 hover:text-[#4A8DFF] hover:bg-[#4A8DFF]/10"
                 }`}
                 animate={{
                   scale: selectedYear === year ? 1.02 : 1,
@@ -814,6 +733,7 @@ export default function ChemicalEvents() {
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                style={{cursor:"pointer"}}
               >
                 {year}
               </motion.button>

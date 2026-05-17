@@ -57,39 +57,6 @@ const chemicalEquipment = [
 // Chemical formulas to replace plus signs
 const chemicalFormulas = []
 
-// Floating chemical droplets with different colors
-const chemicalDroplets = [
-  { top: "15%", left: "10%", size: "w-6 h-6", color: "bg-emerald-400", glow: "shadow-emerald-400/50"},
-  { top: "35%", left: "80%", size: "w-4 h-4", color: "bg-cyan-400", glow: "shadow-cyan-400/50"},
-  { top: "65%", left: "15%", size: "w-5 h-5", color: "bg-violet-400", glow: "shadow-violet-400/50"},
-  { top: "75%", left: "90%", size: "w-4 h-4", color: "bg-teal-400", glow: "shadow-teal-400/50"},
-  { top: "25%", left: "60%", size: "w-3 h-3", color: "bg-lime-400", glow: "shadow-lime-400/50"},
-]
-
-// Larger chemical bubbles
-const chemicalBubbles = [
-  {
-    top: "10%",
-    left: "30%",
-    size: "w-8 h-8",
-    color: "bg-gradient-to-br from-emerald-400 to-cyan-500",
-    
-  },
-  {
-    top: "50%",
-    left: "75%",
-    size: "w-10 h-10",
-    color: "bg-gradient-to-br from-cyan-400 to-violet-500",
-    
-  },
-  {
-    top: "85%",
-    left: "20%",
-    size: "w-6 h-6",
-    color: "bg-gradient-to-br from-violet-400 to-teal-500",
-   
-  },
-]
 
 // Publication data with enhanced metadata
 const publicationData = {
@@ -100,18 +67,6 @@ const publicationData = {
     bgColor: "from-emerald-950/20",
     
     data: [
-      // {
-      //   id: "cg24",
-      //   name: "Chemical Gazette 2024",
-      //   image: cg24,
-      //   url: "https://drive.google.com/file/d/1lfb-LiRb9J3I8TSdONUlhcO9v50ceYV8/view?usp=sharing",
-      //   type: "Research Paper",
-      //   pages: 12,
-      //   description:
-      //     "Annual research compilation featuring cutting-edge chemical engineering innovations and breakthroughs.",
-      //   publishDate: "December 2024",
-      //   category: "Research",
-      // },
       {
         id: "chemicalgazette",
         name: "Chemical Gazette 2025",
@@ -148,17 +103,6 @@ const publicationData = {
         publishDate: "November 2025",
         category: "Newsletter",
       },
-      // {
-      //   id: "oracle24",
-      //   name: "Alum Oracle 2024",
-      //   image: Alum_Oracle24,
-      //   url: "https://drive.google.com/file/d/1968eL3oUEAJ5oMToeAiojZSwIesJtVXO/view?usp=sharing",
-      //   type: "Alumni Magazine",
-      //   pages: 8,
-      //   description: "Alumni magazine featuring success stories, industry insights, and networking opportunities.",
-      //   publishDate: "October 2024",
-      //   category: "Alumni",
-      // },
     ],
   },
   2024: {
@@ -449,18 +393,7 @@ export default function Publication() {
   const x = useTransform(mouseX, (val) => (val - window.innerWidth / 2) * 0.01)
   const y = useTransform(mouseY, (val) => (val - window.innerHeight / 2) * 0.01)
 
-  useEffect(() => {
-    AOS.init({ duration: 1000 })
-    AOS.refresh()
-  }, [])
 
-  const handleMouseMove = useCallback(
-    (e) => {
-      mouseX.set(e.clientX)
-      mouseY.set(e.clientY)
-    },
-    [mouseX, mouseY],
-  )
 
   const getTransform = useCallback(() => ({ x, y }), [x, y])
 
@@ -480,87 +413,6 @@ export default function Publication() {
     setPreviewModalOpen(false)
     setSelectedPublication(null)
   }, [])
-
-  // Chemical particle animation
-  const renderChemicalParticles = () => (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(25)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-emerald-400/20 rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.1, 0.6, 0.1],
-            scale: [0.5, 1.2, 0.5],
-          }}
-          transition={{
-            duration: 4 + Math.random() * 3,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: Math.random() * 3,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  )
-
-  // Floating chemical equipment
-  const renderFloatingEquipment = () =>
-    chemicalEquipment.map((equipment, i) => (
-      <motion.div
-        key={i}
-        className="absolute pointer-events-none"
-        style={{
-          width: equipment.size,
-          height: equipment.size,
-          opacity: equipment.opacity,
-          left: `${15 + i * 20}%`,
-          top: `${10 + i * 15}%`,
-          ...getTransform(),
-        }}
-        animate={{
-          rotate: [0, equipment.rotation, -equipment.rotation, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 8 + i * 2,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        <equipment.icon size={equipment.size / 3} className="text-emerald-400/30" />
-      </motion.div>
-    ))
-
-  // Chemical formulas decoration
-  const renderChemicalFormulas = (side) => (
-    <div className={`absolute ${side}-6 top-0 bottom-0 flex flex-col justify-around z-0 pointer-events-none`}>
-      {chemicalFormulas.map((formula, i) => (
-        <motion.div
-          key={i}
-          className="text-emerald-300/40 text-lg font-mono font-bold"
-          style={{ marginTop: `${i * 12}vh` }}
-          animate={{
-            opacity: [0.2, 0.6, 0.2],
-            scale: [0.8, 1.2, 0.8],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 4 + i * 0.5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        >
-          {formula}
-        </motion.div>
-      ))}
-    </div>
-  )
-
   // Enhanced publication card
   const ChemicalPubliCard = ({ publication, index, yearData }) => {
     const [isHovered, setIsHovered] = useState(false)
@@ -568,35 +420,23 @@ export default function Publication() {
     return (
       <motion.div
         className="group relative"
-        // initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        // animate={{ opacity: 1, y: 0, scale: 1 }}
-        // transition={{ delay: index * 0.1, duration: 0.6 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
         <motion.div
           className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 transition-all duration-300 overflow-hidden"
           animate={{
-            // scale: isHovered ? 1.02 : 1,
-            borderColor: isHovered ? "rgba(16, 185, 129, 0.3)" : "rgba(71, 85, 105, 0.5)",
+            borderColor: isHovered ? "rgba(74, 141, 255, 0.5)" : "rgba(71, 85, 105, 0.5)",
           }}
           transition={{ duration: 0.2 }}
         >
           {/* Chemical Reaction Background */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-cyan-400/5"
+            className="absolute inset-0 bg-gradient-to-br from-[#315D9C]/5 via-transparent to-[#4A8DFF]/5"
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           />
 
-          {/* Chemical Equipment Icon */}
-          {/* <motion.div
-            className="absolute top-4 right-4"
-            animate={{ opacity: isHovered ? 0.6 : 0.2 }}
-            transition={{ duration: 0.3 }}
-          >
-            <yearData.icon size={24} className={yearData.color} />
-          </motion.div> */}
 
           {/* Chemical Formula */}
           <motion.div
@@ -625,28 +465,13 @@ export default function Publication() {
             >
             </motion.div>
 
-            {/* Publication Type Badge */}
-            {/* <div className="absolute top-2 left-2 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">
-              {publication.type}
-            </div> */}
-
-            {/* Pages Count */}
-            {/* <div className="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-gray-300 flex items-center gap-1">
-              <BookOpen size={12} />
-              {publication.pages}p
-            </div> */}
-
-            {/* Category Badge */}
-            {/* <div className="absolute bottom-2 left-2 bg-cyan-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30">
-              {publication.category}
-            </div> */}
           </div>
 
           {/* Publication Info */}
           <div className="relative z-10">
             <motion.h3
-              className="text-lg font-bold text-white mb-2 transition-colors duration-300"
-              animate={{ color: isHovered ? "#10b981" : "#ffffff" }}
+              className="text-lg font-bold text-white mb-2 transition-colors duration-100"
+              animate={{ color: isHovered ? "#adcbff" : "#ffffff" }}
             >
               {publication.name}
             </motion.h3>
@@ -662,10 +487,10 @@ export default function Publication() {
             <motion.div className="flex gap-2" >
               <motion.button
                 onClick={() => openPreviewModal(publication)}
-                className="flex items-center gap-2 px-3 py-2 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 text-sm transition-colors duration-300 flex-1 justify-center"
-                whileHover={{ scale: 1.05 }}
-                style={{"cursor":"pointer"}}
-                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-3 py-2 bg-[#4A8DFF]/20 hover:bg-[#4A8DFF]/30 rounded-lg text-[#4A8DFF] text-sm transition-colors duration-300 flex-1 justify-center"
+                whileHover={{ scale: 1.02}}
+                style={{"cursor":"pointer", color:'#adcbff'}}
+                whileTap={{ scale: 0.99 }}
               >
                 <Eye size={14} />
                 Preview
@@ -681,17 +506,6 @@ export default function Publication() {
                 <ExternalLink size={14} />
                 Open
               </motion.a>
-              {/* <motion.a
-                href={publication.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 bg-violet-400/20 hover:bg-violet-400/30 rounded-lg text-violet-400 text-sm transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Download size={14} />
-                Download
-              </motion.a> */}
             </motion.div>
           </div>
 
@@ -725,7 +539,7 @@ export default function Publication() {
           onClick={closePreviewModal}
         >
           <motion.div
-            className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900/95 backdrop-blur-sm rounded-2xl border border-emerald-400/30 overflow-hidden"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900/95 backdrop-blur-sm rounded-2xl border border-[#315D9C]/30 overflow-hidden"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -735,11 +549,11 @@ export default function Publication() {
             <div className="p-6 border-b border-slate-700/50 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-full bg-emerald-400/10">
-                  <FileText size={24} className="text-emerald-400" />
+                  <FileText size={24} className="text-[#4A8DFF]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-emerald-400">{selectedPublication.name}</h3>
-                  <p className="text-cyan-400">{selectedPublication.type}</p>
+                  <h3 className="text-xl font-bold text-white">{selectedPublication.name}</h3>
+                  <p className="text-[#adcbff]">{selectedPublication.type}</p>
                   <div className="flex items-center gap-4 mt-1 text-sm text-gray-400">
                     <span className="flex items-center gap-1">
                       <Calendar size={12} />
@@ -754,6 +568,7 @@ export default function Publication() {
               </div>
               <button
                 onClick={closePreviewModal}
+                style={{cursor:"pointer"}}
                 className="text-gray-400 hover:text-white transition-colors duration-300 p-2 hover:bg-slate-800/50 rounded-lg"
               >
                 <X size={24} />
@@ -775,12 +590,12 @@ export default function Publication() {
                 {/* Publication Details */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-semibold text-emerald-400 mb-3">Description</h4>
+                    <h4 className="text-lg font-semibold text-[#adcbff] mb-3">Description</h4>
                     <p className="text-gray-300 leading-relaxed">{selectedPublication.description}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-emerald-400 mb-3">Publication Details</h4>
+                    <h4 className="text-lg font-semibold text-[#adcbff] mb-3">Publication Details</h4>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
                         <span className="text-gray-400">Type</span>
@@ -788,7 +603,7 @@ export default function Publication() {
                       </div>
                       <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
                         <span className="text-gray-400">Category</span>
-                        <span className="text-cyan-400 font-medium">{selectedPublication.category}</span>
+                        <span className="text-gray-400 font-medium">{selectedPublication.category}</span>
                       </div>
                       <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
                         <span className="text-gray-400">Pages</span>
@@ -807,24 +622,12 @@ export default function Publication() {
                       href={selectedPublication.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 transition-colors duration-300 flex-1 justify-center"
-                      whileHover={{ scale: 1.05 }}
+className="flex items-center gap-2 px-6 py-3 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#adcbff] transition-colors duration-300 flex-1 justify-center"                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <ExternalLink size={16} />
                       Open Publication
                     </motion.a>
-                    {/* <motion.a
-                      href={selectedPublication.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Download size={16} />
-                      Download
-                    </motion.a> */}
                   </div>
                 </div>
               </div>
@@ -836,76 +639,30 @@ export default function Publication() {
   )
 
   return (
-    // <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
     <div ref={ref} className="overflow-hidden">
-      <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
-        {/* Chemical Particles Background */}
-        {/* {renderChemicalParticles()} */}
-
-        {/* Floating Chemical Equipment */}
-        {/* {renderFloatingEquipment()} */}
-
-        {/* Chemical Formulas */}
-        {/* {renderChemicalFormulas("left")}
-        {renderChemicalFormulas("right")} */}
-
-        {/* Chemical Droplets */}
-        {/* {chemicalDroplets.map((droplet, i) => (
-          <motion.div
-            key={i}
-            className={`absolute rounded-full ${droplet.size} ${droplet.color} ${droplet.glow} shadow-lg`}
-            style={{ top: droplet.top, left: droplet.left, ...getTransform() }}
-            animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 3 + i * 0.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-          >
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-mono text-emerald-400/60">
-              {droplet.formula}
-            </div>
-          </motion.div>
-        ))} */}
-
-        {/* Chemical Bubbles */}
-        {/* {chemicalBubbles.map((bubble, i) => (
-          <motion.div
-            key={i}
-            className={`absolute rounded-full ${bubble.size} ${bubble.color} opacity-40 shadow-lg`}
-            style={{ top: bubble.top, left: bubble.left, ...getTransform() }}
-            animate={{ y: [0, -25, 0], scale: [1, 1.2, 1], opacity: [0.3, 0.7, 0.3] }}
-            transition={{ duration: 4 + i, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-white/80">
-              {bubble.formula}
-            </div>
-          </motion.div>
-        ))} */}
+      <div className="relative text-white min-h-screen" style={{background:'#0b1e38'}}>
 
         {/* Main Content */}
-        <section className="relative z-10 px-6 lg:px-16 py-40">
+        <section className="relative z-10 px-6 lg:px-16 py-30 md:py-40">
           {/* Header */}
           <motion.div
             className="text-center mb-16"
-            // initial={{ opacity: 0, y: -50 }}
-            // animate={isInView ? { opacity: 1, y: 0 } : {}}
-            // transition={{ duration: 0.8 }}
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <motion.div
-                animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <Atom size={40} className="text-emerald-400" />
+                <Atom size={40} className="text-[#4A8DFF]" />
               </motion.div>
-              <h1 className="text-5xl lg:text-6xl font-black">
-                ChEA{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black">                ChEA{" "}
+                <span>
                   PUBLICATIONS
                 </span>
               </h1>
               <motion.div
-                animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Flask size={40} className="text-cyan-400" />
+                <Flask size={40} className="text-[#4A8DFF]" />
               </motion.div>
             </div>
 
@@ -913,12 +670,10 @@ export default function Publication() {
               Explore our comprehensive collection of chemical engineering research, innovations, and discoveries
             </p>
 
-            <div className="flex justify-center items-center gap-6 mt-8 opacity-60">
-              <TestTube size={24} className="text-emerald-400" />
-              <Beaker size={24} className="text-cyan-400" />
-              <Microscope size={24} className="text-violet-400" />
-              <Dna size={24} className="text-teal-400" />
-            </div>
+              <motion.div
+            className="w-40 h-0.5 bg-gradient-to-r from-transparent via-[#315D9C]/100 to-transparent mx-auto mt-6"
+            initial={{ width: 0 }} animate={{ width: 80 }} transition={{ delay: 0.5 }}
+          />
           </motion.div>
 
           {/* Publications by Year — sorted latest first, 2024 open by default */}
@@ -935,8 +690,8 @@ export default function Publication() {
                 <motion.div
                   className="flex items-center justify-between mb-8 cursor-pointer group"
                   onClick={() => toggleSection(year)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
                   <div className="flex items-center gap-4">
                     <div className="p-3 rounded-full bg-slate-800/50 group-hover:bg-emerald-400/10 transition-colors duration-300">
@@ -946,13 +701,13 @@ export default function Publication() {
                       />
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors duration-300">
+                      <h2 className="text-3xl font-bold text-white ">
                         Publications {year}
                       </h2>
-                      <p className={`text-lg ${yearData.color} opacity-80`}>{yearData.title}</p>
+                      <p className={`text-lg opacity-80`} style={{color:'#adcbff'}}>{yearData.title}</p>
                     </div>
                     <motion.div
-                      className="text-xs font-mono text-emerald-400/60 ml-4"
+                      className="text-xs font-mono text-[#4A8DFF]/60 ml-4"
                       animate={{ rotate: [0, 5, -5, 0] }}
                       transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
                     >
@@ -996,18 +751,11 @@ export default function Publication() {
                 {/* Chemical Divider */}
                 <div className="flex justify-center mt-8">
                   <motion.div
-                    className="w-32 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent relative"
+                    className="w-32 h-px bg-gradient-to-r from-transparent via-[#4A8DFF]/50 to-transparent relative"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: 128 } : {}}
                     transition={{ delay: yearIndex * 0.1, duration: 1 }}
                   >
-                    <motion.div
-                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    >
-                      <Droplets size={12} className="text-emerald-400" />
-                    </motion.div>
                   </motion.div>
                 </div>
               </motion.div>

@@ -762,23 +762,6 @@ function getAvailableYears(blogId) {
   return YEARS.filter(y => d[y] && d[y].length > 0);
 }
 
-// Chemical particle background — matches site style
-function ChemicalParticles() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(18)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-emerald-400/20 rounded-full"
-          style={{ left: `${(i * 17 + 5) % 100}%`, top: `${(i * 13 + 8) % 100}%` }}
-          animate={{ y: [0, -25, 0], opacity: [0.1, 0.5, 0.1], scale: [0.5, 1.2, 0.5] }}
-          transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }}
-        />
-      ))}
-    </div>
-  );
-}
-
 // Fallback avatar
 function FallbackAvatar({ name = "?", size = 80 }) {
   const initials = name.split(" ").filter(Boolean).map(w => w[0]).join("").slice(0, 2).toUpperCase();
@@ -804,90 +787,118 @@ function PersonDetail({ person, onBack }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      onClick={e => e.target === e.currentTarget && onBack()}
-    >
-      <motion.div
-        className="relative bg-slate-900/95 backdrop-blur-md rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-emerald-400/20 shadow-2xl shadow-emerald-400/10"
-        initial={{ scale: 0.9, opacity: 0, y: 30 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0, y: 30 }}
-        transition={{ duration: 0.35, ease: [0.34, 1.56, 0.64, 1] }}
-      >
-        {/* Top glow strip */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
+  className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+  initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+  onClick={e => e.target === e.currentTarget && onBack()}
+>
+  <motion.div
+    className="relative bg-slate-900/95 backdrop-blur-md rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#315D9C]/20 shadow-2xl shadow-[#315D9C]/10"
+    initial={{ scale: 0.9, opacity: 0, y: 30 }}
+    animate={{ scale: 1, opacity: 1, y: 0 }}
+    exit={{ scale: 0.9, opacity: 0, y: 30 }}
+    transition={{ duration: 0.35, ease: [0.34, 1.56, 0.64, 1] }}
+  >
+    {/* Top glow strip */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4A8DFF]/35 to-transparent" />
 
-        {/* Header */}
-        <div className="p-6 border-b border-slate-700/50 flex gap-5 items-center flex-wrap bg-gradient-to-r from-emerald-400/5 to-transparent">
-          <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-emerald-400/40 shadow-lg shadow-emerald-400/20 flex-shrink-0">
-            <SmartImage src={person.image} alt={person.name} className="w-full h-full object-cover" fallbackSize={80} />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold text-white">{person.name || "Anonymous"}</h2>
-            <p className="text-emerald-400 font-semibold mt-1">{person.company || "Company N/A"}</p>
-            <div className="flex gap-2 mt-2 flex-wrap">
-              {person.domain && (
-                <span className="bg-emerald-400/10 border border-emerald-400/30 rounded-full px-3 py-0.5 text-xs text-emerald-400">
-                  {person.domain}
-                </span>
-              )}
-              {person.year && (
-                <span className="bg-slate-700/60 border border-slate-600/50 rounded-full px-3 py-0.5 text-xs text-gray-400">
-                  Batch {person.year}
-                </span>
-              )}
-            </div>
-          </div>
+    {/* Header */}
+    <div className="p-6 border-b border-slate-700/50 flex gap-5 items-center flex-wrap bg-gradient-to-r from-[#315D9C]/5 to-transparent">
+      <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-[#315D9C]/40 shadow-lg shadow-[#315D9C]/20 flex-shrink-0">
+        <SmartImage src={person.image} alt={person.name} className="w-full h-full object-cover" fallbackSize={80} />
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-bold text-white">{person.name || "Anonymous"}</h2>
+
+        <p className="text-[#4A8DFF] font-semibold mt-1">
+          {person.company || "Company N/A"}
+        </p>
+
+        <div className="flex gap-2 mt-2 flex-wrap">
+          {person.domain && (
+            <span className="bg-[#315D9C]/10 border border-[#315D9C]/30 rounded-full px-3 py-0.5 text-xs text-[#adcbff]">
+              {person.domain}
+            </span>
+          )}
+
+          {person.year && (
+            <span className="bg-slate-700/60 border border-slate-600/50 rounded-full px-3 py-0.5 text-xs text-gray-400">
+              Batch {person.year}
+            </span>
+          )}
         </div>
+      </div>
+    </div>
 
-        {/* Q&A */}
-        <div className="p-6 space-y-3">
-          {(person.qna || []).length === 0 ? (
-            <p className="text-center text-gray-500 py-10">No Q&A available yet.</p>
-          ) : (person.qna || []).map((item, i) => (
-            <motion.div key={i}
-              className={`rounded-xl border overflow-hidden transition-all duration-200 ${activeQ === i ? "border-emerald-400/30" : "border-slate-700/50"}`}
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}
-            >
-              <button
-                onClick={() => setActiveQ(activeQ === i ? null : i)}
-                className={`w-full px-5 py-3.5 text-left flex justify-between items-center gap-3 transition-colors duration-200 ${activeQ === i ? "bg-emerald-400/8" : "bg-slate-800/40 hover:bg-slate-800/70"}`}
-              >
-                <span className="text-sm font-semibold text-gray-200">
-                  <span className="text-emerald-400 mr-2 font-mono text-xs">Q{i + 1}.</span>{item.q}
-                </span>
-                <motion.span animate={{ rotate: activeQ === i ? 180 : 0 }} transition={{ duration: 0.3 }} className="text-emerald-400 flex-shrink-0">
-                  <ChevronDown size={16} />
-                </motion.span>
-              </button>
-              <AnimatePresence>
-                {activeQ === i && (
-                  <motion.div
-                    initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-5 py-4 text-sm text-gray-300 leading-relaxed bg-slate-900/50 border-t border-slate-700/30">
-                      {item.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="sticky bottom-0 p-4 bg-slate-900/90 backdrop-blur-sm border-t border-slate-700/50">
-          <button
-            onClick={onBack}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-400/10 hover:bg-emerald-400/20 text-emerald-400 border border-emerald-400/20 font-semibold text-sm transition-all duration-200"
+    {/* Q&A */}
+    <div className="p-6 space-y-3">
+      {(person.qna || []).length === 0 ? (
+        <p className="text-center text-gray-500 py-10">No Q&A available yet.</p>
+      ) : (person.qna || []).map((item, i) => (
+        <motion.div
+          key={i}
+          className={`rounded-xl border overflow-hidden transition-all duration-200 ${
+            activeQ === i ? "border-[#315D9C]/30" : "border-slate-700/50"
+          }`}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.06 }}
           >
-            <ArrowLeft size={16} /> Back to List
+          <button
+            onClick={() => setActiveQ(activeQ === i ? null : i)}
+            style={{cursor:'pointer'}}
+            className={`w-full px-5 py-3.5 text-left flex justify-between items-center gap-3 transition-colors duration-200 ${
+              activeQ === i
+                ? "bg-[#315D9C]/8"
+                : "bg-slate-800/40 hover:bg-slate-800/70"
+            }`}
+          >
+            <span className="text-sm font-semibold text-gray-200">
+              <span className="text-[#adcbff] mr-2 font-mono text-xs">
+                Q{i + 1}.
+              </span>
+              {item.q}
+            </span>
+
+            <motion.span
+              animate={{ rotate: activeQ === i ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-[#adcbff] flex-shrink-0"
+            >
+              <ChevronDown size={16} />
+            </motion.span>
           </button>
-        </div>
-      </motion.div>
-    </motion.div>
+
+          <AnimatePresence>
+            {activeQ === i && (
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: "auto" }}
+                exit={{ height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="px-5 py-4 text-sm text-gray-300 leading-relaxed bg-slate-900/50 border-t border-slate-700/30">
+                  {item.a}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      ))}
+    </div>
+
+    <div className="sticky bottom-0 p-4 bg-slate-900/90 backdrop-blur-sm border-t border-slate-700/50">
+      <button
+          style={{cursor:'pointer'}}
+        onClick={onBack}
+        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#315D9C]/10 hover:bg-[#315D9C]/20 text-[#adcbff] border border-[#315D9C]/20 font-semibold text-sm transition-all duration-200"
+      >
+        <ArrowLeft size={16} /> Back to List
+      </button>
+    </div>
+  </motion.div>
+</motion.div>
   );
 }
 
@@ -902,15 +913,15 @@ function PersonCard({ person, index, onClick }) {
       onClick={onClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className="group relative cursor-pointer rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-300"
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      className="group relative cursor-pointer rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-[#315D9C]/30 transition-all duration-300"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1}}
       transition={{ delay: index * 0.08, duration: 0.5 }}
-      whileHover={{ scale: 1.03, y: -6 }}
+      // whileHover={{ scale: 1.01, y: -6 }}
     >
       {/* Chemical reaction bg */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-cyan-400/5"
+        className="absolute inset-0 bg-gradient-to-br from-[#315D9C]/5 via-transparent to-[#4A8DFF]/5"
         animate={{ opacity: hov ? 1 : 0 }} transition={{ duration: 0.3 }}
       />
 
@@ -921,18 +932,18 @@ function PersonCard({ person, index, onClick }) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110 saturate-[0.8] group-hover:saturate-100"
           fallbackSize={80}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
-        {person.domain && (
-          <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-emerald-400 border border-emerald-400/20 font-mono">
-            {person.domain}
-          </div>
-        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1E38]/80 to-transparent" />
+{person.domain && (
+  <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-gray border border-[#315D9C]/20 font-mono">
+    {person.domain}
+  </div>
+)}
       </div>
 
       {/* Info */}
       <div className="p-4">
-        <p className="font-bold text-white text-sm group-hover:text-emerald-400 transition-colors duration-200 truncate">{person.name || "Name N/A"}</p>
-        <p className="text-emerald-400 text-xs font-semibold mt-0.5 truncate">{person.company || "Company N/A"}</p>
+        <p className="font-bold text-white text-sm transition-colors duration-200 truncate">{person.name || "Name N/A"}</p>
+        <p className="text-[#adcbff] text-xs mt-0.5 truncate">{person.company || "Company N/A"}</p>
         <div className="flex items-center justify-between mt-3 text-xs text-gray-500">
           <span>{(person.qna || []).length} Q&As</span>
           <motion.span
@@ -964,13 +975,13 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
       <div className="mb-8 flex items-start gap-4 flex-wrap">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 mt-1 px-4 py-2 bg-slate-800/50 hover:bg-emerald-400/10 border border-slate-700/50 hover:border-emerald-400/30 rounded-xl text-emerald-400 text-xs font-semibold transition-all duration-200"
+          className="flex items-center gap-2 mt-1 px-4 py-2 bg-slate-800/50 hover:bg-[#315D9C]/10 border border-slate-700/50 hover:border-[#315D9C]/30 rounded-xl text-[#adfbff]-400 text-xs font-semibold transition-all duration-200"
         >
           <ArrowLeft size={14} /> Back
         </button>
         <div>
           <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-xl bg-gradient-to-br ${blog.color} shadow-lg`}>
+            <div className={`p-2 rounded-xl bg-gradient-to-br from-[#315D9C] to-[#4A8DFF] shadow-lg shadow-[#315D9C]/20`}>
               <BlogIcon size={20} className="text-white" />
             </div>
             <h2 className="text-3xl font-bold text-white">{blog.title.replace("\n", " ")}</h2>
@@ -987,10 +998,10 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
             <button key={y} onClick={() => has && handleYear(y)}
               className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all duration-200 ${
                 active
-                  ? "bg-emerald-400 text-slate-900 shadow-lg shadow-emerald-400/30"
+                  ? "bg-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/30"
                   : has
-                    ? "bg-slate-800/60 text-emerald-400 border border-emerald-400/30 hover:bg-emerald-400/10"
-                    : "bg-slate-800/30 text-gray-600 border border-slate-700/30 cursor-not-allowed"
+                    ? "bg-slate-800/60 text-[#4A8DFF] border border-[#315D9C]/30 hover:bg-[#315D9C]/10"
+  : "bg-slate-800/30 text-gray-600 border border-slate-700/30 cursor-not-allowed"
               }`}
             >{y}</button>
           );
@@ -1011,7 +1022,7 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         >
           <Beaker size={40} className="text-emerald-400/30 mx-auto mb-4" />
-          <p className="text-emerald-400 font-bold text-lg tracking-wider">No entries for {activeYear}</p>
+          <p className="text-[#adcbff] font-bold text-lg tracking-wider">No entries for {activeYear}</p>
           <p className="text-gray-500 text-sm mt-2">Try selecting another year above.</p>
         </motion.div>
       ) : (
@@ -1037,19 +1048,18 @@ function BlogCard({ card, index, onClick }) {
       onClick={card.comingSoon ? undefined : onClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className={`relative rounded-2xl overflow-hidden border transition-all duration-300 min-h-[200px] ${
+      className={`relative rounded-2xl overflow-hidden transition-all duration-300 min-h-[200px] ${
         card.comingSoon
           ? "border-slate-700/30 cursor-default"
-          : "border-slate-700/50 hover:border-emerald-400/30 cursor-pointer"
+          : "border-[#4A8DFF]/10 hover:border-[#4A8DFF]/30 cursor-pointer"
       } bg-slate-800/50 backdrop-blur-sm`}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.07, duration: 0.5 }}
-      // whileHover={!card.comingSoon ? { scale: 1.03, y: -6 } : {}}
     >
       {/* Hover glow bg */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-cyan-400/5"
+        className="absolute inset-0 bg-gradient-to-br from-[#315D9C]/5 via-transparent to-[#4A8DFF]/5"
         animate={{ opacity: hov && !card.comingSoon ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
@@ -1061,7 +1071,7 @@ function BlogCard({ card, index, onClick }) {
       <div className="relative z-10 p-5 flex flex-col h-full min-h-[200px]">
         {/* Tag + icon */}
         <div className="flex items-start justify-between mb-3">
-          <span className="bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest">
+          <span className="bg-[#4A8DFF]/10 border border-[#4A8DFF]/25 text-[#adcbff] text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest">
             {card.tag}
           </span>
           <motion.div
@@ -1074,7 +1084,7 @@ function BlogCard({ card, index, onClick }) {
         </div>
 
         {/* Title */}
-        <h3 className={`text-xl font-extrabold leading-tight mb-2 whitespace-pre-line transition-colors duration-200 ${hov && !card.comingSoon ? "text-emerald-400" : "text-white"}`}>
+        <h3 className={`text-xl font-extrabold leading-tight mb-2 whitespace-pre-line transition-colors duration-200 ${hov && !card.comingSoon ? "text-white" : "text-white"}`}>
           {card.title}
         </h3>
 
@@ -1084,7 +1094,7 @@ function BlogCard({ card, index, onClick }) {
         {/* CTA */}
         {!card.comingSoon ? (
           <motion.div
-            className="mt-4 flex items-center gap-1.5 text-emerald-400 text-xs font-bold tracking-wider"
+            className="mt-4 flex items-center gap-1.5 text-[#adcbff] text-xs font-bold tracking-wider hover:text-[#adcbff]"
             animate={{ x: hov ? 4 : 0, opacity: hov ? 1 : 0.5 }}
             transition={{ duration: 0.2 }}
           >
@@ -1099,7 +1109,7 @@ function BlogCard({ card, index, onClick }) {
 
       {/* Bottom glow on hover */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4A8DFF]/50 to-transparent"
         animate={{ opacity: hov && !card.comingSoon ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
@@ -1115,24 +1125,10 @@ export default function CheaBlogs() {
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white relative overflow-hidden" style={{paddingTop:'50px'}}>
-      {/* Chemical particles — same as rest of site */}
-      {/* <ChemicalParticles /> */}
-
-      {/* Chemical formula side decorations — same as rest of site */}
-      {/* {["left", "right"].map(side => (
-        <div key={side} className={`absolute ${side}-4 top-0 bottom-0 flex flex-col justify-around z-0 pointer-events-none`}>
-          {["H₂SO₄", "NaOH", "C₆H₁₂O₆", "NH₃", "CO₂", "H₂O"].map((f, i) => (
-            <motion.div key={i} className="text-emerald-300/25 text-sm font-mono font-bold"
-              animate={{ opacity: [0.15, 0.45, 0.15], rotate: [0, 4, -4, 0] }}
-              transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
-            >{f}</motion.div>
-          ))}
-        </div>
-      ))} */}
+    <div className="min-h-screen text-white relative overflow-hidden" style={{paddingTop:'50px', background:'#0b1e38'}}>
 
       {/* Top border — same as rest of site */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
         {/* Header */}
@@ -1142,22 +1138,19 @@ export default function CheaBlogs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-xs font-bold tracking-[0.3em] text-emerald-400/60 uppercase mb-3">
-            Chemical Engineering Association · IIT Bombay
-          </p>
 
           <div className="flex items-center justify-center gap-4 mb-4">
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
-              <Atom size={36} className="text-emerald-400" />
+              <Atom size={36} className="text-[#70b5ed]" />
             </motion.div>
             <h1 className="text-5xl lg:text-6xl font-black">
               ChEA{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text" style={{color:"#fff"}}>
                 BLOGS
               </span>
             </h1>
             <motion.div animate={{ y: [-4, 4, -4] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
-              <BookOpen size={36} className="text-cyan-400" />
+              <BookOpen size={36} className="text-[#70b5ed]" />
             </motion.div>
           </div>
 
@@ -1167,7 +1160,7 @@ export default function CheaBlogs() {
 
           {/* Divider — matches site style */}
           <motion.div
-            className="w-20 h-0.5 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent mx-auto mt-6"
+            className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#315D9C]/100 to-transparent mx-auto mt-6"
             initial={{ width: 0 }} animate={{ width: 80 }} transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.div>
@@ -1197,7 +1190,7 @@ export default function CheaBlogs() {
       </div>
 
       {/* Bottom border — matches site */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" />
+      {/* <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" /> */}
 
       {/* Person detail modal */}
       <AnimatePresence>

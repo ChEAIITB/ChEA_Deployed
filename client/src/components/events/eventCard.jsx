@@ -73,15 +73,9 @@ export const EventCard = ({ event, index, onEventClick }) => {
   return (
     <motion.div
       className="group relative max-w-sm mx-auto"
-      // initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      // animate={{ opacity: 1, y: 0, scale: 1 }}
-      // transition={{ delay: index * 0.1, duration: 0.6 }}
-      // onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
-      onClick={handleCardClick}
     >
       <motion.div
-        className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer w-full group-hover:border-emerald-400/30"
+        className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer w-full group-hover:border-[#4A8DFF]/30"
         animate={{
           scale: isHovered ? 1.02 : 1,
         }}
@@ -195,7 +189,7 @@ export const EventCard = ({ event, index, onEventClick }) => {
             <motion.button
               onClick={() => onEventClick(event)}
               style={{"cursor":"pointer"}}
-              className="flex items-center gap-1 px-3 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-lg text-white text-sm font-medium transition-colors duration-300 flex-1 justify-center"
+              className="flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-[#3B6FC4] to-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/10 rounded-lg text-white text-sm font-medium transition-colors duration-300 flex-1 justify-center"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >

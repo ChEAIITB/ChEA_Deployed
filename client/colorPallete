@@ -1,0 +1,31 @@
+{
+  "paletteName": "pastel blue 1",
+  "author": "bindayak",
+  "colors": [
+    {
+      "name": "Pastel Blue",
+      "hex": "#7ab3e1"
+    },
+    {
+      "name": "Cloud Blue",
+      "hex": "#c6d3e3",
+      "rgb": { "r": 198, "g": 211, "b": 227 }
+    },
+    {
+      "name": "Deep Navy",
+      "hex": "#0b1e38"
+    },
+    {
+      "name": "Sky Blue",
+      "hex": "#b2cbde",
+      "rgb": { "r": 178, "g": 203, "b": 222 }
+    },
+    {
+      "name": "Pale Mist",
+      "hex": "#d8e1e8",
+      "rgb": { "r": 216, "g": 225, "b": 232 }
+    }
+  ]
+}
+
+for btns : bg-gradient-to-r from-[#3B6FC4] to-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/10

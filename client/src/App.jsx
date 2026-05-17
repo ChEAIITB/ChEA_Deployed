@@ -66,8 +66,8 @@ function App() {
           <Route path="/facad/21" element={<Facad21 />} />
           <Route path="/facad/mtech" element={<FacadMtech />} />
           <Route path="/facad/phd" element={<FacadPhd />} />
-          <Route path="/links/25" element={<Link25 />} />
-          <Route path="/links/24" element={<Link24 />} />
+          <Route path="/links" element={<Link25 />} />
+          {/* <Route path="/links/24" element={<Link24 />} /> */}
           <Route path="/publications" element={<Publication />} />
           <Route path="/events" element={<Events />} />
           <Route path="/blogs" element={<CheaBlogs />} />
