@@ -724,8 +724,8 @@ export default function ChemicalEvents() {
                 onClick={() => handleYearChange(year)}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedYear === year
-                    ? "bg-gradient-to-r from-[#3B6FC4] to-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/10"
-                    : "text-gray-300 hover:text-[#4A8DFF] hover:bg-[#4A8DFF]/10"
+                    ? "bg-gradient-to-r from-[#E66700] to-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/10"
+  : "text-gray-300 hover:text-[#FF7A00] hover:bg-[#FF7A00]/10"
                 }`}
                 animate={{
                   scale: selectedYear === year ? 1.02 : 1,

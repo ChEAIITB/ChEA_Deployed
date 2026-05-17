@@ -810,14 +810,13 @@ function PersonDetail({ person, onBack }) {
       <div>
         <h2 className="text-2xl font-bold text-white">{person.name || "Anonymous"}</h2>
 
-        <p className="text-[#4A8DFF] font-semibold mt-1">
+        <p className="text-[#FF7A00] font-semibold mt-1">
           {person.company || "Company N/A"}
         </p>
 
         <div className="flex gap-2 mt-2 flex-wrap">
           {person.domain && (
-            <span className="bg-[#315D9C]/10 border border-[#315D9C]/30 rounded-full px-3 py-0.5 text-xs text-[#adcbff]">
-              {person.domain}
+<span className="bg-[#FF7A00]/10 border border-[#FF7A00]/30 rounded-full px-3 py-0.5 text-xs text-[#FFB067]">              {person.domain}
             </span>
           )}
 
@@ -890,12 +889,12 @@ function PersonDetail({ person, onBack }) {
 
     <div className="sticky bottom-0 p-4 bg-slate-900/90 backdrop-blur-sm border-t border-slate-700/50">
       <button
-          style={{cursor:'pointer'}}
-        onClick={onBack}
-        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#315D9C]/10 hover:bg-[#315D9C]/20 text-[#adcbff] border border-[#315D9C]/20 font-semibold text-sm transition-all duration-200"
-      >
-        <ArrowLeft size={16} /> Back to List
-      </button>
+  style={{ cursor: "pointer" }}
+  onClick={onBack}
+  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#FF7A00]/10 hover:bg-[#FF7A00]/20 text-[#FFB067] border border-[#FF7A00]/20 font-semibold text-sm transition-all duration-200"
+>
+  <ArrowLeft size={16} /> Back to List
+</button>
     </div>
   </motion.div>
 </motion.div>
@@ -934,7 +933,7 @@ function PersonCard({ person, index, onClick }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B1E38]/80 to-transparent" />
 {person.domain && (
-  <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-gray border border-[#315D9C]/20 font-mono">
+  <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-[#FF7A00] border border-[#315D9C]/20 font-mono">
     {person.domain}
   </div>
 )}
@@ -943,7 +942,7 @@ function PersonCard({ person, index, onClick }) {
       {/* Info */}
       <div className="p-4">
         <p className="font-bold text-white text-sm transition-colors duration-200 truncate">{person.name || "Name N/A"}</p>
-        <p className="text-[#adcbff] text-xs mt-0.5 truncate">{person.company || "Company N/A"}</p>
+        <p className="text-[#FF7A00] text-xs mt-0.5 truncate">{person.company || "Company N/A"}</p>
         <div className="flex items-center justify-between mt-3 text-xs text-gray-500">
           <span>{(person.qna || []).length} Q&As</span>
           <motion.span
@@ -981,7 +980,7 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
         </button>
         <div>
           <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-xl bg-gradient-to-br from-[#315D9C] to-[#4A8DFF] shadow-lg shadow-[#315D9C]/20`}>
+            <div className={`p-2 rounded-xl bg-gradient-to-br from-[#D65F00] to-[#FF7A00] shadow-lg shadow-[#FF7A00]/20`}>
               <BlogIcon size={20} className="text-white" />
             </div>
             <h2 className="text-3xl font-bold text-white">{blog.title.replace("\n", " ")}</h2>
@@ -998,10 +997,10 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
             <button key={y} onClick={() => has && handleYear(y)}
               className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all duration-200 ${
                 active
-                  ? "bg-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/30"
-                  : has
-                    ? "bg-slate-800/60 text-[#4A8DFF] border border-[#315D9C]/30 hover:bg-[#315D9C]/10"
-  : "bg-slate-800/30 text-gray-600 border border-slate-700/30 cursor-not-allowed"
+                  ? "bg-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/30"
+  : has
+    ? "bg-slate-800/60 text-[#FF7A00] border border-[#FF7A00]/30 hover:bg-[#FF7A00]/10"
+    : "bg-slate-800/30 text-gray-600 border border-slate-700/30 cursor-not-allowed"
               }`}
             >{y}</button>
           );
@@ -1071,7 +1070,7 @@ function BlogCard({ card, index, onClick }) {
       <div className="relative z-10 p-5 flex flex-col h-full min-h-[200px]">
         {/* Tag + icon */}
         <div className="flex items-start justify-between mb-3">
-          <span className="bg-[#4A8DFF]/10 border border-[#4A8DFF]/25 text-[#adcbff] text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest">
+          <span className="bg-[#4A8DFF]/10 border border-[#4A8DFF]/25 text-[#FF7A00] text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest">
             {card.tag}
           </span>
           <motion.div
@@ -1094,7 +1093,7 @@ function BlogCard({ card, index, onClick }) {
         {/* CTA */}
         {!card.comingSoon ? (
           <motion.div
-            className="mt-4 flex items-center gap-1.5 text-[#adcbff] text-xs font-bold tracking-wider hover:text-[#adcbff]"
+            className="mt-4 flex items-center gap-1.5 text-[#FF7A00] text-xs font-bold tracking-wider hover:text-[#FF7A00]"
             animate={{ x: hov ? 4 : 0, opacity: hov ? 1 : 0.5 }}
             transition={{ duration: 0.2 }}
           >
@@ -1140,8 +1139,8 @@ export default function CheaBlogs() {
         >
 
           <div className="flex items-center justify-center gap-4 mb-4">
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
-              <Atom size={36} className="text-[#70b5ed]" />
+            <motion.div transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+              <Atom size={36} className="text-[#FF7A00]" />
             </motion.div>
             <h1 className="text-5xl lg:text-6xl font-black">
               ChEA{" "}
@@ -1149,8 +1148,8 @@ export default function CheaBlogs() {
                 BLOGS
               </span>
             </h1>
-            <motion.div animate={{ y: [-4, 4, -4] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
-              <BookOpen size={36} className="text-[#70b5ed]" />
+            <motion.div transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
+              <BookOpen size={36} className="text-[#FF7A00]" />
             </motion.div>
           </div>
 

@@ -189,9 +189,8 @@ export const EventCard = ({ event, index, onEventClick }) => {
             <motion.button
               onClick={() => onEventClick(event)}
               style={{"cursor":"pointer"}}
-              className="flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-[#3B6FC4] to-[#4A8DFF] text-white shadow-lg shadow-[#4A8DFF]/10 rounded-lg text-white text-sm font-medium transition-colors duration-300 flex-1 justify-center"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.95 }}
+className="flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-[#E66700] to-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/10 rounded-lg text-sm font-medium transition-colors duration-300 flex-1 justify-center"              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.99 }}
             >
               <Eye size={14} />
               View Details

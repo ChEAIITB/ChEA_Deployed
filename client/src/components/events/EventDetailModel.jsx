@@ -141,8 +141,7 @@ export const EventDetailModal = ({ event, onClose }) => {
               {event.year}
             </span>
 
-            <span className="capitalize bg-[#315D9C]/10 text-[#adcbff] px-3 py-1 rounded-full font-medium border border-[#315D9C]/30">
-              {event.category}
+<span className="capitalize bg-[#FF7A00]/10 text-[#FFD6AD] px-3 py-1 rounded-full font-medium border border-[#FF7A00]/25">              {event.category}
             </span>
           </div>
 
@@ -166,7 +165,7 @@ export const EventDetailModal = ({ event, onClose }) => {
         transition={{ delay: 0.3 }}
       >
         <h3 className="text-lg font-semibold text-[#fff] mb-4 flex items-center gap-2">
-          <Beaker size={20} className="text-[#4A8DFF]" />
+          <Beaker size={20} className="text-[#FF7A00]" />
           Event Description
         </h3>
 
@@ -183,12 +182,11 @@ export const EventDetailModal = ({ event, onClose }) => {
           transition={{ delay: 0.4 }}
         >
           <h3 className="text-lg font-semibold text-[#fff] mb-4 flex items-center gap-2">
-            <ExternalLink size={20} className="text-[#4A8DFF]" />
+            <ExternalLink size={20} className="text-[#FF7A00]" />
             Resources & Links
 
             <motion.div
-              className="text-xs bg-[#315D9C]/20 text-[#4A8DFF] px-2 py-1 rounded-full border border-[#315D9C]/30"
-              animate={{ scale: [1, 1.02, 1] }}
+className="text-xs bg-[#FF7A00]/12 text-[#FFB067] px-2 py-1 rounded-full border border-[#FF7A00]/25"              animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
             >
               {event.links.length} items

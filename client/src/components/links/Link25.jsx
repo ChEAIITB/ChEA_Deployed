@@ -243,28 +243,48 @@ export default function Link25() {
               className="flex gap-2 pt-4"
               transition={{ duration: 0.3 }}
             >
-              <motion.a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#4A8DFF] border border-[#315D9C]/30 transition-colors duration-300 text-sm transition-colors duration-300 flex-1 justify-center"
-                whileHover={{ scale: 1.01 }}
-                style={{color:'#adcbff'}}
-                whileTap={{ scale: 0.99 }}
-              >
-                <ExternalLink size={14} />
-                Visit Link
-              </motion.a>
-              <motion.button
-                onClick={() => openImageModal(link)}
-                style={{cursor:'pointer'}}
-                className="flex items-center gap-2 px-4 py-2 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 text-sm transition-colors duration-300"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                <Eye size={14} />
-                Preview
-              </motion.button>
+             <motion.a
+  href={link.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  flex items-center justify-center gap-2 flex-1
+  px-4 py-2 rounded-lg
+  bg-[#FF7A00]
+  hover:bg-[#FF8C1A]
+  text-white text-sm font-medium
+  shadow-lg shadow-[#FF7A00]/20
+  hover:shadow-[#FF7A00]/35
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.01 }}
+  whileTap={{ scale: 0.99 }}
+>
+  <ExternalLink size={14} />
+  Visit Link
+</motion.a>
+
+<motion.button
+  onClick={() => openImageModal(link)}
+  style={{ cursor: "pointer" }}
+  className="
+  flex items-center justify-center gap-2
+  px-4 py-2 rounded-lg
+  text-sm font-medium
+  text-[#FFD6AD]
+  border border-[#FF7A00]/35
+  bg-transparent
+  hover:bg-[#FF7A00]/10
+  hover:border-[#FF7A00]/60
+  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.01 }}
+  whileTap={{ scale: 0.99 }}
+>
+  <Eye size={14} />
+  Preview
+</motion.button>
             </motion.div>
           </div>
 
@@ -311,12 +331,12 @@ export default function Link25() {
             {/* Modal Header */}
             <div className="p-4 border-b border-slate-700/50 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-full bg-emerald-400/10">
-                  <selectedLink.icon size={20} style={{color:'#4A8DFF'}} />
-                </div>
+                <div className="p-2 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/20">
+  <selectedLink.icon size={20} style={{ color: "#FFB067" }} />
+</div>
                 <div>
                   <h3 className="text-lg font-bold text-white">{selectedLink.name}</h3>
-                  <p className="text-sm text-[#adcbff]">
+                  <p className="text-sm text-[#FF7A00]">
                     {selectedLink.type} • {selectedLink.category}
                   </p>
                 </div>
@@ -345,12 +365,12 @@ export default function Link25() {
                 {/* Details */}
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-[#adcbff] mb-2">Description</h4>
+                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-2">Description</h4>
                     <p className="text-gray-300 leading-relaxed">{selectedLink.description}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-[#adcbff] mb-2">Details</h4>
+                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-2">Details</h4>
                     <div className="space-y-2">
                       <div className="flex justify-between p-2 bg-slate-800/50 rounded">
                         <span className="text-gray-400">Type</span>
@@ -370,25 +390,47 @@ export default function Link25() {
                   {/* Actions */}
                   <div className="flex gap-3 pt-4">
                     <motion.a
-                      href={selectedLink.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-className="flex items-center gap-2 px-4 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#adcbff] transition-colors duration-300 flex-1 justify-center"                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16} />
-                      Visit Link
-                    </motion.a>
-                    <motion.a
-                      href={selectedLink.image}
-                      download
-                      className="flex items-center gap-2 px-4 py-2 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 transition-colors duration-300"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Download size={16} />
-                      Download
-                    </motion.a>
+  href={selectedLink.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  flex items-center justify-center gap-2 flex-1
+  px-4 py-2 rounded-lg
+  text-sm font-medium
+  text-[#FFD6AD]
+  border border-[#FF7A00]/35
+  bg-transparent
+  hover:bg-[#FF7A00]/10
+  hover:border-[#FF7A00]/60
+  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <ExternalLink size={16} />
+  Visit Link
+</motion.a>
+
+<motion.a
+  href={selectedLink.image}
+  download
+  className="
+  flex items-center justify-center gap-2
+  px-4 py-2 rounded-lg
+  bg-[#FF7A00]
+  hover:bg-[#FF8C1A]
+  text-white font-medium
+  shadow-lg shadow-[#FF7A00]/20
+  hover:shadow-[#FF7A00]/35
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Download size={16} />
+  Download
+</motion.a>
                   </div>
                 </div>
               </div>
@@ -411,10 +453,9 @@ className="flex items-center gap-2 px-4 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <motion.div
-                animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <LinkIcon size={40} className="text-[#4A8DFF]" />
+                <LinkIcon size={40} className="text-[#FF7A00]" />
               </motion.div>
               <h1 className="text-5xl lg:text-6xl font-black">
                 Important{" "}
@@ -423,10 +464,9 @@ className="flex items-center gap-2 px-4 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/
                 </span>
               </h1>
               <motion.div
-                animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Globe size={40} className="text-[#4A8DFF]" />
+                <Globe size={40} className="text-[#FF7A00]" />
               </motion.div>
             </div>
 
@@ -437,8 +477,27 @@ className="flex items-center gap-2 px-4 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/
             {/* Navigation Buttons */}
             <div className="flex justify-center gap-4 mb-8">
     <motion.button
-      className={pageNo==0?"px-6 py-3 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#adcbff] border border-[#315D9C]/30 transition-colors duration-300":"px-6 py-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg text-gray-300 border border-slate-600/50 transition-colors duration-300"}
-      whileHover={{ scale: 1.01 }}
+className={
+pageNo == 0
+  ? `flex items-center justify-center gap-2
+     w-[100px] h-[48px]
+     bg-[#FF7A00]
+     hover:bg-[#FF8C1A]
+     text-white
+     rounded-lg text-sm font-medium
+     shadow-lg shadow-[#FF7A00]/20
+     hover:shadow-[#FF7A00]/35
+     border border-transparent
+     transition-all duration-300`
+     
+  : `flex items-center justify-center gap-2
+     w-[100px] h-[48px]
+     bg-slate-700/50
+     hover:bg-slate-600/50
+     text-gray-300
+     rounded-lg text-sm font-medium
+     border border-slate-600/50
+     transition-all duration-300`}      whileHover={{ scale: 1.01 }}
       style={{"cursor":"pointer"}}
       onClick={() => {updateContent(linkData25); updatePage(0)}}
       whileTap={{ scale: 0.99 }}
@@ -447,8 +506,27 @@ className="flex items-center gap-2 px-4 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/
     </motion.button>
 
     <motion.button
-      className={pageNo==1?"px-6 py-3 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#adcbff] border border-[#315D9C]/30 transition-colors duration-300":"px-6 py-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg text-gray-300 border border-slate-600/50 transition-colors duration-300"}
-      whileHover={{ scale: 1.02 }}
+className={
+pageNo == 1
+  ? `flex items-center justify-center gap-2
+     w-[100px] h-[48px]
+     bg-[#FF7A00]
+     hover:bg-[#FF8C1A]
+     text-white
+     rounded-lg text-sm font-medium
+     shadow-lg shadow-[#FF7A00]/20
+     hover:shadow-[#FF7A00]/35
+     border border-transparent
+     transition-all duration-300`
+     
+  : `flex items-center justify-center gap-2
+     w-[100px] h-[48px]
+     bg-slate-700/50
+     hover:bg-slate-600/50
+     text-gray-300
+     rounded-lg text-sm font-medium
+     border border-slate-600/50
+     transition-all duration-300`}      whileHover={{ scale: 1.02 }}
       style={{"cursor":"pointer"}}
       onClick={() => {updateContent(linkData24); updatePage(1);}}
       whileTap={{ scale: 0.95 }}

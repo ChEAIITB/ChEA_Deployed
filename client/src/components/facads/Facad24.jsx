@@ -586,7 +586,7 @@ export default function Facad() {
 
             <motion.p
               className="text-sm font-semibold transition-colors duration-300"
-              animate={{ color: isHovered ? "#22d3ee" : "#06b6d4" }}
+              animate={{ color: "#FF7A00" }}
             >
               {faculty.specialization}
             </motion.p>
@@ -635,32 +635,53 @@ export default function Facad() {
               transition={{ duration: 0.3 }}
             >
               <motion.a
-                href={faculty.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#adcbff] text-xs transition-colors duration-300 flex-1 justify-center"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                <ExternalLink size={12} />
-                Profile
-              </motion.a>
-              <motion.button
-                onClick={() => openFacultyModal(faculty)}
-                className="flex items-center gap-2 px-3 py-1 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 text-xs transition-colors duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
-                style={{"cursor":"pointer"}}
-              >
-                <Eye size={12} />
-                Details
-              </motion.button>
+  href={faculty.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  flex items-center justify-center gap-2 flex-1
+  px-3 py-2 rounded-lg
+  bg-[#FF7A00]
+  hover:bg-[#FF8C1A]
+  text-white text-xs font-medium
+  shadow-lg shadow-[#FF7A00]/20
+  hover:shadow-[#FF7A00]/35
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.01 }}
+  whileTap={{ scale: 0.99 }}
+>
+  <ExternalLink size={12} />
+  Profile
+</motion.a>
+
+<motion.button
+  onClick={() => openFacultyModal(faculty)}
+  className="
+  flex items-center justify-center gap-2
+  px-3 py-2 rounded-lg
+  text-xs font-medium
+  text-[#FFD6AD]
+  border border-[#FF7A00]/35
+  bg-transparent
+  hover:bg-[#FF7A00]/10
+  hover:border-[#FF7A00]/60
+  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.95 }}
+  style={{ cursor: "pointer" }}
+>
+  <Eye size={12} />
+  Details
+</motion.button>
             </motion.div>
           </div>
 
           {/* Chemical Reaction Indicator */}
           <motion.div
-            className="absolute bottom-2 left-1/2 w-2 h-2 bg-[#4A8DFF] rounded-full"
+            className="absolute bottom-2 left-1/2 w-2 h-2 bg-[#FF7A00] rounded-full"
             style={{ x: "-50%" }}
             animate={{
               scale: isHovered ? [0, 1, 0] : 0,
@@ -692,7 +713,7 @@ export default function Facad() {
           onClick={closeFacultyModal}
         >
           <motion.div
-            className="relative max-w-3xl w-full bg-slate-900/90 backdrop-blur-sm rounded-2xl border border-emerald-400/30 overflow-hidden"
+            className="relative max-w-3xl w-full bg-slate-900/90 backdrop-blur-sm rounded-2xl s overflow-hidden"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -708,14 +729,15 @@ export default function Facad() {
                     className="w-20 h-20 rounded-full object-cover border-2 border-emerald-400/30"
                   />
                   <div>
-                    <h3 className="text-2xl font-bold text-emerald-400">{selectedFaculty.name}</h3>
-                    <p className="text-cyan-400 font-semibold text-lg">{selectedFaculty.specialization}</p>
+                    <h3 className="text-2xl font-bold text-white">{selectedFaculty.name}</h3>
+                    <p className="text-[#FF7A00] font-semibold text-lg">{selectedFaculty.specialization}</p>
                     <p className="text-gray-400">{selectedFaculty.department}</p>
-                    <p className="text-sm text-violet-400">{selectedFaculty.experience} Experience</p>
+                    <p className="text-sm text-gray-400">{selectedFaculty.experience} Experience</p>
                   </div>
                 </div>
                 <button
                   onClick={closeFacultyModal}
+                  style={{cursor:'pointer'}}
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-xl"
                 >
                   ✕
@@ -727,8 +749,8 @@ export default function Facad() {
             <div className="p-6 space-y-6">
               {/* Contact Information */}
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-emerald-400 flex items-center gap-2">
-                  <Phone size={20} />
+                <h4 className="text-lg font-semibold text-[#fff] flex items-center gap-2">
+                  <Phone size={20} color={'#FF7A00'} />
                   Contact Information
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -752,8 +774,8 @@ export default function Facad() {
               {/* Roll Range */}
               {selectedFaculty.roll && (
                 <div className="space-y-2">
-                  <h4 className="text-lg font-semibold text-emerald-400 flex items-center gap-2">
-                    <Users size={20} />
+                  <h4 className="text-lg font-semibold text-[#fff] flex items-center gap-2">
+                    <Users size={20} color={'#FF7A00'}  />
                     Student Range
                   </h4>
                   <div className="p-3 bg-slate-800/50 rounded-lg">
@@ -765,15 +787,15 @@ export default function Facad() {
               {/* Research Areas */}
               {selectedFaculty.researchAreas && (
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-emerald-400 flex items-center gap-2">
-                    <Microscope size={20} />
+                  <h4 className="text-lg font-semibold text-[#fff] flex items-center gap-2">
+                    <Microscope color={'#FF7A00'} size={20} />
                     Research Areas
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {selectedFaculty.researchAreas.map((area, index) => (
                       <div
                         key={index}
-                        className="p-3 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-emerald-400/30 transition-colors duration-300"
+                        className="p-3 bg-slate-800/50 rounded-lg border border-slate-700/50 transition-colors duration-300"
                       >
                         <p className="text-white">{area}</p>
                       </div>
@@ -785,25 +807,45 @@ export default function Facad() {
               {/* Actions */}
               <div className="flex gap-4">
                 <motion.a
-                  href={selectedFaculty.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-emerald-400/20 hover:bg-emerald-400/30 rounded-lg text-emerald-400 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ExternalLink size={16} />
-                  Visit Faculty Page
-                </motion.a>
-                <motion.a
-                  href={`mailto:${selectedFaculty.email}`}
-                  className="flex items-center gap-2 px-6 py-3 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Mail size={16} />
-                  Send Email
-                </motion.a>
+  href={selectedFaculty.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  flex items-center justify-center gap-2
+  px-6 py-3 rounded-lg
+  bg-[#FF7A00]
+  hover:bg-[#FF8C1A]
+  text-white font-medium
+  shadow-lg shadow-[#FF7A00]/20
+  hover:shadow-[#FF7A00]/35
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <ExternalLink size={16} />
+  Visit Faculty Page
+</motion.a>
+
+<motion.a
+  href={`mailto:${selectedFaculty.email}`}
+  className="
+  flex items-center justify-center gap-2
+  px-6 py-3 rounded-lg
+  text-[#FFD6AD] font-medium
+  border border-[#FF7A00]/35
+  bg-transparent
+  hover:bg-[#FF7A00]/10
+  hover:border-[#FF7A00]/60
+  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Mail size={16} />
+  Send Email
+</motion.a>
               </div>
             </div>
           </motion.div>
@@ -828,7 +870,7 @@ export default function Facad() {
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <GraduationCap size={40} className="text-[#4A8DFF]" />
+                <GraduationCap size={40} className="text-[#FF7A00]" />
               </motion.div>
               <h1 className="text-5xl lg:text-6xl font-black">
                 KNOW YOUR{" "}
@@ -839,7 +881,7 @@ export default function Facad() {
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <BookOpen size={40} className="text-[#4A8DFF]" />
+                <BookOpen size={40} className="text-[#FF7A00]" />
               </motion.div>
             </div>
 
@@ -856,8 +898,8 @@ export default function Facad() {
                   onClick={() => setSelectedCategory(key)}
                   className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
                     selectedCategory === key
-                      ? "bg-[#4A8DFF]/20 hover:bg-[#4A8DFF]/30 text-[#adcbff] font-bold border-[#4A8DFF]/30"
-            : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
+                      ? "bg-[#FF7A00] hover:bg-[#FF8C1A] text-white font-bold border-[#FF7A00] shadow-lg shadow-[#FF7A00]/10 "
+  : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
                   }`}
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}

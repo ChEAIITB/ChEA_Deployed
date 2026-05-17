@@ -29,7 +29,6 @@ export default function Navbar() {
   const location = useLocation()
   const { scrollY } = useScroll()
 
-  const navHeight = useTransform(scrollY, [0, 60], [76, 60])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)
@@ -100,7 +99,7 @@ export default function Navbar() {
             >
               <div className="absolute inset-0 rounded-xl bg-emerald-400/0"/>
               <img
-                className="h-10 relative z-10 drop-shadow-[0_0_12px_rgba(74, 141, 255, 0.5)] transition-all duration-300"
+                className="h-10 relative z-10 drop-shadow-[0_0_12px_rgba(74, 141, 255, 0.5)] transition-all duration-300 px-2"
                 src={pndLogo}
                 alt="ChEA Logo"
               />
@@ -132,74 +131,102 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center">
             <div className="absolute left-1/2 -translate-x-1/2 h-px w-[480px] bg-gradient-to-r from-transparent via-slate-700/30 to-transparent pointer-events-none" />
             {navItems.map((item, index) => {
-              const active = isActive(item.href)
-              const hovered = hoveredItem === item.name
-              return (
-                <motion.div
-                  key={item.name}
-                  style={{marginTop:'12.5px', marginBottom:'12.5px'}}
-                  transition={{ delay: 0.05 + index * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Link
-                    to={item.href}
-                    onMouseEnter={() => setHoveredItem(item.name)}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    className="relative group block px-3.5 py-2 rounded-xl mx-0.5"
-                  >
-                    {(active || hovered) && (
-                      <motion.div
-                        layoutId="navHoverBg"
-                        className={`absolute inset-0 rounded-xl ${
-                          active
-                            ? "bg-gradient-to-b from-[#274B7A]/15 to-[#274B7A]/5 border border-[#274B7A]/30"
-                            : "bg-gradient-to-b from-slate-700/40 to-slate-800/20 border border-[#274B7A]/30"
-                        }`}
-                        transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                      />
-                    )}
-                    {active && (
-                      <div className="absolute inset-x-3 top-0 h-px bg-gradient-to-r from-transparent via-[#315D9C]/50 to-transparent rounded-full" />
-                    )}
-                    {active && (
-                      <div className="absolute inset-0 pointer-events-none ">
-                      </div>
-                    )}
-                    <div className="relative flex flex-col items-center gap-1">
-                      <motion.div
-                        className={`transition-all duration-300 ${active ? "text-[#adcbff]" : "text-slate-500 group-hover:text-[#315D9C]"}`}
-                        animate={active ? { scale: [1, 1.1, 1] } : {}}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <item.icon size={13} strokeWidth={active ? 2.5 : 1.8} />
-                      </motion.div>
-                      <span className={`text-[12px] font-semibold tracking-wide leading-none transition-all duration-300 ${active ? "text-[#adcbff]" : "text-slate-500 group-hover:text-[#315D9C]"}`}>
-                        {item.name}
-                      </span>
-                      <AnimatePresence>
-                        {(hovered || active) && (
-                          <motion.span
-                            className="text-[9px] font-mono text-[#274B7A]/50 leading-none"
-                            initial={{ opacity: 0, y: -4 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -4 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {item.formula}
-                          </motion.span>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                    {active && (
-                      <motion.div
-                        layoutId="activeNavPip"
-                        className="absolute -bottom-px left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#315D9C] to-[#4A8DFF] shadow-[0_0_8px_rgba(74,141,255,0.45)]"
-                        transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                      />
-                    )}
-                  </Link>
-                </motion.div>
-              )
-            })}
+  const active = isActive(item.href)
+  const hovered = hoveredItem === item.name
+
+  return (
+    <motion.div
+      key={item.name}
+      style={{ marginTop: "12.5px", marginBottom: "12.5px" }}
+      transition={{
+        delay: 0.05 + index * 0.06,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <Link
+        to={item.href}
+        onMouseEnter={() => setHoveredItem(item.name)}
+        onMouseLeave={() => setHoveredItem(null)}
+        className="relative group block px-3.5 py-2 rounded-xl mx-0.5"
+      >
+        {(active || hovered) && (
+          <motion.div
+            layoutId="navHoverBg"
+            className={`absolute inset-0 rounded-xl ${
+              active
+                ? "bg-gradient-to-b from-[#FF7A00]/12 to-[#FF7A00]/4 border border-[#FF7A00]/20 shadow-[0_0_18px_rgba(255,122,0,0.06)]"
+                : "bg-gradient-to-b from-slate-700/40 to-slate-800/20 border border-[#FF7A00]/10"
+            }`}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 35,
+            }}
+          />
+        )}
+
+        {active && (
+          <div className="absolute inset-x-3 top-0 h-px bg-gradient-to-r from-transparent via-[#FFB067]/40 to-transparent rounded-full" />
+        )}
+
+        <div className="relative flex flex-col items-center gap-1">
+          <motion.div
+            className={`transition-all duration-300 ${
+              active
+                ? "text-[#FFD6AD]"
+                : "text-slate-500 group-hover:text-[#FFB067]"
+            }`}
+            animate={active ? { scale: [1, 1.08, 1] } : {}}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <item.icon size={13} strokeWidth={active ? 2.5 : 1.8} />
+          </motion.div>
+
+          <span
+            className={`text-[12px] font-semibold tracking-wide leading-none transition-all duration-300 ${
+              active
+                ? "text-[#FFE7CC]"
+                : "text-slate-500 group-hover:text-[#FFB067]"
+            }`}
+          >
+            {item.name}
+          </span>
+
+          <AnimatePresence>
+            {(hovered || active) && (
+              <motion.span
+                className="text-[9px] font-mono text-[#FFB067]/50 leading-none"
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                {item.formula}
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {active && (
+          <motion.div
+            layoutId="activeNavPip"
+            className="absolute -bottom-px left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FFB067] shadow-[0_0_10px_rgba(255,122,0,0.45)]"
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 35,
+            }}
+          />
+        )}
+      </Link>
+    </motion.div>
+  )
+})}
           </nav>
 
           {/* Right side */}
@@ -296,82 +323,81 @@ className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-sla
 
       <div className="relative p-3 space-y-0.5">
         {navItems.map((item, index) => {
-          const active = isActive(item.href)
+  const active = isActive(item.href)
 
-          return (
+  return (
+    <motion.div
+      key={item.name}
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        delay: 0.04 + index * 0.05,
+        duration: 0.35,
+        ease: "easeOut",
+      }}
+    >
+      <Link
+        to={item.href}
+        className={`group relative flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-200 ${
+          active
+            ? "bg-gradient-to-r from-[#FF7A00]/12 to-[#FF7A00]/4 border border-[#FF7A00]/20 shadow-[0_0_18px_rgba(255,122,0,0.06)]"
+            : "hover:bg-slate-800/50 border border-transparent hover:border-[#FF7A00]/10"
+        }`}
+      >
+        {active && (
+          <div className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full bg-gradient-to-b from-[#FF7A00] to-[#FFB067] shadow-[0_0_8px_rgba(255,122,0,0.45)]" />
+        )}
+
+        <div
+          className={`flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center border transition-all duration-200 ${
+            active
+              ? "bg-[#FF7A00]/12 border-[#FF7A00]/25 text-[#FFD6AD] shadow-[inset_0_1px_0_rgba(255,122,0,0.12)]"
+              : "bg-slate-800/70 border-slate-700/40 text-slate-500 group-hover:bg-[#FF7A00]/8 group-hover:border-[#FF7A00]/15 group-hover:text-[#FFB067]"
+          }`}
+        >
+          <item.icon size={15} strokeWidth={active ? 2.5 : 1.8} />
+        </div>
+
+        <span
+          className={`flex-1 text-sm font-semibold transition-colors duration-200 ${
+            active
+              ? "text-[#FFE7CC]"
+              : "text-slate-300 group-hover:text-[#FFD6AD]"
+          }`}
+        >
+          {item.name}
+        </span>
+
+        <div className="flex items-center gap-2">
+          <span
+            className={`text-[10px] font-mono transition-colors duration-200 ${
+              active
+                ? "text-[#FFB067]/55"
+                : "text-slate-600 group-hover:text-[#FFB067]/35"
+            }`}
+          >
+            {item.formula}
+          </span>
+
+          {active && (
             <motion.div
-              key={item.name}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                delay: 0.04 + index * 0.05,
-                duration: 0.35,
-                ease: "easeOut",
+              className="w-1.5 h-1.5 rounded-full bg-[#FFB067]"
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [1, 0.6, 1],
               }}
-            >
-              <Link
-                to={item.href}
-                className={`group relative flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-200 ${
-                  active
-                    ? "bg-gradient-to-r from-[#315D9C]/12 to-[#315D9C]/5 border border-[#315D9C]/25"
-                    : "hover:bg-slate-800/50 border border-transparent hover:border-slate-700/30"
-                }`}
-              >
-                {active && (
-                  <div className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full bg-gradient-to-b from-[#315D9C] to-[#4A8DFF] shadow-[0_0_8px_rgba(74,141,255,0.45)]" />
-                )}
-
-                <div
-                  className={`flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center border transition-all duration-200 ${
-                    active
-                      ? "bg-[#315D9C]/20 border-[#315D9C]/30 text-[#4A8DFF] shadow-[inset_0_1px_0_rgba(74,141,255,0.15)]"
-                      : "bg-slate-800/70 border-slate-700/40 text-slate-500 group-hover:bg-[#315D9C]/10 group-hover:border-[#315D9C]/20 group-hover:text-[#6AA8FF]"
-                  }`}
-                >
-                  <item.icon size={15} strokeWidth={active ? 2.5 : 1.8} />
-                </div>
-
-                <span
-                  className={`flex-1 text-sm font-semibold transition-colors duration-200 ${
-                    active
-                      ? "text-[#6AA8FF]"
-                      : "text-slate-300 group-hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                </span>
-
-                <div className="flex items-center gap-2">
-                  <span
-                    className={`text-[10px] font-mono transition-colors duration-200 ${
-                      active
-                        ? "text-[#4A8DFF]/60"
-                        : "text-slate-600 group-hover:text-[#4A8DFF]/40"
-                    }`}
-                  >
-                    {item.formula}
-                  </span>
-
-                  {active && (
-                    <motion.div
-                      className="w-1.5 h-1.5 rounded-full bg-[#4A8DFF]"
-                      animate={{
-                        scale: [1, 1.4, 1],
-                        opacity: [1, 0.6, 1],
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      style={{
-                        boxShadow:
-                          "0 0 6px 2px rgba(74,141,255,0.45)",
-                      }}
-                    />
-                  )}
-                </div>
-              </Link>
-            </motion.div>
-          )
-        })}
-
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{
+                boxShadow:
+                  "0 0 6px 2px rgba(255,122,0,0.4)",
+              }}
+            />
+          )}
+        </div>
+      </Link>
+    </motion.div>
+  )
+})}
                 <motion.div
                   className="flex items-center justify-between pt-3 mt-2 px-2 border-t border-slate-800/50"
                   initial={{ opacity: 0 }}

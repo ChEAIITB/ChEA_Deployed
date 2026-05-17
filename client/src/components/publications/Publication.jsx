@@ -486,26 +486,47 @@ export default function Publication() {
             {/* Action Buttons */}
             <motion.div className="flex gap-2" >
               <motion.button
-                onClick={() => openPreviewModal(publication)}
-                className="flex items-center gap-2 px-3 py-2 bg-[#4A8DFF]/20 hover:bg-[#4A8DFF]/30 rounded-lg text-[#4A8DFF] text-sm transition-colors duration-300 flex-1 justify-center"
-                whileHover={{ scale: 1.02}}
-                style={{"cursor":"pointer", color:'#adcbff'}}
-                whileTap={{ scale: 0.99 }}
-              >
-                <Eye size={14} />
-                Preview
-              </motion.button>
-              <motion.a
-                href={publication.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 bg-cyan-400/20 hover:bg-cyan-400/30 rounded-lg text-cyan-400 text-sm transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink size={14} />
-                Open
-              </motion.a>
+  onClick={() => openPreviewModal(publication)}
+  className="
+  flex items-center justify-center gap-2 flex-1
+  px-3 py-2 rounded-lg
+  text-sm font-medium
+  text-[#FFD6AD]
+  border border-[#FF7A00]/35
+  bg-transparent
+  hover:bg-[#FF7A00]/10
+  hover:border-[#FF7A00]/60
+  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  transition-all duration-300
+  "
+  style={{ cursor: "pointer" }}
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.99 }}
+>
+  <Eye size={14} />
+  Preview
+</motion.button>
+
+<motion.a
+  href={publication.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  flex items-center justify-center gap-2
+  px-3 py-2 rounded-lg
+  bg-[#FF7A00]
+  hover:bg-[#FF8C1A]
+  text-white text-sm font-medium
+  shadow-lg shadow-[#FF7A00]/20
+  hover:shadow-[#FF7A00]/35
+  transition-all duration-300
+  "
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.99 }}
+>
+  <ExternalLink size={14} />
+  Open
+</motion.a>
             </motion.div>
           </div>
 
@@ -548,12 +569,12 @@ export default function Publication() {
             {/* Modal Header */}
             <div className="p-6 border-b border-slate-700/50 flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="p-3 rounded-full bg-emerald-400/10">
-                  <FileText size={24} className="text-[#4A8DFF]" />
-                </div>
+               <div className="p-3 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/20">
+  <FileText size={24} className="text-[#FFB067]" />
+</div>
                 <div>
                   <h3 className="text-xl font-bold text-white">{selectedPublication.name}</h3>
-                  <p className="text-[#adcbff]">{selectedPublication.type}</p>
+                  <p className="text-[#FF7A00]">{selectedPublication.type}</p>
                   <div className="flex items-center gap-4 mt-1 text-sm text-gray-400">
                     <span className="flex items-center gap-1">
                       <Calendar size={12} />
@@ -590,12 +611,12 @@ export default function Publication() {
                 {/* Publication Details */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-semibold text-[#adcbff] mb-3">Description</h4>
+                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-3">Description</h4>
                     <p className="text-gray-300 leading-relaxed">{selectedPublication.description}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-[#adcbff] mb-3">Publication Details</h4>
+                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-3">Publication Details</h4>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
                         <span className="text-gray-400">Type</span>
@@ -622,8 +643,18 @@ export default function Publication() {
                       href={selectedPublication.url}
                       target="_blank"
                       rel="noopener noreferrer"
-className="flex items-center gap-2 px-6 py-3 bg-[#315D9C]/20 hover:bg-[#315D9C]/30 rounded-lg text-[#adcbff] transition-colors duration-300 flex-1 justify-center"                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+className="
+flex items-center justify-center gap-2 flex-1
+px-6 py-3 rounded-lg
+bg-[#FF7A00]
+hover:bg-[#FF8C1A]
+text-white font-medium
+shadow-lg shadow-[#FF7A00]/20
+hover:shadow-[#FF7A00]/35
+transition-all duration-300
+"
+
+whileHover={{ scale: 1.01 }}                      whileTap={{ scale: 0.99 }}
                     >
                       <ExternalLink size={16} />
                       Open Publication
@@ -652,7 +683,7 @@ className="flex items-center gap-2 px-6 py-3 bg-[#315D9C]/20 hover:bg-[#315D9C]/
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <Atom size={40} className="text-[#4A8DFF]" />
+                <Atom size={40} className="text-[#FF7A00]" />
               </motion.div>
 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black">                ChEA{" "}
                 <span>
@@ -662,7 +693,7 @@ className="flex items-center gap-2 px-6 py-3 bg-[#315D9C]/20 hover:bg-[#315D9C]/
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Flask size={40} className="text-[#4A8DFF]" />
+                <Flask size={40} className="text-[#FF7A00]" />
               </motion.div>
             </div>
 

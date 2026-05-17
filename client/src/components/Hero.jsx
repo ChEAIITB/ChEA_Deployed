@@ -13,14 +13,14 @@ export default function Hero() {
           <div className="w-full lg:w-1/2 space-y-6 ml-7 relative" style={{ zIndex: 30 }}>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight"> 
                 CHEMICAL Engineering <br />
-                <span className="text-transparent bg-clip-text " style={{color:"#70b5ed"}}>
+                <span className="text-transparent bg-clip-text " style={{color:"#FF7A00"}}>
                   Association, IIT Bombay
                 </span>
               </h1>
               <div className="w-30 h-1 bg-[#274B7A]/70 my-8" />
             
             <p className="text-lg text-gray-300 relative" style={{ zIndex: 30 }}>
-              <span className=" font-bold flex items-center gap-2" style={{color:'#7ab3e1'}}>
+              <span className=" font-bold flex items-center gap-2" style={{color:'#FF7A00'}}>
                 <Zap size={20} />
                 Transforming atoms into innovations:
               </span>
@@ -42,7 +42,7 @@ export default function Hero() {
               
               <motion.div
                 className="absolute inset-0 rounded-lg"
-                style={{border: "2px solid #4A8DFF", boxShadow:'0 0 10px rgba(74,141,255,0.22)'}}
+                // style={{border: "2px solid #4A8DFF", boxShadow:'0 0 10px rgba(74,141,255,0.22)'}}
                 transition={{
                   duration: 3,
                   repeat: Number.POSITIVE_INFINITY,
@@ -71,11 +71,6 @@ export default function Hero() {
         </div>
 
         <section className="relative py-20 px-6 lg:px-20" style={{ zIndex: 20, background:'#0b1e38' }} >
-          {/* <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ zIndex: 1 }}>
-            <div className="absolute top-10 left-10 w-32 h-48 bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t-lg" />
-            <div className="absolute top-20 right-20 w-24 h-40 bg-gradient-to-t from-cyan-600 to-teal-600 rounded-full" />
-            <div className="absolute bottom-20 left-1/4 w-28 h-36 bg-gradient-to-t from-teal-600 to-cyan-600" />
-          </div> */}
 
           <div className="relative flex flex-col lg:flex-row gap-10 items-center" style={{ zIndex: 25 }}>
             <motion.div
@@ -86,7 +81,7 @@ export default function Hero() {
             >
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                style={{border: '3px solid #4A8DFF', boxShadow:'0 0 12px rgba(74,141,255,0.22)'}}
+                style={{border: '3px solid #FF7A00', boxShadow:'0 0 12px rgba(74,141,255,0.22)'}}
                 src="https://www.youtube.com/embed/JOLQSrkcSAo?si=tbyiqzyl2Tz-k6M8"
                 title="ChEA Industrial video"
                 frameBorder="0"

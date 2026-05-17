@@ -967,19 +967,10 @@ export default function Contact() {
 
             <motion.p
               className="text-sm font-semibold transition-colors duration-300"
-              animate={{ color: isHovered ? "#22d3ee" : "#06b6d4" }}
+              animate={{ color: "#FF7A00" }}
             >
               {member.position}
             </motion.p>
-
-            {member.specialty && (
-              <motion.p
-                className="text-xs transition-colors duration-300"
-                animate={{ color: isHovered ? "#9ca3af" : "#6b7280" }}
-              >
-                {member.specialty}
-              </motion.p>
-            )}
 
             {/* Contact Info */}
             <div className="space-y-2 text-xs text-gray-400">
@@ -1040,7 +1031,7 @@ export default function Contact() {
 
           {/* Chemical Reaction Indicator */}
           <motion.div
-            className="absolute bottom-2 left-1/2 w-2 h-2 bg-[#4A8DFF] rounded-full"
+            className="absolute bottom-2 left-1/2 w-2 h-2 bg-[#FF7A00] rounded-full"
             style={{ x: "-50%" }}
             animate={{
               scale: isHovered ? [0, 1, 0] : 0,
@@ -1076,7 +1067,7 @@ export default function Contact() {
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <Users size={40} className="text-[#4A8DFF]" />
+                <Users size={40} className="text-[#FF7A00]" />
               </motion.div>
               <h1 className="text-5xl lg:text-6xl font-black">
                 ChEA{" "}
@@ -1087,7 +1078,7 @@ export default function Contact() {
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Crown size={40} className="text-[#4A8DFF]" />
+                <Crown size={40} className="text-[#FF7A00]" />
               </motion.div>
             </div>
 
@@ -1103,8 +1094,8 @@ export default function Contact() {
       style={{"cursor":"pointer"}}
         className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
           index === currentPage
-            ? "bg-[#4A8DFF]/20 hover:bg-[#4A8DFF]/30 text-[#adcbff] font-bold border-[#4A8DFF]/30"
-            : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
+            ? "bg-[#FF7A00] hover:bg-[#FF8C1A] text-white font-bold border-[#FF7A00] shadow-lg shadow-[#FF7A00]/20"
+  : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
         }`}
         whileHover={{ scale: 1.01 }}
         onClick={() => {updatePage(index)}}

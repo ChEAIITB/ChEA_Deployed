@@ -36,7 +36,7 @@ export const HeroSlider = () => {
   }, [])
 
   return (
-    <div className="relative h-96 overflow-hidden rounded-2xl shadow-2xl mb-12 bg-gradient-to-br from-[#0B1E38] via-[#13294B] to-[#1B2F52] opacity-60">
+    <div className="relative h-96 overflow-hidden rounded-2xl shadow-2xl mb-12 bg-gradient-to-br from-[#0B1E38] via-[#13294B] to-[#1B2F52] ">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0B1E38] via-[#13294B] to-[#1B2F52] opacity-60" />
 
@@ -88,7 +88,7 @@ export const HeroSlider = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? "bg-cyan-400 scale-125" : "bg-white/50 hover:bg-white/70"
+              index === currentSlide ? "bg-[#FF7A00] scale-125" : "bg-white/50 hover:bg-white/70"
             }`}
           />
         ))}
@@ -122,17 +122,12 @@ export const HeroSlider = () => {
       <div className="absolute bottom-8 left-8">
         <motion.h1
           className="text-4xl font-bold text-white mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          style={{opacity:1}}
         >
-          ChEA <span className="text-cyan-300">EVENTS</span>
+          ChEA <span className="text-[#FF7A00]">EVENTS</span>
         </motion.h1>
         <motion.p
           className="text-gray-200 text-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
         >
           Celebrating Chemicals, Engineering & Community
         </motion.p>
