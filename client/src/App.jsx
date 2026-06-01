@@ -21,7 +21,7 @@ import FacadMtech from "./components/facads/FacadMtech";
 import FacadPhd from "./components/facads/FacadPhd";
 import Link24 from "./components/links/Link24";
 import Link25 from "./components/links/Link25";
-
+import "./App.css";
 import Publication from "./components/publications/Publication";
 import ChemicalBackground from "./components/ChemicalBackground";
 import Events from "./components/events/Events";
@@ -61,11 +61,11 @@ function App() {
           <Route path="/contact/21" element={<Contact21 />} />
           <Route path="/contact/20" element={<Contact20 />} />
           <Route path="/facad/24" element={<Facad24 />} />
-          <Route path="/facad/23" element={<Facad23 />} />
+          {/* <Route path="/facad/23" element={<Facad23 />} />
           <Route path="/facad/22" element={<Facad22 />} />
-          <Route path="/facad/21" element={<Facad21 />} />
-          <Route path="/facad/mtech" element={<FacadMtech />} />
-          <Route path="/facad/phd" element={<FacadPhd />} />
+          <Route path="/facad/21" element={<Facad21 />} /> */}
+          {/* <Route path="/facad/mtech" element={<FacadMtech />} />
+          <Route path="/facad/phd" element={<FacadPhd />} /> */}
           <Route path="/links" element={<Link25 />} />
           {/* <Route path="/links/24" element={<Link24 />} /> */}
           <Route path="/publications" element={<Publication />} />

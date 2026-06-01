@@ -2,25 +2,29 @@
 import { useEffect } from "react"
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import { FlaskRoundIcon as Flask, TestTube, Beaker, Atom, Zap, Droplets, Factory, Flame, Wind, Gauge, Settings, AlertTriangle } from 'lucide-react'
-import loading from "../assets/images/loading.png"
+import loading from "../assets/images/home.png"
+// import loading from "../assets/images/home2.png"
 
 export default function Hero() {
   
   return (
     <div className="overflow-hidden">
-      <div className="relative  via-emerald-950 to-cyan-950 text-white" style={{background:'#0b1e38'}}>
+      <div className="relative  via-emerald-950 to-cyan-950 text-white" style={{background:'#070E20'}}>
         <section className="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between px-6 lg:px-16 py-20 relative" style={{ zIndex: 20 }}>
           <div className="w-full lg:w-1/2 space-y-6 ml-7 relative" style={{ zIndex: 30 }}>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight"> 
-                CHEMICAL Engineering <br />
-                <span className="text-transparent bg-clip-text " style={{color:"#FF7A00"}}>
+                Chemical Engineering <br />
+                {/* <span className="text-transparent bg-clip-text " style={{color:"#BFD7EA"}}> */}
+                <span className="text-transparent bg-clip-text " style={{color:"#6C85D7"}}>
                   Association, IIT Bombay
                 </span>
               </h1>
               <div className="w-30 h-1 bg-[#274B7A]/70 my-8" />
             
             <p className="text-lg text-gray-300 relative" style={{ zIndex: 30 }}>
-              <span className=" font-bold flex items-center gap-2" style={{color:'#FF7A00'}}>
+              {/* <span className=" font-bold flex items-center gap-2" style={{color:'#BFD7EA'}}> */}
+              {/* <span className=" font-bold flex items-center gap-2" style={{color:'#1b3075'}}> */}
+              <span className=" font-bold flex items-center gap-2" style={{color:'#6C85D7'}}>
                 <Zap size={20} />
                 Transforming atoms into innovations:
               </span>
@@ -55,7 +59,7 @@ export default function Hero() {
         <div className="relative text-white" style={{ zIndex: 20 }}>
           <div className="flex justify-center my-8">
             <div
-              className="w-4/5 h-[4px] bg-[#274B7A] relative"
+              className="w-4/5 h-[4px] bg-[#1b3075] relative"
               
               animate={{
                 boxShadow: [
@@ -70,7 +74,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <section className="relative py-20 px-6 lg:px-20" style={{ zIndex: 20, background:'#0b1e38' }} >
+        <section className="relative py-20 px-6 lg:px-20" style={{ zIndex: 20, background:'#070E20' }} >
 
           <div className="relative flex flex-col lg:flex-row gap-10 items-center" style={{ zIndex: 25 }}>
             <motion.div
@@ -97,8 +101,18 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="w-full lg:w-1/2 text-lg leading-relaxed p-8 rounded-xl shadow-2xl backdrop-blur-md text-gray-300 relative"
-              
+className="
+w-full lg:w-1/2
+text-lg leading-relaxed
+p-8
+rounded-2xl
+border border-[#1F2937]
+bg-[#111827]/70
+backdrop-blur-xl
+text-[#9CA3AF]
+relative
+transition-all duration-300
+"              
               whileHover={{
                 boxShadow: "0 0 5px rgba(74,141,255,0.22)",
                 borderColor: "#5592fb",

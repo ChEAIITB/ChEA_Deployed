@@ -35,6 +35,7 @@ import fn19 from "../../assets/images/publications/fn19.webp"
 import image21 from "../../assets/images/publications/image21.webp"
 import image22 from "../../assets/images/publications/image22.webp"
 import gazette25 from "../../assets/images/publications/gazette25.png"
+import alumpub25 from "../../assets/images/publications/alumpub25.png"
 import fn20 from "../../assets/images/publications/fn20.jpg"
 import fn23 from "../../assets/images/publications/fn23.jpg"
 import cv from "../../assets/images/publications/cv.jpg"
@@ -67,6 +68,18 @@ const publicationData = {
     bgColor: "from-emerald-950/20",
     
     data: [
+      {
+        id: "alumpub",
+        name: "Alum Oracle 2025",
+        image: alumpub25,
+        url: "https://drive.google.com/file/d/1FbVvKvcy4LpzukSP_2GTTzcIA_vspeJN/view?usp=sharing",
+        type: "Research Paper",
+        pages: 10,
+        description:
+          "vibrant showcase of IIT Bombay’s Chemical Engineering Association (ChEA), bridging the gap between student innovation, immersive industrial training, and the diverse career trajectories of its distinguished alumni network.",
+        publishDate: "May 2026",
+        category: "Research",
+      },
       {
         id: "chemicalgazette",
         name: "Chemical Gazette 2025",
@@ -671,7 +684,7 @@ whileHover={{ scale: 1.01 }}                      whileTap={{ scale: 0.99 }}
 
   return (
     <div ref={ref} className="overflow-hidden">
-      <div className="relative text-white min-h-screen" style={{background:'#0b1e38'}}>
+      <div className="relative text-white min-h-screen" style={{background:'#070E20'}}>
 
         {/* Main Content */}
         <section className="relative z-10 px-6 lg:px-16 py-30 md:py-40">
@@ -735,7 +748,7 @@ whileHover={{ scale: 1.01 }}                      whileTap={{ scale: 0.99 }}
                       <h2 className="text-3xl font-bold text-white ">
                         Publications {year}
                       </h2>
-                      <p className={`text-lg opacity-80`} style={{color:'#adcbff'}}>{yearData.title}</p>
+                      {/* <p className={`text-lg opacity-80`} style={{color:'#adcbff'}}>{yearData.title}</p> */}
                     </div>
                     <motion.div
                       className="text-xs font-mono text-[#4A8DFF]/60 ml-4"

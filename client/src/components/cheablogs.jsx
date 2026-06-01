@@ -931,7 +931,7 @@ function PersonCard({ person, index, onClick }) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110 saturate-[0.8] group-hover:saturate-100"
           fallbackSize={80}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1E38]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070E20]/80 to-transparent" />
 {person.domain && (
   <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-[#FF7A00] border border-[#315D9C]/20 font-mono">
     {person.domain}
@@ -1124,7 +1124,7 @@ export default function CheaBlogs() {
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{paddingTop:'50px', background:'#0b1e38'}}>
+    <div className="min-h-screen text-white relative overflow-hidden" style={{paddingTop:'50px', background:'#070E20'}}>
 
       {/* Top border — same as rest of site */}
       <div className="absolute top-0 left-0 right-0 h-px" />

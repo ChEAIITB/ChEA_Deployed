@@ -446,7 +446,7 @@ export default function Link25() {
       <div className="relative bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-950 text-white min-h-screen">
         
         {/* Main Content */}
-        <section className="relative z-10 px-6 lg:px-16 py-30 md:py-40" style={{background:'#0b1e38'}}>
+        <section className="relative z-10 px-6 lg:px-16 py-30 md:py-40" style={{background:'#070E20'}}>
           {/* Header with Chemical Theme */}
           <motion.div
             className="text-center mb-16"

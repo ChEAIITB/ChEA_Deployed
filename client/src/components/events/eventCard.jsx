@@ -101,13 +101,13 @@ export const EventCard = ({ event, index, onEventClick }) => {
         </motion.div>
 
         {/* Chemical Formula */}
-        <motion.div
+        {/* <motion.div
           className="absolute top-1 left-1 text-xs font-mono text-emerald-400/60"
           animate={{ rotate: [0, 5, -5, 0] }}
           transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-        >
-          {chemicalFormulas[index % chemicalFormulas.length]}
-        </motion.div>
+        > */}
+          {/* {chemicalFormulas[index % chemicalFormulas.length]} */}
+        {/* </motion.div> */}
 
         {/* Event Icon Container */}
         <div className="relative mb-3 overflow-hidden rounded-lg">
@@ -131,33 +131,23 @@ export const EventCard = ({ event, index, onEventClick }) => {
 
           {/* Chemical Overlay Effect */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-center justify-center"
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
+            className="absolute inset-0 flex items-center justify-center"
           >
-            {/* <motion.button
-              onClick={() => onEventClick(event)}
-              className="bg-emerald-400/20 backdrop-blur-sm px-4 py-2 rounded-full text-emerald-400 border border-emerald-400/30 flex items-center gap-1 text-sm font-medium"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Eye size={14} />
-              View
-            </motion.button> */}
+            <img src={event.image} />
           </motion.div>
 
           {/* Event Type Badge */}
-          <div
+          {/* <div
             className={`absolute top-1.5 left-1.5 bg-gradient-to-r ${categoryColors[event.category]} backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-white border border-white/30`}
           >
             {event.category}
-          </div>
+          </div> */}
 
           {/* Year Badge */}
-          <div className="absolute bottom-1.5 right-1.5 bg-slate-700/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-gray-300 flex items-center gap-1 border border-slate-600/50">
+          {/* <div className="absolute bottom-1.5 right-1.5 bg-slate-700/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-gray-300 flex items-center gap-1 border border-slate-600/50">
             <Calendar size={10} />
             {event.year}
-          </div>
+          </div> */}
 
           {/* Links Count Badge */}
           {/* <div className="absolute bottom-1.5 left-1.5 bg-emerald-400/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-emerald-400 border border-emerald-400/30">

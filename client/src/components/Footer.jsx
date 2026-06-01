@@ -66,7 +66,7 @@ export default function Footer() {
   return (
     <footer
     ref={ref}
-    style={{height:'400px', background:'#0b1e38', borderTop:'1px solid #122b51'}}
+    style={{height:'400px', background:'#070E20', borderTop:'1px solid #122b51'}}
     className="relative text-white py-16 px-4 overflow-hidden"
     >
     {/* <div style={{color:'#adcbff}}' /> */}

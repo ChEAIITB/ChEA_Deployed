@@ -4,6 +4,34 @@ import { motion, AnimatePresence } from "framer-motion"
 import { EventCard } from "./eventCard.jsx"
 import { EventDetailModal } from "./EventDetailModel.jsx"
 import { HeroSlider } from "./HeroSlider.jsx"
+import valfi2526 from './../../assets/events/valfi25-26.png';
+import valfi2425 from './../../assets/events/valfi24-25.png';
+import trad202526 from './../../assets/events/trad2025-26.png';
+import trad2425 from './../../assets/events/trad24-25.png';
+import oreo2425 from './../../assets/events/oreo24-25.png';
+import core2425 from './../../assets/events/core24-25.png';
+import deptrp2425 from './../../assets/events/deptrp24-25.png';
+import valfi2324 from './../../assets/events/valfi23-24.png';
+import valfi2223 from './../../assets/events/valfi22-23.png';
+import oreo2324 from './../../assets/events/oreo23-24(2).png';
+import oreo2223 from './../../assets/events/oreo22-23.png';
+import trad2223 from './../../assets/events/trad22-23.png';
+import trad2122 from './../../assets/events/trad21-22.png';
+import cinegala2324 from './../../assets/events/cinegala23-24.png';
+import lala2223 from './../../assets/events/lala22-23.png';
+import valfi2122 from './../../assets/events/valfi21-22.png';
+import dischsm from './../../assets/events/disc-hsm.png';
+import premnatchdisc from './../../assets/events/premnatchdisc.png';
+import chemcho from './../../assets/events/chemcho.png';
+import timecap from './../../assets/events/timecap.png';
+import core21 from './../../assets/events/core21.png';
+import core22 from './../../assets/events/core22.png';
+import discprem from './../../assets/events/discprem.png';
+import deptrp22 from './../../assets/events/deptrp22.png';
+import mcl23 from './../../assets/events/mcl23.png';
+import knowprof from './../../assets/events/knowprof.png';
+import alumni from './../../assets/events/alumnireunion.png';
+import tt24 from './../../assets/events/tt24.png';
 import {
   GraduationCap,
   Theater,
@@ -29,7 +57,7 @@ const eventData = {
       title: "Valfi 2025",
       description:
         "A fun-filled event organized as a farewell to all 4th-year students, celebrating the memories they've created during their time here.",
-      image: "valfi25-1.JPG",
+      image: valfi2526,
       links: [
         {
           type: "photos",
@@ -50,7 +78,7 @@ const eventData = {
       title: "Traditional Day 2025",
       description:
         "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti. Posings and photoshoots in traditionals are the main highlight.",
-      image: "traditionalday_2025.JPG",
+      image: trad202526,
       links: [
         {
           type: "photos",
@@ -68,7 +96,7 @@ const eventData = {
       title: "Valfi 2024",
       description:
         "A fun-filled event organized as a farewell to all 4th-year students, celebrating the memories they've created during their time here.",
-      image: "valfi24.JPG",
+      image: valfi2425,
       links: [
         {
           type: "photos",
@@ -90,7 +118,7 @@ const eventData = {
       title: "Traditional Day 2024",
       description:
         "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti. The event takes place at Jal Vihar in the campus.",
-      image: "traday23.JPG",
+      image: trad2425,
       links: [
         {
           type: "document",
@@ -106,7 +134,7 @@ const eventData = {
       title: "Freshers' Orientation 2024",
       description:
         "This event serves as the first major interaction between the council and the freshies. The event comes packed full of games and performances.",
-      image: "Freshie24.JPG",
+      image: oreo2425,
       links: [
         {
           type: "photos",
@@ -121,7 +149,7 @@ const eventData = {
       id: "core-talks-2024",
       title: "Core Talks 2024",
       description: "Interactive sessions conducted annually with alums from Industry and Higher Studies fields.",
-      image: "ct1.webp",
+      image: core2425,
       links: [
         {
           type: "photos",
@@ -137,7 +165,7 @@ const eventData = {
       title: "Department Trips 2024",
       description:
         "The trips are a means of taking students out of their academic stress. Trek and camping experiences for bonding.",
-      image: "img25-v5.jpg",
+      image: deptrp2425,
       links: [
         { type: "photos", url: "https://photos.app.goo.gl/hTF3X2RW2o4wrQ9r6", label: "Trek 2024" },
         {
@@ -154,7 +182,7 @@ const eventData = {
       title: "Sport Events 2024",
       description:
         "ChEA organises various sports events including Football, Cricket tournaments, Badminton and Table Tennis.",
-      image: "batm25-3.jpg",
+      image: tt24,
       links: [
         {
           type: "photos",
@@ -171,13 +199,14 @@ const eventData = {
       year: "2024",
     },
   ],
-  "Pre-2024": [
-    {
+
+  "2024-2023":[
+{
       id: "valfi-2023",
       title: "Valfi 2023",
       description:
         "Valedictory Function celebrating the memories of 4th-year students with heartfelt interactions and games.",
-      image: "valfi23.JPG",
+      image: valfi2223,
       links: [
         {
           type: "photos",
@@ -195,42 +224,10 @@ const eventData = {
       year: "2023",
     },
     {
-      id: "valfi-2022",
-      title: "Valfi 2022",
-      description:
-        "Valedictory Function celebrating the memories of 4th-year students with heartfelt interactions and games.",
-      image: "vf1.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/14UbucO64AR8velpzHzI_3lvUqMTsGF7B",
-          label: "View Photos",
-        },
-        { type: "video", url: "https://youtu.be/etxKrIU5JlQ?feature=shared", label: "Batch Video" },
-      ],
-      category: "farewell",
-      year: "2022",
-    },
-    {
-      id: "valfi-2018",
-      title: "Valfi 2018",
-      description: "Valedictory Function celebrating the memories of 4th-year students.",
-      image: "vf2.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1vTii8wFscKVLqNiMjZbjalDDFX_j6IR7",
-          label: "View Photos",
-        },
-      ],
-      category: "farewell",
-      year: "2018",
-    },
-    {
       id: "freshie-oreo-2023",
       title: "Freshers' Orientation 2023",
       description: "This event serves as the first major interaction between the council and the freshies.",
-      image: "fo23.JPG",
+      image: oreo2324,
       links: [
         {
           type: "photos",
@@ -242,40 +239,10 @@ const eventData = {
       year: "2023",
     },
     {
-      id: "freshie-oreo-2022",
-      title: "Freshers' Orientation 2022",
-      description: "This event serves as the first major interaction between the council and the freshies.",
-      image: "fo4.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/u/0/folders/1EZc6EWCndGsaiAJUVKcgsUutZP2hbxMp",
-          label: "View Photos",
-        },
-      ],
-      category: "orientation",
-      year: "2022",
-    },
-    {
-      id: "freshie-oreo-2019",
-      title: "Freshers' Orientation 2019",
-      description: "This event serves as the first major interaction between the council and the freshies.",
-      image: "fo3.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1EZ5fkyQZFzsXH83eIMMVDUyWTX2vxE9z",
-          label: "View Photos",
-        },
-      ],
-      category: "orientation",
-      year: "2019",
-    },
-    {
       id: "traditional-day-2023",
       title: "Traditional Day 2023",
       description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td4.JPG",
+      image: trad2223,
       links: [
         {
           type: "photos",
@@ -287,56 +254,11 @@ const eventData = {
       year: "2023",
     },
     {
-      id: "traditional-day-2022",
-      title: "Traditional Day 2022",
-      description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td3.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1E4og9_sK-HJIFuqUxGUQ4vIqe0mwryQ-",
-          label: "View Photos",
-        },
-      ],
-      category: "cultural",
-      year: "2022",
-    },
-    {
-      id: "traditional-day-2019",
-      title: "Traditional Day 2019",
-      description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td2.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1Mu1AJKKNTD1C5DXfPzHzFiW6rlBZLVR-",
-          label: "View Photos",
-        },
-      ],
-      category: "cultural",
-      year: "2019",
-    },
-    {
-      id: "traditional-day-2017",
-      title: "Traditional Day 2017",
-      description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
-      image: "td1.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://onedrive.live.com/?authkey=%21AMXBuXlcDJavTno&id=30B2A03F2C43CA04%21107&cid=30B2A03F2C43CA04",
-          label: "View Photos",
-        },
-      ],
-      category: "cultural",
-      year: "2017",
-    },
-    {
       id: "cinegala-2023",
       title: "Cinegala 2023",
       description:
         "A cinematic celebration bringing together the department community for an evening of entertainment.",
-      image: "cinegala.JPG",
+      image: cinegala2324,
       links: [
         {
           type: "photos",
@@ -348,70 +270,31 @@ const eventData = {
       year: "2023",
     },
     {
-      id: "la-la-land-2022",
-      title: "La La Land 2022",
-      description: "A musical entertainment event bringing joy and celebration to the department community.",
-      image: "m1.JPG",
+      id: "sport-events-2023",
+      title: "Sport Events 2023",
+      description: "Various sports tournaments including Cricket, Table Tennis and other competitive events.",
+      image: mcl23,
       links: [
         {
           type: "photos",
-          url: "https://drive.google.com/drive/u/0/folders/1qhcPvuP8b2n1IdGAiGNZ-EMxIq2x-923",
-          label: "View Photos",
+          url: "https://drive.google.com/drive/folders/1KdfxKihSwSaNWJbyvlFDFhXmo4frye87",
+          label: "Table Tennis 2023",
         },
-      ],
-      category: "entertainment",
-      year: "2022",
-    },
-    {
-      id: "career-talk-harmit-2022",
-      title: "Discovering Your Career - Dr Harmit Singh Malik",
-      description: "Career guidance session by Dr Harmit Singh Malik helping students discover their career paths.",
-      image: "m2.JPG",
-      links: [
-        {
-          type: "video",
-          url: "https://www.youtube.com/watch?v=5PUEiYRwR38",
-          label: "Watch Video",
-        },
-      ],
-      category: "academic",
-      year: "2022",
-    },
-    {
-      id: "career-talk-premnath-2022",
-      title: "Discovering Your Career - Dr. V Premnath",
-      description: "Career guidance session by Dr. V Premnath providing insights into career development.",
-      image: "m3.JPG",
-      links: [
         {
           type: "photos",
-          url: "https://drive.google.com/drive/u/0/folders/1xfp3uh0V84bN1pCI8vJAjODrud2qFu1E",
-          label: "View Photos",
-        },
-        {
-          type: "video",
-          url: "https://www.youtube.com/watch?v=LSfwfLX7nM0",
-          label: "YouTube Live",
+          url: "https://drive.google.com/drive/folders/1K3A4okJZ9gdLu_smJ5Fc2U_fhTx8rZas?usp=sharing",
+          label: "Mixed Cricket League 2023",
         },
       ],
-      category: "academic",
-      year: "2022",
-    },
-    {
-      id: "chem-chho-2021",
-      title: "Chem Chho 2021",
-      description: "A fun chemistry-themed event bringing together students for entertainment and learning.",
-      image: "chemcho.jpg",
-      links: [],
-      category: "entertainment",
-      year: "2021",
+      category: "sports",
+      year: "2023",
     },
     {
       id: "know-your-profs",
       title: "Know Your Profs",
       description:
         "A video series wherein professors from the department are invited to chat regarding their college days and experiences in academia.",
-      image: "hod25.jpg",
+      image: knowprof,
       links: [
         { type: "video", url: "https://www.youtube.com/embed/sRe9oNQ22DE?si=tBdBOGA-W_IwC0Rb", label: "Prof VM Naik" },
         {
@@ -444,103 +327,75 @@ const eventData = {
       year: "2023",
       type: "video-series",
     },
+  ],
+  "2022-2023":[
     {
-      id: "time-capsule",
-      title: "Time Capsule",
+      id: "valfi-2022",
+      title: "Valfi 2022",
       description:
-        "The Time Capsule - The 25 year Journey, where distinguished alumni interact with students providing unparalleled professional experience.",
-      image: "image1.webp",
+        "Valedictory Function celebrating the memories of 4th-year students with heartfelt interactions and games.",
+      image: valfi2122,
       links: [
         {
-          type: "video",
-          url: "https://www.youtube.com/embed/Zrc0L-1uPOQ?si=tTpQ7CAfShzcBsQY",
-          label: "Time Capsule 2022",
+          type: "photos",
+          url: "https://drive.google.com/drive/folders/14UbucO64AR8velpzHzI_3lvUqMTsGF7B",
+          label: "View Photos",
         },
-        {
-          type: "video",
-          url: "https://www.youtube.com/embed/QpG4g8WW8C0?si=lP2VgwxN86Ry3deW",
-          label: "Time Capsule 2021",
-        },
+        { type: "video", url: "https://youtu.be/etxKrIU5JlQ?feature=shared", label: "Batch Video" },
       ],
-      category: "alumni",
+      category: "farewell",
       year: "2022",
-      type: "video-series",
     },
     {
-      id: "panel-discussions",
-      title: "Panel Discussions",
-      description:
-        "The Changing Role Of Chemical Engineers - discussions where alums discuss changes in the global spectrum.",
-      image: "image9.webp",
+      id: "freshie-oreo-2022",
+      title: "Freshers' Orientation 2022",
+      description: "This event serves as the first major interaction between the council and the freshies.",
+      image: oreo2223,
       links: [
         {
-          type: "video",
-          url: "https://www.youtube.com/embed/7tafF43uU14?si=OU18LNkt7dSGNRoe",
-          label: "Future of Medical Technologies",
-        },
-        {
-          type: "video",
-          url: "https://www.youtube.com/embed/FfqxNoF9S0M?si=eNCth8TNoesN-fJt",
-          label: "Evolution of Energy",
-        },
-        { type: "video", url: "https://www.youtube.com/embed/khkN5WjD9qM?si=XnkjkAnBjbxU2Nfv", label: "Air Quality" },
-        {
-          type: "video",
-          url: "https://www.youtube.com/embed/Y-74E7tjj70?si=58_NA6ktsiyyXbKg",
-          label: "Pharma and Life Sciences",
+          type: "photos",
+          url: "https://drive.google.com/drive/u/0/folders/1EZc6EWCndGsaiAJUVKcgsUutZP2hbxMp",
+          label: "View Photos",
         },
       ],
-      category: "discussion",
-      year: "2021",
-      type: "video-series",
+      category: "orientation",
+      year: "2022",
     },
     {
-      id: "core-talks-2021",
-      title: "Core Talks 2021",
-      description: "Interactive sessions with alumni from Industry and Higher Studies providing career guidance.",
-      image: "ct2.webp",
+      id: "traditional-day-2022",
+      title: "Traditional Day 2022",
+      description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
+      image: trad2122,
       links: [
         {
-          type: "video",
-          url: "https://www.youtube.com/embed/67ns_-mcH88?si=3eYnE4TBK09G7CKr",
-          label: "Higher Studies 2021",
-        },
-        {
-          type: "video",
-          url: "https://www.youtube.com/embed/0ZvGZ378sgg?si=D9MIg9iRuvc7HCDu",
-          label: "Industry 2021",
+          type: "photos",
+          url: "https://drive.google.com/drive/folders/1E4og9_sK-HJIFuqUxGUQ4vIqe0mwryQ-",
+          label: "View Photos",
         },
       ],
-      category: "academic",
-      year: "2021",
-      type: "video-series",
+      category: "cultural",
+      year: "2022",
     },
     {
-      id: "core-talks-2020",
-      title: "Core Talks 2020",
-      description: "Interactive sessions with alumni from Industry and Higher Studies providing career guidance.",
-      image: "ct3.webp",
+      id: "la-la-land-2022",
+      title: "La La Land 2022",
+      description: "A musical entertainment event bringing joy and celebration to the department community.",
+      image: lala2223,
       links: [
         {
-          type: "video",
-          url: "https://www.youtube.com/embed/ww9EEMq6H8U?si=UAish7KLJTMd_Zgc",
-          label: "Industry 2020",
-        },
-        {
-          type: "video",
-          url: "https://www.youtube.com/embed/QpG4g8WW8C0?si=yhzbshgGuaLjLvF2",
-          label: "Higher Studies 2020",
+          type: "photos",
+          url: "https://drive.google.com/drive/u/0/folders/1qhcPvuP8b2n1IdGAiGNZ-EMxIq2x-923",
+          label: "View Photos",
         },
       ],
-      category: "academic",
-      year: "2020",
-      type: "video-series",
+      category: "entertainment",
+      year: "2022",
     },
     {
       id: "department-trips-2022",
       title: "Department Trips 2022",
       description: "Bhandardara and Sundhan Valley trek providing students relief from academic stress.",
-      image: "dp2.JPG",
+      image: deptrp22,
       links: [
         {
           type: "photos",
@@ -552,91 +407,11 @@ const eventData = {
       year: "2022",
     },
     {
-      id: "department-trips-2019",
-      title: "Department Trips 2019",
-      description: "Ratangarh Trek and other adventure activities for department bonding.",
-      image: "dp3.JPG",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1WPWDbkqfbTxw0KoJhO8CHOmePDVNe0sD",
-          label: "Ratangarh Trek",
-        },
-        {
-          type: "photos",
-          url: "https://photos.google.com/share/AF1QipNx8I0f-3HhERC04352XSx9xauF8SdZikWxQikycfLT1c_mlu0rxQdrRjhZl5hOHw?key=bWxUU2l3Y0QtNnpBX2tEZW9pb2JOQmFlR2lXeUdR",
-          label: "Kashid Beach & Murud Janjira Fort",
-        },
-      ],
-      category: "adventure",
-      year: "2019",
-    },
-    {
-      id: "sport-events-2023",
-      title: "Sport Events 2023",
-      description: "Various sports tournaments including Cricket, Table Tennis and other competitive events.",
-      image: "sp11.jpg",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1KdfxKihSwSaNWJbyvlFDFhXmo4frye87",
-          label: "Table Tennis 2023",
-        },
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1K3A4okJZ9gdLu_smJ5Fc2U_fhTx8rZas?usp=sharing",
-          label: "Mixed Cricket League 2023",
-        },
-      ],
-      category: "sports",
-      year: "2023",
-    },
-    {
-      id: "sport-events-2019",
-      title: "Sport Events 2019",
-      description: "Football League, Cricket Tournament and Badminton Open providing fitness and competition.",
-      image: "spe1.webp",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/u/0/folders/1lE8o7UKKATP4ZV2jZh-Vuq39Cxsy4rWU?fbclid=IwAR2ykm4JseNjIXGPF63ofPk0AFzZByxPalTWlqxgKLzltGTOwt9RFvYOypg",
-          label: "Football League 2019",
-        },
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/16_4CrJnpdPc7X6QslsW9Q1CwCLcfGjwV?fbclid=IwAR2_2SzFSIEABM2mKrfjOJP3zmMFefZDV0QcA6Hya5hwi_XsNQVhpuFQ6pk",
-          label: "Cricket Tournament 2019",
-        },
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1WPWDbkqfbTxw0KoJhO8CHOmePDVNe0sD",
-          label: "Badminton Open 2019",
-        },
-      ],
-      category: "sports",
-      year: "2019",
-    },
-    {
-      id: "sport-events-2018",
-      title: "Sport Events 2018",
-      description: "Table Tennis Open and other indoor sports competitions.",
-      image: "spe4.webp",
-      links: [
-        {
-          type: "photos",
-          url: "https://drive.google.com/drive/folders/1s0Nd2CYrSq0yuZZGC-WO5aUHIlW9FdeI",
-          label: "Table Tennis Open 2018",
-        },
-      ],
-      category: "sports",
-      year: "2018",
-    },
-    {
       id: "alumni-reunion",
       title: "Alumni Reunion",
       description:
         "A 3-day event where we are fortunate to have the silver jubilee batch of Chemical Engineering Alumni grace the department.",
-      image: "ar5.jpg",
+      image: alumni,
       links: [
         {
           type: "photos",
@@ -653,32 +428,306 @@ const eventData = {
       year: "2022",
     },
     {
-      id: "convocation",
-      title: "Convocation",
-      description:
-        "The pandemic took away the opportunity for Convocation. They were able to reconnect and relieve that core memory thanks to the wonderful ceremony.",
-      image: "convo4.JPG",
+      id: "career-talk-harmit-2022",
+      title: "Discovering Your Career - Dr Harmit Singh Malik",
+      description: "Career guidance session by Dr Harmit Singh Malik helping students discover their career paths.",
+      image: dischsm,
+      links: [
+        {
+          type: "video",
+          url: "https://www.youtube.com/watch?v=5PUEiYRwR38",
+          label: "Watch Video",
+        },
+      ],
+      category: "academic",
+      year: "2022",
+    },
+    {
+      id: "career-talk-premnath-2022",
+      title: "Discovering Your Career - Dr. V Premnath",
+      description: "Career guidance session by Dr. V Premnath providing insights into career development.",
+      image: discprem,
       links: [
         {
           type: "photos",
-          url: "https://photos.google.com/share/AF1QipMOloY9bKgm9E58ACuw5Xek9Fg0zybdumu4prx_Ayk3P7mtjOLfl5ftK8WyDu62VQ?key=RHFTVkVPcmhEZENEMXpvQUxQYnpjU1ZUaVVfV193",
-          label: "Convocation 2022",
+          url: "https://drive.google.com/drive/u/0/folders/1xfp3uh0V84bN1pCI8vJAjODrud2qFu1E",
+          label: "View Photos",
         },
         {
-          type: "photos",
-          url: "https://drive.google.com/drive/u/0/folders/1-6Co-8pCrEc47X0qpyry3pdVPV2uEg6U",
-          label: "Convocation 2020 & 2021",
+          type: "video",
+          url: "https://www.youtube.com/watch?v=LSfwfLX7nM0",
+          label: "YouTube Live",
         },
       ],
-      category: "ceremony",
+      category: "academic",
       year: "2022",
     },
+    {
+      id: "time-capsule",
+      title: "Time Capsule",
+      description:
+        "The Time Capsule - The 25 year Journey, where distinguished alumni interact with students providing unparalleled professional experience.",
+      image: timecap,
+      links: [
+        {
+          type: "video",
+          url: "https://www.youtube.com/embed/Zrc0L-1uPOQ?si=tTpQ7CAfShzcBsQY",
+          label: "Time Capsule 2022",
+        },
+        {
+          type: "video",
+          url: "https://www.youtube.com/embed/QpG4g8WW8C0?si=lP2VgwxN86Ry3deW",
+          label: "Time Capsule 2021",
+        },
+      ],
+      category: "alumni",
+      year: "2022",
+      type: "video-series",
+    },
+  ],
+
+  "2021-2022": [
+    
+    
+    // {
+    //   id: "valfi-2018",
+    //   title: "Valfi 2018",
+    //   description: "Valedictory Function celebrating the memories of 4th-year students.",
+    //   image: "vf2.JPG",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/1vTii8wFscKVLqNiMjZbjalDDFX_j6IR7",
+    //       label: "View Photos",
+    //     },
+    //   ],
+    //   category: "farewell",
+    //   year: "2018",
+    // },
+    
+    
+    // {
+    //   id: "freshie-oreo-2019",
+    //   title: "Freshers' Orientation 2019",
+    //   description: "This event serves as the first major interaction between the council and the freshies.",
+    //   image: "fo3.JPG",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/1EZ5fkyQZFzsXH83eIMMVDUyWTX2vxE9z",
+    //       label: "View Photos",
+    //     },
+    //   ],
+    //   category: "orientation",
+    //   year: "2019",
+    // },
+    
+    
+    // {
+    //   id: "traditional-day-2019",
+    //   title: "Traditional Day 2019",
+    //   description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
+    //   image: "td2.JPG",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/1Mu1AJKKNTD1C5DXfPzHzFiW6rlBZLVR-",
+    //       label: "View Photos",
+    //     },
+    //   ],
+    //   category: "cultural",
+    //   year: "2019",
+    // },
+    // {
+    //   id: "traditional-day-2017",
+    //   title: "Traditional Day 2017",
+    //   description: "A fun, informal event which gives you a chance to meet your roll baap/maa/beta/beti.",
+    //   image: "td1.JPG",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://onedrive.live.com/?authkey=%21AMXBuXlcDJavTno&id=30B2A03F2C43CA04%21107&cid=30B2A03F2C43CA04",
+    //       label: "View Photos",
+    //     },
+    //   ],
+    //   category: "cultural",
+    //   year: "2017",
+    // },
+    
+    
+    
+    
+    {
+      id: "chem-chho-2021",
+      title: "Chem Chho 2021",
+      description: "A fun chemistry-themed event bringing together students for entertainment and learning.",
+      image: chemcho,
+      links: [],
+      category: "entertainment",
+      year: "2021",
+    },
+    
+    
+    // {
+    //   id: "panel-discussions",
+    //   title: "Panel Discussions",
+    //   description:
+    //     "The Changing Role Of Chemical Engineers - discussions where alums discuss changes in the global spectrum.",
+    //   image: "image9.webp",
+    //   links: [
+    //     {
+    //       type: "video",
+    //       url: "https://www.youtube.com/embed/7tafF43uU14?si=OU18LNkt7dSGNRoe",
+    //       label: "Future of Medical Technologies",
+    //     },
+    //     {
+    //       type: "video",
+    //       url: "https://www.youtube.com/embed/FfqxNoF9S0M?si=eNCth8TNoesN-fJt",
+    //       label: "Evolution of Energy",
+    //     },
+    //     { type: "video", url: "https://www.youtube.com/embed/khkN5WjD9qM?si=XnkjkAnBjbxU2Nfv", label: "Air Quality" },
+    //     {
+    //       type: "video",
+    //       url: "https://www.youtube.com/embed/Y-74E7tjj70?si=58_NA6ktsiyyXbKg",
+    //       label: "Pharma and Life Sciences",
+    //     },
+    //   ],
+    //   category: "discussion",
+    //   year: "2021",
+    //   type: "video-series",
+    // },
+    {
+      id: "core-talks-2021",
+      title: "Core Talks 2021",
+      description: "Interactive sessions with alumni from Industry and Higher Studies providing career guidance.",
+      image: core22,
+      links: [
+        {
+          type: "video",
+          url: "https://www.youtube.com/embed/67ns_-mcH88?si=3eYnE4TBK09G7CKr",
+          label: "Higher Studies 2021",
+        },
+        {
+          type: "video",
+          url: "https://www.youtube.com/embed/0ZvGZ378sgg?si=D9MIg9iRuvc7HCDu",
+          label: "Industry 2021",
+        },
+      ],
+      category: "academic",
+      year: "2021",
+      type: "video-series",
+    },
+    // {
+    //   id: "core-talks-2020",
+    //   title: "Core Talks 2020",
+    //   description: "Interactive sessions with alumni from Industry and Higher Studies providing career guidance.",
+    //   image:core21,
+    //   links: [
+    //     {
+    //       type: "video",
+    //       url: "https://www.youtube.com/embed/ww9EEMq6H8U?si=UAish7KLJTMd_Zgc",
+    //       label: "Industry 2020",
+    //     },
+    //     {
+    //       type: "video",
+    //       url: "https://www.youtube.com/embed/QpG4g8WW8C0?si=yhzbshgGuaLjLvF2",
+    //       label: "Higher Studies 2020",
+    //     },
+    //   ],
+    //   category: "academic",
+    //   year: "2020",
+    //   type: "video-series",
+    // },
+    
+    // {
+    //   id: "department-trips-2019",
+    //   title: "Department Trips 2019",
+    //   description: "Ratangarh Trek and other adventure activities for department bonding.",
+    //   image: deptrp19,
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/1WPWDbkqfbTxw0KoJhO8CHOmePDVNe0sD",
+    //       label: "Ratangarh Trek",
+    //     },
+    //     {
+    //       type: "photos",
+    //       url: "https://photos.google.com/share/AF1QipNx8I0f-3HhERC04352XSx9xauF8SdZikWxQikycfLT1c_mlu0rxQdrRjhZl5hOHw?key=bWxUU2l3Y0QtNnpBX2tEZW9pb2JOQmFlR2lXeUdR",
+    //       label: "Kashid Beach & Murud Janjira Fort",
+    //     },
+    //   ],
+    //   category: "adventure",
+    //   year: "2019",
+    // },
+    
+    // {
+    //   id: "sport-events-2019",
+    //   title: "Sport Events 2019",
+    //   description: "Football League, Cricket Tournament and Badminton Open providing fitness and competition.",
+    //   image: "spe1.webp",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/u/0/folders/1lE8o7UKKATP4ZV2jZh-Vuq39Cxsy4rWU?fbclid=IwAR2ykm4JseNjIXGPF63ofPk0AFzZByxPalTWlqxgKLzltGTOwt9RFvYOypg",
+    //       label: "Football League 2019",
+    //     },
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/16_4CrJnpdPc7X6QslsW9Q1CwCLcfGjwV?fbclid=IwAR2_2SzFSIEABM2mKrfjOJP3zmMFefZDV0QcA6Hya5hwi_XsNQVhpuFQ6pk",
+    //       label: "Cricket Tournament 2019",
+    //     },
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/1WPWDbkqfbTxw0KoJhO8CHOmePDVNe0sD",
+    //       label: "Badminton Open 2019",
+    //     },
+    //   ],
+    //   category: "sports",
+    //   year: "2019",
+    // },
+    // {
+    //   id: "sport-events-2018",
+    //   title: "Sport Events 2018",
+    //   description: "Table Tennis Open and other indoor sports competitions.",
+    //   image: "spe4.webp",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/folders/1s0Nd2CYrSq0yuZZGC-WO5aUHIlW9FdeI",
+    //       label: "Table Tennis Open 2018",
+    //     },
+    //   ],
+    //   category: "sports",
+    //   year: "2018",
+    // },
+    
+    // {
+    //   id: "convocation",
+    //   title: "Convocation",
+    //   description:
+    //     "The pandemic took away the opportunity for Convocation. They were able to reconnect and relieve that core memory thanks to the wonderful ceremony.",
+    //   image: "convo4.JPG",
+    //   links: [
+    //     {
+    //       type: "photos",
+    //       url: "https://photos.google.com/share/AF1QipMOloY9bKgm9E58ACuw5Xek9Fg0zybdumu4prx_Ayk3P7mtjOLfl5ftK8WyDu62VQ?key=RHFTVkVPcmhEZENEMXpvQUxQYnpjU1ZUaVVfV193",
+    //       label: "Convocation 2022",
+    //     },
+    //     {
+    //       type: "photos",
+    //       url: "https://drive.google.com/drive/u/0/folders/1-6Co-8pCrEc47X0qpyry3pdVPV2uEg6U",
+    //       label: "Convocation 2020 & 2021",
+    //     },
+    //   ],
+    //   category: "ceremony",
+    //   year: "2022",
+    // },
   ],
 }
 
 
 export default function ChemicalEvents() {
-  const [selectedYear, setSelectedYear] = useState("2024-2025")
+  const [selectedYear, setSelectedYear] = useState("2025-2026")
   const [isLoading, setIsLoading] = useState(false)
   const [selectedEvent, setSelectedEvent] = useState(null)
 
@@ -704,7 +753,7 @@ export default function ChemicalEvents() {
   const currentEvents = eventData[selectedYear] || []
 
   return (
-    <div style={{background:"#0b1e38"}} className="min-h-screen pt-20 relative overflow-hidden">
+    <div style={{background:"#070E20"}} className="min-h-screen pt-20 relative overflow-hidden">
 
       {/* <div className="fixed inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/20 via-cyan-800/20 to-teal-800/20" />

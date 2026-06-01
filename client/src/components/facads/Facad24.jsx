@@ -64,7 +64,7 @@ const facultyData = {
   "email": "sunthar@che.iitb.ac.in",
   "phone": "+91 (22) 2576 7229",
   "url": "https://www.che.iitb.ac.in/faculty-page/p-sunthar",
-  "roll": "24B0301 – 24B0333",
+  "roll": "25B0301 – 25B0331",
   "position": "Professor",
   "department": "Chemical Engineering",
   "specialization": "Computational Flow Modelling & Transport Phenomena",
@@ -94,7 +94,7 @@ const facultyData = {
   "email": "sonali.das@iitb.ac.in",
   "phone": "+91 (22) 2576 7265",
   "url": "https://www.che.iitb.ac.in/faculty-page/sonali-das",
-  "roll": "24B0334 – 24B0366",
+  "roll": "25B0363 – 25B0393",
   "position": "Assistant Professor",
   "department": "Chemical Engineering",
   "specialization": "Chemical and Electrochemical Reaction Engineering",
@@ -116,7 +116,7 @@ const facultyData = {
   "email": "venkatg@iitb.ac.in",
   "phone": "+91 (22) 2576 7208",
   "url": "http://che.iitb.ac.in/faculty-page/venkat-gundabala",
-  "roll": "24B0367 – 24B0399",
+  "roll": "25B0332 – 25B0362",
   "position": "Associate Professor",
   "department": "Chemical Engineering",
   "specialization": "Microfluidics and Soft Matter Engineering",
@@ -146,7 +146,7 @@ const facultyData = {
   "email": "nagappan@iitb.ac.in",
   "phone": "+91 (22) 2576 7217",
   "url": "https://www.che.iitb.ac.in/faculty-page/nagappan-ramaswamy",
-  "roll": "24B0400 – 24B0432",
+  "roll": "25B0394 – 25B0424",
   "position": "Associate Professor",
   "department": "Chemical Engineering",
   "specialization": "Chemical and Electrochemical Reaction Engineering",
@@ -347,67 +347,67 @@ const facultyData = {
       },
     ],
   },
-  "2021": {
-    title: "Final Year",
-    icon: Atom,
-    color: "text-teal-400",
-    bgColor: "from-teal-950/20",
-    formula: "21B",
-    data: [
-      {
-        name: "Prof. Sameer Jadhav",
-        image: Sameer,
-        email: "srjadhav@che.iitb.ac.in",
-        phone: "91 (22) 2576 7219",
-        url: "https://www.che.iitb.ac.in/index.php/faculty/sameer-jadhav",
-        roll: "210020001-40",
-        specialization: "Multiphase Flow",
-        department: "Chemical Engineering",
-        experience: "14+ years",
-        researchAreas: ["Bubble Columns", "Fluidization", "Mass Transfer"],
-        position: "Professor",
-      },
-      {
-        name: "Prof. Rochish Thaokar",
-        image: rochish,
-        email: "rochish@che.iitb.ac.in",
-        phone: "91 (22) 2576 7241",
-        url: "https://www.che.iitb.ac.in/index.php/faculty/rochish-madhukar-thaokar",
-        roll: "210020041-80",
-        specialization: "Electrokinetics",
-        department: "Chemical Engineering",
-        experience: "16+ years",
-        researchAreas: ["Electrohydrodynamics", "Microfluidics", "Colloid Science"],
-        position: "Professor",
-      },
-      {
-        name: "Prof. Arindam Sarkar",
-        image: Arindham,
-        email: "asarkar@che.iitb.ac.in",
-        phone: "91 (22) 2576 7233",
-        url: "https://www.che.iitb.ac.in/index.php/faculty/arindam-sarkar",
-        roll: "210020081-120",
-        specialization: "Process Safety",
-        department: "Chemical Engineering",
-        experience: "11+ years",
-        researchAreas: ["Risk Assessment", "Safety Engineering", "Hazard Analysis"],
-        position: "Professor",
-      },
-      {
-        name: "Prof. Mukta Tripathy",
-        image: Mukta,
-        email: "tripathy@che.iitb.ac.in",
-        phone: "91 (22) 2576 7204",
-        url: "https://www.che.iitb.ac.in/index.php/faculty/mukta-tripathy",
-        roll: "210020120-last",
-        specialization: "Computational Biology",
-        department: "Chemical Engineering",
-        experience: "13+ years",
-        researchAreas: ["Bioinformatics", "Molecular Modeling", "Systems Biology"],
-        position: "Professor",
-      },
-    ],
-  },
+  // "2021": {
+  //   title: "Final Year",
+  //   icon: Atom,
+  //   color: "text-teal-400",
+  //   bgColor: "from-teal-950/20",
+  //   formula: "21B",
+  //   data: [
+  //     {
+  //       name: "Prof. Sameer Jadhav",
+  //       image: Sameer,
+  //       email: "srjadhav@che.iitb.ac.in",
+  //       phone: "91 (22) 2576 7219",
+  //       url: "https://www.che.iitb.ac.in/index.php/faculty/sameer-jadhav",
+  //       roll: "210020001-40",
+  //       specialization: "Multiphase Flow",
+  //       department: "Chemical Engineering",
+  //       experience: "14+ years",
+  //       researchAreas: ["Bubble Columns", "Fluidization", "Mass Transfer"],
+  //       position: "Professor",
+  //     },
+  //     {
+  //       name: "Prof. Rochish Thaokar",
+  //       image: rochish,
+  //       email: "rochish@che.iitb.ac.in",
+  //       phone: "91 (22) 2576 7241",
+  //       url: "https://www.che.iitb.ac.in/index.php/faculty/rochish-madhukar-thaokar",
+  //       roll: "210020041-80",
+  //       specialization: "Electrokinetics",
+  //       department: "Chemical Engineering",
+  //       experience: "16+ years",
+  //       researchAreas: ["Electrohydrodynamics", "Microfluidics", "Colloid Science"],
+  //       position: "Professor",
+  //     },
+  //     {
+  //       name: "Prof. Arindam Sarkar",
+  //       image: Arindham,
+  //       email: "asarkar@che.iitb.ac.in",
+  //       phone: "91 (22) 2576 7233",
+  //       url: "https://www.che.iitb.ac.in/index.php/faculty/arindam-sarkar",
+  //       roll: "210020081-120",
+  //       specialization: "Process Safety",
+  //       department: "Chemical Engineering",
+  //       experience: "11+ years",
+  //       researchAreas: ["Risk Assessment", "Safety Engineering", "Hazard Analysis"],
+  //       position: "Professor",
+  //     },
+  //     {
+  //       name: "Prof. Mukta Tripathy",
+  //       image: Mukta,
+  //       email: "tripathy@che.iitb.ac.in",
+  //       phone: "91 (22) 2576 7204",
+  //       url: "https://www.che.iitb.ac.in/index.php/faculty/mukta-tripathy",
+  //       roll: "210020120-last",
+  //       specialization: "Computational Biology",
+  //       department: "Chemical Engineering",
+  //       experience: "13+ years",
+  //       researchAreas: ["Bioinformatics", "Molecular Modeling", "Systems Biology"],
+  //       position: "Professor",
+  //     },
+  //   ],
+  // },
   "M.Tech": {
     title: "Masters Program",
     icon: GraduationCap,
@@ -495,7 +495,8 @@ const facultyData = {
 
 
 export default function Facad() {
-  const [selectedCategory, setSelectedCategory] = useState("2024")
+  const [selectedCategory, setSelectedCategory] = useState("2025");
+  const CATEGORY_ORDER = ["2025", "2024", "2023", "2022", "M.Tech", "PhD"];
   const [selectedFaculty, setSelectedFaculty] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const ref = useRef(null)
@@ -858,7 +859,7 @@ export default function Facad() {
 
   return (
     <div ref={ref} onMouseMove={handleMouseMove} className="overflow-hidden">
-      <div className="relative bg-[#0b1e38] text-white min-h-screen">
+      <div className="relative bg-[#070E20] text-white min-h-screen">
         {/* Chem
         {/* Main Content */}
         <section className="relative z-10 px-6 lg:px-16 py-30 md:py-40">
@@ -891,7 +892,8 @@ export default function Facad() {
 
             {/* Category Navigation */}
             <div className="flex justify-center gap-2 mb-8 flex-wrap">
-              {Object.entries(facultyData).map(([key, data]) => (
+              {/* {Object.entries(facultyData).map(([key, data]) => (
+                
                 <motion.button
                   key={key}
                   style={{"cursor":"pointer"}}
@@ -906,7 +908,28 @@ export default function Facad() {
                 >
                   {key}
                 </motion.button>
-              ))}
+              ))} */}
+              {CATEGORY_ORDER.map((key) => {
+    const data = facultyData[key];
+    if (!data) return null; // safety check
+    
+    return (
+      <motion.button
+        key={key}
+        style={{"cursor":"pointer"}}
+        onClick={() => setSelectedCategory(key)}
+        className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
+          selectedCategory === key
+            ? "bg-[#FF7A00] hover:bg-[#FF8C1A] text-white font-bold border-[#FF7A00] shadow-lg shadow-[#FF7A00]/10 "
+            : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
+        }`}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
+      >
+        {key}
+      </motion.button>
+    );
+  })}
             </div>
 
             {/* Chemical Equipment Decoration */}

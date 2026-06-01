@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { Menu, X, FlaskRoundIcon as Flask, TestTube, Beaker, Atom, Zap } from "lucide-react"
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion"
-import pndLogo from "../assets/images/cheaorange.png"
+import pndLogo from "../assets/images/ChEA2.png"
 import { Link, useLocation } from "react-router-dom"
 import {
   Home, Calendar, FileText, BookOpen,
@@ -55,30 +55,30 @@ export default function Navbar() {
 
       <motion.nav
         className={`fixed top-[0px] left-0 w-full z-50 transition-shadow duration-500 ${
-          scrolled ? "shadow-[0_2px_20px_rgba(74,141,255,0.22),0_2px_20px_rgba(0,0,0,0.4)]" : ""
+          scrolled ? "shadow-[0_2px_10px_rgba(60,60,60,0.22),0_2px_10px_rgba(0,0,0,0.4)]" : ""
         }`}
-        style={{borderBottom:`1px solid ${scrolled?"#16396d":"transparent"}`}}
+        style={{borderBottom:`1px solid #0c152e"`}}
 
       >
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             className="absolute inset-0 backdrop-blur-3xl"
-            animate={{ backgroundColor: scrolled ? "rgba(9, 27, 52, 0.55)" : "#0a1a34" }}
+            animate={{ backgroundColor: '#0a1125' }}
             transition={{ duration: 0.5 }}
           />
           {/* <div className="absolute -left-20 top-0 bottom-0 w-64 bg-gradient-to-r from-emerald-500/8 to-transparent" />
           <div className="absolute -right-20 top-0 bottom-0 w-48 bg-gradient-to-l from-cyan-500/6 to-transparent" /> */}
-          <div
+          {/* <div
             className="absolute inset-0 opacity-[0.025]"
             style={{
               backgroundImage: `repeating-linear-gradient(45deg,rgba(255,255,255,0.5) 0px,rgba(255,255,255,0.5) 1px,transparent 1px,transparent 8px)`,
             }}
-          />
-          <motion.div
+          /> */}
+          {/* <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-[#4A8DFF]/[0.05] to-transparent"
             animate={{ x: ["-120%", "220%"] }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear", repeatDelay: 6 }}
-          />
+          /> */}
           {/* <div className={`absolute bottom-0 left-0 right-0 h-px transition-opacity duration-500 bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent ${scrolled ? "opacity-100" : "opacity-40"}`} />
           <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-emerald-400/10 to-transparent blur-md" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" /> */}
@@ -99,18 +99,18 @@ export default function Navbar() {
             >
               <div className="absolute inset-0 rounded-xl bg-emerald-400/0"/>
               <img
-                className="h-10 relative z-10 drop-shadow-[0_0_12px_rgba(74, 141, 255, 0.5)] transition-all duration-300 px-2"
+                className="h-10 relative z-10 drop-shadow-[0_0_12px_rgba(74, 141, 255, 0.5)] transition-all duration-300"
                 src={pndLogo}
                 alt="ChEA Logo"
               />
             </motion.div>
-            <div className="hidden md:flex flex-col gap-0.5">
-              <div className="flex items-center gap-2">
+            <div className="hidden md:flex flex-col gap-2 px-9.5">
+              {/* <div className="flex items-center gap-2">
                 <span className="text-[13px] font-black tracking-[0.25em] " style={{color:'#4A8DFF'}}>ChEA</span>
                 <div className="w-1 h-1 rounded-full bg-emerald-400/40" />
                 <span className="text-[10px] font-medium tracking-widest text-slate-500 uppercase">IIT Bombay</span>
-              </div>
-              <div className="flex items-center gap-1.5">
+              </div> */}
+              {/* <div className="flex items-center gap-1.5">
                 <Zap size={9} className="text-cyan-400/50" />
                 <div className="w-12 overflow-hidden h-3.5 relative">
                   <AnimatePresence mode="wait">
@@ -123,7 +123,7 @@ export default function Navbar() {
                     </motion.span>
                   </AnimatePresence>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Link>
 
@@ -155,8 +155,8 @@ export default function Navbar() {
             layoutId="navHoverBg"
             className={`absolute inset-0 rounded-xl ${
               active
-                ? "bg-gradient-to-b from-[#FF7A00]/12 to-[#FF7A00]/4 border border-[#FF7A00]/20 shadow-[0_0_18px_rgba(255,122,0,0.06)]"
-                : "bg-gradient-to-b from-slate-700/40 to-slate-800/20 border border-[#FF7A00]/10"
+                ? "bg-gradient-to-b from-[#BFD7EA]/12 to-[#BFD7EA]/4 border border-[#BFD7EA]/20 shadow-[0_0_18px_rgba(255,122,0,0.06)]"
+                : "bg-gradient-to-b from-slate-700/40 to-slate-800/20 border border-[#BFD7EA]/10"
             }`}
             transition={{
               type: "spring",
@@ -167,15 +167,15 @@ export default function Navbar() {
         )}
 
         {active && (
-          <div className="absolute inset-x-3 top-0 h-px bg-gradient-to-r from-transparent via-[#FFB067]/40 to-transparent rounded-full" />
+          <div className="absolute inset-x-3 top-0 h-px bg-gradient-to-r from-transparent via-[#BFD7EA]/40 to-transparent rounded-full" />
         )}
 
         <div className="relative flex flex-col items-center gap-1">
           <motion.div
             className={`transition-all duration-300 ${
               active
-                ? "text-[#FFD6AD]"
-                : "text-slate-500 group-hover:text-[#FFB067]"
+                ? "text-[#BFD7EA]"
+                : "text-slate-500 group-hover:text-[#BFD7EA]"
             }`}
             animate={active ? { scale: [1, 1.08, 1] } : {}}
             transition={{
@@ -190,8 +190,8 @@ export default function Navbar() {
           <span
             className={`text-[12px] font-semibold tracking-wide leading-none transition-all duration-300 ${
               active
-                ? "text-[#FFE7CC]"
-                : "text-slate-500 group-hover:text-[#FFB067]"
+                ? "text-[#F9F8F8]"
+                : "text-slate-500 group-hover:text-[#BFD7EA]"
             }`}
           >
             {item.name}
@@ -200,7 +200,7 @@ export default function Navbar() {
           <AnimatePresence>
             {(hovered || active) && (
               <motion.span
-                className="text-[9px] font-mono text-[#FFB067]/50 leading-none"
+                className="text-[9px] font-mono text-[#BFD7EA]/50 leading-none"
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
@@ -215,7 +215,7 @@ export default function Navbar() {
         {active && (
           <motion.div
             layoutId="activeNavPip"
-            className="absolute -bottom-px left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FFB067] shadow-[0_0_10px_rgba(255,122,0,0.45)]"
+            className="absolute -bottom-px left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#BFD7EA] to-[#BFD7EA] shadow-[0_0_10px_rgba(255,122,0,0.45)]"
             transition={{
               type: "spring",
               stiffness: 400,
@@ -256,7 +256,7 @@ export default function Navbar() {
 className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-slate-700/40 bg-slate-800/50 text-slate-300 hover:text-[#4A8DFF] transition-colors duration-300"              whileTap={{ scale: 0.9 }}
             >
 {isOpen && (
-  <div className="absolute inset-0 bg-[#315D9C]/10 border border-[#315D9C]/30 rounded-xl" />
+  <div className="absolute inset-0 bg-[#BFD7EA]/10 border border-[#315D9C]/30 rounded-xl" />
 )}
 
 <AnimatePresence mode="wait">
@@ -311,7 +311,7 @@ className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-sla
     >
       <div className="absolute inset-0 bg-slate-950/96 backdrop-blur-3xl rounded-2xl" />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0B1E38]/25 via-transparent to-[#315D9C]/10 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#070E20]/25 via-transparent to-[#315D9C]/10 rounded-2xl" />
 
       <div className="absolute inset-0 rounded-2xl border border-slate-700/50" />
 
@@ -340,19 +340,19 @@ className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-sla
         to={item.href}
         className={`group relative flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-200 ${
           active
-            ? "bg-gradient-to-r from-[#FF7A00]/12 to-[#FF7A00]/4 border border-[#FF7A00]/20 shadow-[0_0_18px_rgba(255,122,0,0.06)]"
-            : "hover:bg-slate-800/50 border border-transparent hover:border-[#FF7A00]/10"
+            ? "bg-gradient-to-r from-[#BFD7EA]/12 to-[#BFD7EA]/4 border border-[#BFD7EA]/20 shadow-[0_0_18px_rgba(255,122,0,0.06)]"
+            : "hover:bg-slate-800/50 border border-transparent hover:border-[#BFD7EA]/10"
         }`}
       >
         {active && (
-          <div className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full bg-gradient-to-b from-[#FF7A00] to-[#FFB067] shadow-[0_0_8px_rgba(255,122,0,0.45)]" />
+          <div className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full bg-gradient-to-b from-[#BFD7EA] to-[#BFD7EA] shadow-[0_0_8px_rgba(255,122,0,0.45)]" />
         )}
 
         <div
           className={`flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center border transition-all duration-200 ${
             active
-              ? "bg-[#FF7A00]/12 border-[#FF7A00]/25 text-[#FFD6AD] shadow-[inset_0_1px_0_rgba(255,122,0,0.12)]"
-              : "bg-slate-800/70 border-slate-700/40 text-slate-500 group-hover:bg-[#FF7A00]/8 group-hover:border-[#FF7A00]/15 group-hover:text-[#FFB067]"
+              ? "bg-[#BFD7EA]/12 border-[#BFD7EA]/25 text-[#BFD7EA] shadow-[inset_0_1px_0_rgba(255,122,0,0.12)]"
+              : "bg-slate-800/70 border-slate-700/40 text-slate-500 group-hover:bg-[#BFD7EA]/8 group-hover:border-[#BFD7EA]/15 group-hover:text-[#BFD7EA]"
           }`}
         >
           <item.icon size={15} strokeWidth={active ? 2.5 : 1.8} />
@@ -361,27 +361,27 @@ className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-sla
         <span
           className={`flex-1 text-sm font-semibold transition-colors duration-200 ${
             active
-              ? "text-[#FFE7CC]"
-              : "text-slate-300 group-hover:text-[#FFD6AD]"
+              ? "text-[#BFD7EA]"
+              : "text-slate-300 group-hover:text-[#BFD7EA]"
           }`}
         >
           {item.name}
         </span>
 
         <div className="flex items-center gap-2">
-          <span
+          {/* <span
             className={`text-[10px] font-mono transition-colors duration-200 ${
               active
-                ? "text-[#FFB067]/55"
-                : "text-slate-600 group-hover:text-[#FFB067]/35"
+                ? "text-[#BFD7EA]/55"
+                : "text-slate-600 group-hover:text-[#BFD7EA]/35"
             }`}
           >
             {item.formula}
-          </span>
+          </span> */}
 
-          {active && (
+          {/* {active && (
             <motion.div
-              className="w-1.5 h-1.5 rounded-full bg-[#FFB067]"
+              className="w-1.5 h-1.5 rounded-full bg-[#BFD7EA]"
               animate={{
                 scale: [1, 1.4, 1],
                 opacity: [1, 0.6, 1],
@@ -392,20 +392,20 @@ className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-sla
                   "0 0 6px 2px rgba(255,122,0,0.4)",
               }}
             />
-          )}
+          )} */}
         </div>
       </Link>
     </motion.div>
   )
 })}
-                <motion.div
+                {/* <motion.div
                   className="flex items-center justify-between pt-3 mt-2 px-2 border-t border-slate-800/50"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <span className="text-[10px] font-mono text-slate-600 tracking-widest">IITB · ChEA</span>
-                  <AnimatePresence mode="wait">
+                  <span className="text-[10px] font-mono text-slate-600 tracking-widest">IITB · ChEA</span> */}
+                  {/* <AnimatePresence mode="wait">
                     <motion.span
                       key={tickerIdx}
                       className="text-[10px] font-mono text-slate-600 tracking-widest"
@@ -416,8 +416,8 @@ className="md:hidden relative p-2.5 rounded-xl overflow-hidden border border-sla
                     >
                       {TICKER_FORMULAS[tickerIdx]}
                     </motion.span>
-                  </AnimatePresence>
-                </motion.div>
+                  </AnimatePresence> */}
+                {/* </motion.div> */}
               </div>
             </motion.div>
           </>

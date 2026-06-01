@@ -36,9 +36,9 @@ export const HeroSlider = () => {
   }, [])
 
   return (
-    <div className="relative h-96 overflow-hidden rounded-2xl shadow-2xl mb-12 bg-gradient-to-br from-[#0B1E38] via-[#13294B] to-[#1B2F52] ">
+    <div className="relative h-96 overflow-hidden rounded-2xl shadow-2xl mb-12 bg-gradient-to-br from-[#070E20] via-[#13294B] to-[#1B2F52] ">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0B1E38] via-[#13294B] to-[#1B2F52] opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#070E20] via-[#13294B] to-[#1B2F52] opacity-60" />
 
       {/* Slides with SVG Icons */}
       <AnimatePresence mode="wait">

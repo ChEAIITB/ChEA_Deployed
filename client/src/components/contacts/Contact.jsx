@@ -948,7 +948,7 @@ export default function Contact() {
 
             {/* Photo Overlay */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-t from-[#0B1E38]/60 via-transparent to-transparent flex items-end justify-center pb-4"
+              className="absolute inset-0 bg-gradient-to-t from-[#070E20]/60 via-transparent to-transparent flex items-end justify-center pb-4"
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
@@ -1055,7 +1055,7 @@ export default function Contact() {
   
   return (
     <div ref={ref} className="overflow-hidden">
-      <div className="relative bg-[#0b1e38] text-white min-h-screen">
+      <div className="relative bg-[#070E20] text-white min-h-screen">
 
         {/* Main Content */}
         <section className="relative z-10 px-6 lg:px-16 py-30 md:py-40">
