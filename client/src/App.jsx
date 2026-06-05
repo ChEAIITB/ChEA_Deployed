@@ -55,11 +55,11 @@ function App() {
           {/* <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register setUser={setUser} />} /> */}
           <Route path="/contact" element={<Contact />} />
-          <Route path="/contact/24" element={<Contact24 />} />
+          {/* <Route path="/contact/24" element={<Contact24 />} />
           <Route path="/contact/23" element={<Contact23 />} />
           <Route path="/contact/22" element={<Contact22 />} />
           <Route path="/contact/21" element={<Contact21 />} />
-          <Route path="/contact/20" element={<Contact20 />} />
+          <Route path="/contact/20" element={<Contact20 />} /> */}
           <Route path="/facad/24" element={<Facad24 />} />
           {/* <Route path="/facad/23" element={<Facad23 />} />
           <Route path="/facad/22" element={<Facad22 />} />

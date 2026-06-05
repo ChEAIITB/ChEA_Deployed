@@ -766,15 +766,15 @@ export default function ChemicalEvents() {
         <HeroSlider />
 
         <div className="flex justify-center mb-12">
-          <div className="bg-slate-800/50 backdrop-blur-md rounded-2xl shadow-xl p-2 flex gap-2 border border-slate-700/50">
+          <div className="bg-slate-800/50 backdrop-blur-md rounded-2xl shadow-xl p-2 flex gap-2 border border-slate-700/50" style={{flexWrap:'wrap', justifyContent:'space-evenly'}}>
             {Object.keys(eventData).map((year) => (
               <motion.button
                 key={year}
                 onClick={() => handleYearChange(year)}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedYear === year
-                    ? "bg-gradient-to-r from-[#E66700] to-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/10"
-  : "text-gray-300 hover:text-[#FF7A00] hover:bg-[#FF7A00]/10"
+                    ? "bg-gradient-to-r from-[#6C85D7] to-[#6C85D7] text-white shadow-lg shadow-[#6C85D7]/10"
+  : "text-gray-300 hover:text-[#f1f1f1] hover:bg-[#6C85D7]/10"
                 }`}
                 animate={{
                   scale: selectedYear === year ? 1.02 : 1,

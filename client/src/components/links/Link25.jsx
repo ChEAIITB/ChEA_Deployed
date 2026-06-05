@@ -250,11 +250,11 @@ export default function Link25() {
   className="
   flex items-center justify-center gap-2 flex-1
   px-4 py-2 rounded-lg
-  bg-[#FF7A00]
-  hover:bg-[#FF8C1A]
+  bg-[#6C85D7]
+  hover:bg-[#6C85D7]
   text-white text-sm font-medium
-  shadow-lg shadow-[#FF7A00]/20
-  hover:shadow-[#FF7A00]/35
+  shadow-lg shadow-[#6C85D7]/5
+  hover:shadow-[#6C85D7]/10
   transition-all duration-300
   "
   whileHover={{ scale: 1.01 }}
@@ -271,12 +271,11 @@ export default function Link25() {
   flex items-center justify-center gap-2
   px-4 py-2 rounded-lg
   text-sm font-medium
-  text-[#FFD6AD]
-  border border-[#FF7A00]/35
+  text-[#fff]
+  border border-[#6C85D7]/35
   bg-transparent
-  hover:bg-[#FF7A00]/10
-  hover:border-[#FF7A00]/60
-  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  hover:bg-[#6C85D7]/10
+  hover:border-[#6C85D7]/60
   transition-all duration-300
   "
   whileHover={{ scale: 1.01 }}
@@ -331,12 +330,12 @@ export default function Link25() {
             {/* Modal Header */}
             <div className="p-4 border-b border-slate-700/50 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/20">
-  <selectedLink.icon size={20} style={{ color: "#FFB067" }} />
+                <div className="p-2 rounded-full bg-[#6C85D7]/10 border border-[#6C85D7]/20">
+  <selectedLink.icon size={20} style={{ color: "#6C85D7" }} />
 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">{selectedLink.name}</h3>
-                  <p className="text-sm text-[#FF7A00]">
+                  <p className="text-sm text-[#6C85D7]">
                     {selectedLink.type} • {selectedLink.category}
                   </p>
                 </div>
@@ -365,12 +364,12 @@ export default function Link25() {
                 {/* Details */}
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-2">Description</h4>
+                    <h4 className="text-lg font-semibold text-[#fff] mb-2">Description</h4>
                     <p className="text-gray-300 leading-relaxed">{selectedLink.description}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-2">Details</h4>
+                    <h4 className="text-lg font-semibold text-[#fff] mb-2">Details</h4>
                     <div className="space-y-2">
                       <div className="flex justify-between p-2 bg-slate-800/50 rounded">
                         <span className="text-gray-400">Type</span>
@@ -397,12 +396,11 @@ export default function Link25() {
   flex items-center justify-center gap-2 flex-1
   px-4 py-2 rounded-lg
   text-sm font-medium
-  text-[#FFD6AD]
-  border border-[#FF7A00]/35
+  text-[#fff]
+  border border-[#6C85D7]/35
   bg-transparent
-  hover:bg-[#FF7A00]/10
-  hover:border-[#FF7A00]/60
-  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  hover:bg-[#6C85D7]/5
+  hover:border-[#6C85D7]/60
   transition-all duration-300
   "
   whileHover={{ scale: 1.02 }}
@@ -418,11 +416,10 @@ export default function Link25() {
   className="
   flex items-center justify-center gap-2
   px-4 py-2 rounded-lg
-  bg-[#FF7A00]
-  hover:bg-[#FF8C1A]
+  bg-[#6C85D7]
+  hover:bg-[#6C85D7]
   text-white font-medium
-  shadow-lg shadow-[#FF7A00]/20
-  hover:shadow-[#FF7A00]/35
+  hover:shadow-[#6C85D7]/10
   transition-all duration-300
   "
   whileHover={{ scale: 1.02 }}
@@ -455,7 +452,7 @@ export default function Link25() {
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <LinkIcon size={40} className="text-[#FF7A00]" />
+                <LinkIcon size={40} className="text-[#6C85D7]" />
               </motion.div>
               <h1 className="text-5xl lg:text-6xl font-black">
                 Important{" "}
@@ -466,7 +463,7 @@ export default function Link25() {
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Globe size={40} className="text-[#FF7A00]" />
+                <Globe size={40} className="text-[#6C85D7]" />
               </motion.div>
             </div>
 
@@ -481,12 +478,12 @@ className={
 pageNo == 0
   ? `flex items-center justify-center gap-2
      w-[100px] h-[48px]
-     bg-[#FF7A00]
-     hover:bg-[#FF8C1A]
+     bg-[#6C85D7]
+     hover:bg-[#6C85D7]
      text-white
      rounded-lg text-sm font-medium
-     shadow-lg shadow-[#FF7A00]/20
-     hover:shadow-[#FF7A00]/35
+     shadow-lg shadow-[#6C85D7]/20
+     hover:shadow-[#6C85D7]/35
      border border-transparent
      transition-all duration-300`
      
@@ -498,7 +495,7 @@ pageNo == 0
      rounded-lg text-sm font-medium
      border border-slate-600/50
      transition-all duration-300`}      whileHover={{ scale: 1.01 }}
-      style={{"cursor":"pointer"}}
+      style={{"cursor":"pointer", fontWeight:"500", fontSize:'15px'}}
       onClick={() => {updateContent(linkData25); updatePage(0)}}
       whileTap={{ scale: 0.99 }}
     >
@@ -510,12 +507,12 @@ className={
 pageNo == 1
   ? `flex items-center justify-center gap-2
      w-[100px] h-[48px]
-     bg-[#FF7A00]
-     hover:bg-[#FF8C1A]
+     bg-[#6C85D7]
+     hover:bg-[#6C85D7]
      text-white
      rounded-lg text-sm font-medium
-     shadow-lg shadow-[#FF7A00]/20
-     hover:shadow-[#FF7A00]/35
+     shadow-lg shadow-[#6C85D7]/20
+     hover:shadow-[#6C85D7]/35
      border border-transparent
      transition-all duration-300`
      
@@ -527,7 +524,7 @@ pageNo == 1
      rounded-lg text-sm font-medium
      border border-slate-600/50
      transition-all duration-300`}      whileHover={{ scale: 1.02 }}
-      style={{"cursor":"pointer"}}
+      style={{"cursor":"pointer", fontWeight:"500", fontSize:'15px'}}
       onClick={() => {updateContent(linkData24); updatePage(1);}}
       whileTap={{ scale: 0.95 }}
     >

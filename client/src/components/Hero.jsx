@@ -2,7 +2,7 @@
 import { useEffect } from "react"
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import { FlaskRoundIcon as Flask, TestTube, Beaker, Atom, Zap, Droplets, Factory, Flame, Wind, Gauge, Settings, AlertTriangle } from 'lucide-react'
-import loading from "../assets/images/home.png"
+import loading from "../assets/images/home4.png"
 // import loading from "../assets/images/home2.png"
 
 export default function Hero() {
@@ -15,16 +15,18 @@ export default function Hero() {
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight"> 
                 Chemical Engineering <br />
                 {/* <span className="text-transparent bg-clip-text " style={{color:"#BFD7EA"}}> */}
-                <span className="text-transparent bg-clip-text " style={{color:"#6C85D7"}}>
+                <span className="text-transparent bg-clip-text " style={{color:"#b2cbde"}}>
+                {/* <span className="text-transparent bg-clip-text " style={{color:"#6C85D7"}}> */}
                   Association, IIT Bombay
                 </span>
               </h1>
-              <div className="w-30 h-1 bg-[#274B7A]/70 my-8" />
-            
+              <div className="w-30 h-1 bg-[#101f51] my-8" />
+          
             <p className="text-lg text-gray-300 relative" style={{ zIndex: 30 }}>
               {/* <span className=" font-bold flex items-center gap-2" style={{color:'#BFD7EA'}}> */}
-              {/* <span className=" font-bold flex items-center gap-2" style={{color:'#1b3075'}}> */}
-              <span className=" font-bold flex items-center gap-2" style={{color:'#6C85D7'}}>
+              {/* <span className=" font-bold flex items-center gap-2" style={{color:'#101f51'}}> */}
+              <span className=" font-bold flex items-center gap-2" style={{color:'#b2cbde'}}>
+              {/* <span className=" font-bold flex items-center gap-2" style={{color:'#6C85D7'}}> */}
                 <Zap size={20} />
                 Transforming atoms into innovations:
               </span>
@@ -59,7 +61,7 @@ export default function Hero() {
         <div className="relative text-white" style={{ zIndex: 20 }}>
           <div className="flex justify-center my-8">
             <div
-              className="w-4/5 h-[4px] bg-[#1b3075] relative"
+              className="w-4/5 h-[4px] bg-[#101f51] relative"
               
               animate={{
                 boxShadow: [
@@ -85,7 +87,7 @@ export default function Hero() {
             >
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                style={{border: '3px solid #FF7A00', boxShadow:'0 0 12px rgba(74,141,255,0.22)'}}
+                style={{border: '3px solid #b2cbde', boxShadow:'0 0 12px rgba(74,141,255,0.22)'}}
                 src="https://www.youtube.com/embed/JOLQSrkcSAo?si=tbyiqzyl2Tz-k6M8"
                 title="ChEA Industrial video"
                 frameBorder="0"
@@ -94,10 +96,10 @@ export default function Hero() {
                 allowFullScreen
               />
               
-              <Flask className="absolute -top-4 -left-4 text-emerald-400 opacity-70" size={28} />
+              {/* <Flask className="absolute -top-4 -left-4 text-emerald-400 opacity-70" size={28} />
               <TestTube className="absolute -top-4 -right-4 text-cyan-400 opacity-70" size={28} />
               <Beaker className="absolute -bottom-4 -left-4 text-violet-400 opacity-70" size={28} />
-              <Atom className="absolute -bottom-4 -right-4 text-teal-400 opacity-70" size={28} />
+              <Atom className="absolute -bottom-4 -right-4 text-teal-400 opacity-70" size={28} /> */}
             </motion.div>
 
             <motion.div
@@ -115,14 +117,14 @@ transition-all duration-300
 "              
               whileHover={{
                 boxShadow: "0 0 5px rgba(74,141,255,0.22)",
-                borderColor: "#5592fb",
+                borderColor: "#6C85D7",
               }}
               transition={{ duration: 0.3 }}
-              style={{ zIndex: 30, border:'1px solid #4A8DFF', background:'#0e2341' }}
+              style={{ zIndex: 30, border:'1px solid #1d2c61', background:'#0a1125' }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <Droplets style={{color:'#7ab3e1'}} size={28} />
-                <h3 className="text-2xl font-bold" style={{color:'#7ab3e1'}}>About ChEA</h3>
+                <Droplets style={{color:'#b2cbde'}} size={28} />
+                <h3 className="text-2xl font-bold" style={{color:'#b2cbde'}}>About ChEA</h3>
               </div>
               <p className="mb-4">
                 ChEA is an association of the Alumni, Faculty, Students, and Staff of the Chemical Engineering

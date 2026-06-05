@@ -504,12 +504,10 @@ export default function Publication() {
   flex items-center justify-center gap-2 flex-1
   px-3 py-2 rounded-lg
   text-sm font-medium
-  text-[#FFD6AD]
-  border border-[#FF7A00]/35
+  text-[#fff]
+  border border-[#6C85D7]/35
   bg-transparent
-  hover:bg-[#FF7A00]/10
-  hover:border-[#FF7A00]/60
-  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  hover:border-[#6C85D7]/40
   transition-all duration-300
   "
   style={{ cursor: "pointer" }}
@@ -527,11 +525,10 @@ export default function Publication() {
   className="
   flex items-center justify-center gap-2
   px-3 py-2 rounded-lg
-  bg-[#FF7A00]
-  hover:bg-[#FF8C1A]
+  bg-[#6C85D7]
   text-white text-sm font-medium
-  shadow-lg shadow-[#FF7A00]/20
-  hover:shadow-[#FF7A00]/35
+  shadow-lg shadow-[#6C85D7]/10
+  hover:shadow-[#6C85D7]/10
   transition-all duration-300
   "
   whileHover={{ scale: 1.02 }}
@@ -544,18 +541,6 @@ export default function Publication() {
           </div>
 
           {/* Chemical Reaction Indicator */}
-          <motion.div
-            className="absolute bottom-2 left-1/2 w-2 h-2 bg-emerald-400 rounded-full"
-            style={{ x: "-50%" }}
-            animate={{
-              scale: isHovered ? [0, 1, 0] : 0,
-              opacity: isHovered ? 1 : 0,
-            }}
-            transition={{
-              scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-              opacity: { duration: 0.3 },
-            }}
-          />
         </motion.div>
       </motion.div>
     )
@@ -582,12 +567,12 @@ export default function Publication() {
             {/* Modal Header */}
             <div className="p-6 border-b border-slate-700/50 flex items-center justify-between">
               <div className="flex items-center gap-4">
-               <div className="p-3 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/20">
-  <FileText size={24} className="text-[#FFB067]" />
+               <div className="p-3 rounded-full bg-[#6C85D7]/10 border border-[#6C85D7]/20">
+  <FileText size={24} className="text-[#6C85D7]" />
 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">{selectedPublication.name}</h3>
-                  <p className="text-[#FF7A00]">{selectedPublication.type}</p>
+                  <p className="text-gray">{selectedPublication.type}</p>
                   <div className="flex items-center gap-4 mt-1 text-sm text-gray-400">
                     <span className="flex items-center gap-1">
                       <Calendar size={12} />
@@ -624,12 +609,12 @@ export default function Publication() {
                 {/* Publication Details */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-3">Description</h4>
+                    <h4 className="text-lg font-semibold text-[#fff] mb-3">Description</h4>
                     <p className="text-gray-300 leading-relaxed">{selectedPublication.description}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-[#FF7A00] mb-3">Publication Details</h4>
+                    <h4 className="text-lg font-semibold text-[#fff] mb-3">Publication Details</h4>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
                         <span className="text-gray-400">Type</span>
@@ -659,11 +644,11 @@ export default function Publication() {
 className="
 flex items-center justify-center gap-2 flex-1
 px-6 py-3 rounded-lg
-bg-[#FF7A00]
+bg-[#6C85D7]
 hover:bg-[#FF8C1A]
 text-white font-medium
-shadow-lg shadow-[#FF7A00]/20
-hover:shadow-[#FF7A00]/35
+shadow-lg shadow-[#6C85D7]/20
+hover:shadow-[#6C85D7]/35
 transition-all duration-300
 "
 
@@ -696,7 +681,7 @@ whileHover={{ scale: 1.01 }}                      whileTap={{ scale: 0.99 }}
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <Atom size={40} className="text-[#FF7A00]" />
+                <Atom size={40} className="text-[#6C85D7]" />
               </motion.div>
 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black">                ChEA{" "}
                 <span>
@@ -706,7 +691,7 @@ whileHover={{ scale: 1.01 }}                      whileTap={{ scale: 0.99 }}
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Flask size={40} className="text-[#FF7A00]" />
+                <Flask size={40} className="text-[#6C85D7]" />
               </motion.div>
             </div>
 

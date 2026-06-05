@@ -580,14 +580,14 @@ export default function Facad() {
           <div className="relative z-10 space-y-3">
             <motion.h3
               className="text-lg font-bold transition-colors duration-300"
-              animate={{ color: isHovered ? "#adcbff" : "#ffffff" }}
+              animate={{ color: isHovered ? "#fff" : "#ffffff" }}
             >
               {faculty.name}
             </motion.h3>
 
             <motion.p
               className="text-sm font-semibold transition-colors duration-300"
-              animate={{ color: "#FF7A00" }}
+              animate={{ color: "#b2cbde" }}
             >
               {faculty.specialization}
             </motion.p>
@@ -642,11 +642,11 @@ export default function Facad() {
   className="
   flex items-center justify-center gap-2 flex-1
   px-3 py-2 rounded-lg
-  bg-[#FF7A00]
-  hover:bg-[#FF8C1A]
-  text-white text-xs font-medium
-  shadow-lg shadow-[#FF7A00]/20
-  hover:shadow-[#FF7A00]/35
+  bg-[#6C85D7]
+  hover:bg-[#6C85D7]
+  text-white text-s font-medium
+  shadow-lg shadow-[#6C85D7]/5
+  hover:shadow-[#6C85D7]/10
   transition-all duration-300
   "
   whileHover={{ scale: 1.01 }}
@@ -661,13 +661,12 @@ export default function Facad() {
   className="
   flex items-center justify-center gap-2
   px-3 py-2 rounded-lg
-  text-xs font-medium
-  text-[#FFD6AD]
-  border border-[#FF7A00]/35
+  text-s font-medium
+  text-gray/90
+  border border-[#6C85D7]/35
   bg-transparent
-  hover:bg-[#FF7A00]/10
-  hover:border-[#FF7A00]/60
-  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  hover:bg-[#6C85D7]/10
+  hover:border-[#6C85D7]/60
   transition-all duration-300
   "
   whileHover={{ scale: 1.02 }}
@@ -681,22 +680,6 @@ export default function Facad() {
           </div>
 
           {/* Chemical Reaction Indicator */}
-          <motion.div
-            className="absolute bottom-2 left-1/2 w-2 h-2 bg-[#FF7A00] rounded-full"
-            style={{ x: "-50%" }}
-            animate={{
-              scale: isHovered ? [0, 1, 0] : 0,
-              opacity: isHovered ? 1 : 0,
-            }}
-            transition={{
-              scale: {
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              },
-              opacity: { duration: 0.3 },
-            }}
-          />
         </motion.div>
       </motion.div>
     )
@@ -731,7 +714,7 @@ export default function Facad() {
                   />
                   <div>
                     <h3 className="text-2xl font-bold text-white">{selectedFaculty.name}</h3>
-                    <p className="text-[#FF7A00] font-semibold text-lg">{selectedFaculty.specialization}</p>
+                    <p className="text-[#b2cbde] font-semibold text-lg">{selectedFaculty.specialization}</p>
                     <p className="text-gray-400">{selectedFaculty.department}</p>
                     <p className="text-sm text-gray-400">{selectedFaculty.experience} Experience</p>
                   </div>
@@ -751,7 +734,7 @@ export default function Facad() {
               {/* Contact Information */}
               <div className="space-y-4">
                 <h4 className="text-lg font-semibold text-[#fff] flex items-center gap-2">
-                  <Phone size={20} color={'#FF7A00'} />
+                  <Phone size={20} color={'#6C85D7'} />
                   Contact Information
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -776,7 +759,7 @@ export default function Facad() {
               {selectedFaculty.roll && (
                 <div className="space-y-2">
                   <h4 className="text-lg font-semibold text-[#fff] flex items-center gap-2">
-                    <Users size={20} color={'#FF7A00'}  />
+                    <Users size={20} color={'#6C85D7'}  />
                     Student Range
                   </h4>
                   <div className="p-3 bg-slate-800/50 rounded-lg">
@@ -789,7 +772,7 @@ export default function Facad() {
               {selectedFaculty.researchAreas && (
                 <div className="space-y-4">
                   <h4 className="text-lg font-semibold text-[#fff] flex items-center gap-2">
-                    <Microscope color={'#FF7A00'} size={20} />
+                    <Microscope color={'#6C85D7'} size={20} />
                     Research Areas
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -814,11 +797,11 @@ export default function Facad() {
   className="
   flex items-center justify-center gap-2
   px-6 py-3 rounded-lg
-  bg-[#FF7A00]
-  hover:bg-[#FF8C1A]
+  bg-[#6C85D7]
+  hover:bg-[#6C85D7]
   text-white font-medium
-  shadow-lg shadow-[#FF7A00]/20
-  hover:shadow-[#FF7A00]/35
+  shadow-lg shadow-[#6C85D7]/5
+  hover:shadow-[#6C85D7]/10
   transition-all duration-300
   "
   whileHover={{ scale: 1.02 }}
@@ -833,12 +816,11 @@ export default function Facad() {
   className="
   flex items-center justify-center gap-2
   px-6 py-3 rounded-lg
-  text-[#FFD6AD] font-medium
-  border border-[#FF7A00]/35
+  text-[#fff] font-medium
+  border border-[#6C85D7]/35
   bg-transparent
-  hover:bg-[#FF7A00]/10
-  hover:border-[#FF7A00]/60
-  hover:shadow-[0_0_12px_rgba(255,122,0,0.12)]
+  hover:bg-[#6C85D7]/10
+  hover:border-[#6C85D7]/60
   transition-all duration-300
   "
   whileHover={{ scale: 1.02 }}
@@ -871,7 +853,7 @@ export default function Facad() {
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <GraduationCap size={40} className="text-[#FF7A00]" />
+                <GraduationCap size={40} className="text-[#6C85D7]" />
               </motion.div>
               <h1 className="text-5xl lg:text-6xl font-black">
                 KNOW YOUR{" "}
@@ -882,7 +864,7 @@ export default function Facad() {
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <BookOpen size={40} className="text-[#FF7A00]" />
+                <BookOpen size={40} className="text-[#6C85D7]" />
               </motion.div>
             </div>
 
@@ -920,7 +902,7 @@ export default function Facad() {
         onClick={() => setSelectedCategory(key)}
         className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
           selectedCategory === key
-            ? "bg-[#FF7A00] hover:bg-[#FF8C1A] text-white font-bold border-[#FF7A00] shadow-lg shadow-[#FF7A00]/10 "
+            ? "bg-[#6C85D7] hover:bg-[#6C85D7] text-white font-bold border-[#6C85D7] shadow-lg shadow-[#6C85D7]/10 "
             : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
         }`}
         whileHover={{ scale: 1.01 }}

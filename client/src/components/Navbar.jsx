@@ -55,7 +55,7 @@ export default function Navbar() {
 
       <motion.nav
         className={`fixed top-[0px] left-0 w-full z-50 transition-shadow duration-500 ${
-          scrolled ? "shadow-[0_2px_10px_rgba(60,60,60,0.22),0_2px_10px_rgba(0,0,0,0.4)]" : ""
+          "shadow-[0_0.1px_5px_rgba(50,50,50,0.22),0_0.1px_5px_rgba(0,0,0,0.4)]"
         }`}
         style={{borderBottom:`1px solid #0c152e"`}}
 
@@ -174,7 +174,7 @@ export default function Navbar() {
           <motion.div
             className={`transition-all duration-300 ${
               active
-                ? "text-[#BFD7EA]"
+                ? "text-[#fff]"
                 : "text-slate-500 group-hover:text-[#BFD7EA]"
             }`}
             animate={active ? { scale: [1, 1.08, 1] } : {}}

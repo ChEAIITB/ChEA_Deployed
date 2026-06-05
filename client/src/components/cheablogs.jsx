@@ -15,6 +15,8 @@ import {
   ArrowLeft,
   X,
 } from "lucide-react";
+import {  useCallback } from "react"
+import { Eye } from "lucide-react"
 import Anushka from "../assets/blogs/internship/anushka0_25.jpg"
 import Prash from "../assets/blogs/internship/prash0_25.jpg"
 import Mohit from "../assets/blogs/internship/mohit0_25.jpg"
@@ -810,13 +812,13 @@ function PersonDetail({ person, onBack }) {
       <div>
         <h2 className="text-2xl font-bold text-white">{person.name || "Anonymous"}</h2>
 
-        <p className="text-[#FF7A00] font-semibold mt-1">
+        <p className="text-[#6C85D7] font-semibold mt-1">
           {person.company || "Company N/A"}
         </p>
 
         <div className="flex gap-2 mt-2 flex-wrap">
           {person.domain && (
-<span className="bg-[#FF7A00]/10 border border-[#FF7A00]/30 rounded-full px-3 py-0.5 text-xs text-[#FFB067]">              {person.domain}
+<span className="bg-[#6C85D7]/10 border border-[#6C85D7]/30 rounded-full px-3 py-0.5 text-xs text-[#6C85D7]">              {person.domain}
             </span>
           )}
 
@@ -933,7 +935,7 @@ function PersonCard({ person, index, onClick }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#070E20]/80 to-transparent" />
 {person.domain && (
-  <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-[#FF7A00] border border-[#315D9C]/20 font-mono">
+  <div className="absolute top-2 left-2 bg-slate-900/70 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs text-[#6C85D7] border border-[#315D9C]/20 font-mono">
     {person.domain}
   </div>
 )}
@@ -942,7 +944,7 @@ function PersonCard({ person, index, onClick }) {
       {/* Info */}
       <div className="p-4">
         <p className="font-bold text-white text-sm transition-colors duration-200 truncate">{person.name || "Name N/A"}</p>
-        <p className="text-[#FF7A00] text-xs mt-0.5 truncate">{person.company || "Company N/A"}</p>
+        <p className="text-[#6C85D7] text-xs mt-0.5 truncate">{person.company || "Company N/A"}</p>
         <div className="flex items-center justify-between mt-3 text-xs text-gray-500">
           <span>{(person.qna || []).length} Q&As</span>
           <motion.span
@@ -980,7 +982,7 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
         </button>
         <div>
           <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-xl bg-gradient-to-br from-[#D65F00] to-[#FF7A00] shadow-lg shadow-[#FF7A00]/20`}>
+            <div className={`p-2 rounded-xl bg-gradient-to-br from-[#D65F00] to-[#6C85D7] shadow-lg shadow-[#6C85D7]/20`}>
               <BlogIcon size={20} className="text-white" />
             </div>
             <h2 className="text-3xl font-bold text-white">{blog.title.replace("\n", " ")}</h2>
@@ -997,9 +999,9 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
             <button key={y} onClick={() => has && handleYear(y)}
               className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all duration-200 ${
                 active
-                  ? "bg-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/30"
+                  ? "bg-[#6C85D7] text-white shadow-lg shadow-[#6C85D7]/30"
   : has
-    ? "bg-slate-800/60 text-[#FF7A00] border border-[#FF7A00]/30 hover:bg-[#FF7A00]/10"
+    ? "bg-slate-800/60 text-[#6C85D7] border border-[#6C85D7]/30 hover:bg-[#6C85D7]/10"
     : "bg-slate-800/30 text-gray-600 border border-slate-700/30 cursor-not-allowed"
               }`}
             >{y}</button>
@@ -1038,98 +1040,126 @@ function PeopleGrid({ blog, onBack, onSelectPerson }) {
 // ══════════════════════════════════════════════
 // BLOG CARD
 // ══════════════════════════════════════════════
-function BlogCard({ card, index, onClick }) {
-  const [hov, setHov] = useState(false);
-  const CardIcon = card.icon;
+export function BlogCard({ card, index, onClick }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  const handleMouseEnter = useCallback(() => setIsHovered(true), [])
+  const handleMouseLeave = useCallback(() => setIsHovered(false), [])
+
+  const handleCardClick = useCallback(() => {
+    if (!card.comingSoon && onClick) {
+      onClick()
+    }
+  }, [card.comingSoon, onClick])
 
   return (
     <motion.div
-      onClick={card.comingSoon ? undefined : onClick}
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      className={`relative rounded-2xl overflow-hidden transition-all duration-300 min-h-[200px] ${
-        card.comingSoon
-          ? "border-slate-700/30 cursor-default"
-          : "border-[#4A8DFF]/10 hover:border-[#4A8DFF]/30 cursor-pointer"
-      } bg-slate-800/50 backdrop-blur-sm`}
+      className="w-full max-w-[340px] mx-auto"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.07, duration: 0.5 }}
     >
-      {/* Hover glow bg */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-[#315D9C]/5 via-transparent to-[#4A8DFF]/5"
-        animate={{ opacity: hov && !card.comingSoon ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      />
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleCardClick}
+        className={`relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-5 border shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden w-full flex flex-col justify-between min-h-[320px] ${
+          card.comingSoon
+            ? "border-slate-700/30 cursor-default"
+            : "border-slate-700/50 hover:border-[#6C85D7]/30 cursor-pointer"
+        }`}
+      >
+        {/* Hover background glow */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-[#315D9C]/5 via-transparent to-[#4A8DFF]/5 pointer-events-none"
+          animate={{ opacity: isHovered && !card.comingSoon ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+        />
 
-      {/* Corner accent */}
-      <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl ${card.color} opacity-10 rounded-bl-full`} />
-
-      {/* Content */}
-      <div className="relative z-10 p-5 flex flex-col h-full min-h-[200px]">
-        {/* Tag + icon */}
-        <div className="flex items-start justify-between mb-3">
-          <span className="bg-[#4A8DFF]/10 border border-[#4A8DFF]/25 text-[#FF7A00] text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest">
-            {card.tag}
-          </span>
-          <motion.div
-            className={`p-2.5 rounded-xl bg-gradient-to-br ${card.color} shadow-lg`}
-            animate={{ rotate: hov && !card.comingSoon ? [0, 8, -8, 0] : 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <CardIcon size={20} className="text-white" />
-          </motion.div>
+        {/* Card Header Media Wrapper */}
+        <div className="relative mb-4 overflow-hidden rounded-xl h-48 bg-slate-900/60 border border-slate-700/40 flex items-center justify-center flex-shrink-0">
+          {card.image ? (
+            <img 
+              src={card.image} 
+              alt={card.title}
+              className="w-full h-full object-cover transition-transform duration-500"
+              style={{
+                transform: isHovered && !card.comingSoon ? "scale(1.04)" : "scale(1)"
+              }}
+            />
+          ) : (
+            <div className={`w-full h-full bg-gradient-to-br ${card.color || 'from-slate-700 to-slate-800'} opacity-60`} />
+          )}
         </div>
 
-        {/* Title */}
-        <h3 className={`text-xl font-extrabold leading-tight mb-2 whitespace-pre-line transition-colors duration-200 ${hov && !card.comingSoon ? "text-white" : "text-white"}`}>
-          {card.title}
-        </h3>
+        {/* Content Body */}
+        <div className="relative z-10 flex flex-col flex-1 justify-between">
+          <div>
+            {/* Title */}
+            <h3 className="text-xl font-extrabold text-white mb-2 line-clamp-2 transition-colors duration-300">
+              {card.title}
+            </h3>
 
-        {/* Subtitle */}
-        <p className="text-xs text-gray-400 leading-relaxed flex-1">{card.subtitle}</p>
-
-        {/* CTA */}
-        {!card.comingSoon ? (
-          <motion.div
-            className="mt-4 flex items-center gap-1.5 text-[#FF7A00] text-xs font-bold tracking-wider hover:text-[#FF7A00]"
-            animate={{ x: hov ? 4 : 0, opacity: hov ? 1 : 0.5 }}
-            transition={{ duration: 0.2 }}
-          >
-            Explore →
-          </motion.div>
-        ) : (
-          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px] rounded-2xl flex items-center justify-center">
-            <span className="text-emerald-400 font-bold text-sm tracking-[0.25em]">COMING SOON</span>
+            {/* Description / Subtitle */}
+            <p className="text-sm text-gray-300 leading-relaxed mb-4 line-clamp-3">
+              {card.subtitle || card.description}
+            </p>
           </div>
-        )}
+
+          {/* Bottom Fixed Area */}
+          <div className="mt-auto">
+            {/* Metadata info */}
+            <div className="flex items-center gap-2 mb-4 text-xs font-semibold tracking-wide text-gray-400">
+              {/* <span className="bg-[#6C85D7]/10 border border-[#4A8DFF]/25 text-[#c1c1c1] px-2.5 py-0.5 rounded-full capitalize">
+                {card.tag || card.category || "General"}
+              </span> */}
+              {card.resources && (
+                <>
+                  <span className="text-gray-600">•</span>
+                  <span>{card.resources} resources</span>
+                </>
+              )}
+            </div>
+
+            {/* Call to Action Button */}
+            {!card.comingSoon ? (
+              <div className="w-full">
+                <button
+                  type="button"
+                  className="w-full flex items-center gap-2 px-4 py-2.5 bg-[#6C85D7] hover:bg-[#5b72c4] text-white shadow-lg shadow-[#6C85D7]/10 rounded-xl text-sm font-bold tracking-wide transition-colors duration-200 justify-center cursor-pointer"
+                >
+                  <Eye size={16} />
+                  View Details
+                </button>
+              </div>
+            ) : (
+              <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px] rounded-2xl flex items-center justify-center z-20">
+                <span className="text-emerald-400 font-bold text-sm tracking-[0.25em]">COMING SOON</span>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-
-      {/* Bottom glow on hover */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4A8DFF]/50 to-transparent"
-        animate={{ opacity: hov && !card.comingSoon ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      />
     </motion.div>
-  );
+  )
 }
-
 // ══════════════════════════════════════════════
 // ROOT
 // ══════════════════════════════════════════════
+
 export default function CheaBlogs() {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [selectedPerson, setSelectedPerson] = useState(null);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden" style={{paddingTop:'50px', background:'#070E20'}}>
+    <div className="min-h-screen text-white relative overflow-hidden px-10" style={{ paddingTop: '50px', background: '#070E20' }}>
 
       {/* Top border — same as rest of site */}
       <div className="absolute top-0 left-0 right-0 h-px" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
+      {/* Main Page Layout Wrapper */}
+      <div className="relative z-10 mx-auto px-4 sm:px-8 lg:px-12 py-25 w-full">
+        
         {/* Header */}
         <motion.div
           className="text-center mb-14"
@@ -1137,19 +1167,18 @@ export default function CheaBlogs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-
           <div className="flex items-center justify-center gap-4 mb-4">
             <motion.div transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
-              <Atom size={36} className="text-[#FF7A00]" />
+              <Atom size={36} className="text-[#6C85D7]" />
             </motion.div>
             <h1 className="text-5xl lg:text-6xl font-black">
               ChEA{" "}
-              <span className="text-transparent bg-clip-text" style={{color:"#fff"}}>
-                BLOGS
+              <span className="text-transparent bg-clip-text" style={{ color: "#fff" }}>
+                Blogs
               </span>
             </h1>
             <motion.div transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}>
-              <BookOpen size={36} className="text-[#FF7A00]" />
+              <BookOpen size={36} className="text-[#6C85D7]" />
             </motion.div>
           </div>
 
@@ -1160,20 +1189,29 @@ export default function CheaBlogs() {
           {/* Divider — matches site style */}
           <motion.div
             className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#315D9C]/100 to-transparent mx-auto mt-6"
-            initial={{ width: 0 }} animate={{ width: 80 }} transition={{ delay: 0.5, duration: 0.8 }}
+            initial={{ width: 0 }} 
+            animate={{ width: 80 }} 
+            transition={{ delay: 0.5, duration: 0.8 }}
           />
         </motion.div>
 
-        {/* Content */}
+        {/* Content Dynamic Display Zone */}
         <AnimatePresence mode="wait">
           {!selectedBlog ? (
             <motion.div
               key="grid"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full mx-auto"
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
             >
               {BLOG_CARDS.map((card, i) => (
-                <BlogCard key={card.id} card={card} index={i} onClick={() => setSelectedBlog(card)} />
+                <BlogCard 
+                  key={card.id} 
+                  card={card} 
+                  index={i} 
+                  onClick={() => setSelectedBlog(card)} 
+                />
               ))}
             </motion.div>
           ) : (
@@ -1188,10 +1226,7 @@ export default function CheaBlogs() {
         </AnimatePresence>
       </div>
 
-      {/* Bottom border — matches site */}
-      {/* <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent" /> */}
-
-      {/* Person detail modal */}
+      {/* Person detail modal popup frame */}
       <AnimatePresence>
         {selectedPerson && (
           <PersonDetail person={selectedPerson} onBack={() => setSelectedPerson(null)} />

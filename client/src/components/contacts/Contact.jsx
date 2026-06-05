@@ -967,7 +967,7 @@ export default function Contact() {
 
             <motion.p
               className="text-sm font-semibold transition-colors duration-300"
-              animate={{ color: "#FF7A00" }}
+              animate={{ color: "#b2cbde" }}
             >
               {member.position}
             </motion.p>
@@ -1067,7 +1067,7 @@ export default function Contact() {
               <motion.div
                 transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               >
-                <Users size={40} className="text-[#FF7A00]" />
+                <Users size={40} className="text-[#6C85D7]" />
               </motion.div>
               <h1 className="text-5xl lg:text-6xl font-black">
                 ChEA{" "}
@@ -1078,7 +1078,7 @@ export default function Contact() {
               <motion.div
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
               >
-                <Crown size={40} className="text-[#FF7A00]" />
+                <Crown size={40} className="text-[#6C85D7]" />
               </motion.div>
             </div>
 
@@ -1094,7 +1094,7 @@ export default function Contact() {
       style={{"cursor":"pointer"}}
         className={`px-4 py-2 rounded-lg border transition-colors duration-300 text-sm ${
           index === currentPage
-            ? "bg-[#FF7A00] hover:bg-[#FF8C1A] text-white font-bold border-[#FF7A00] shadow-lg shadow-[#FF7A00]/20"
+            ? "bg-[#6C85D7] hover:bg-[#6C85D7] text-white font-bold border-[#6C85D7] shadow-lg shadow-[#6C85D7]/10"
   : "bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 border-slate-600/50"
         }`}
         whileHover={{ scale: 1.01 }}

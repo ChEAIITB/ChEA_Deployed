@@ -88,7 +88,7 @@ export const HeroSlider = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide ? "bg-[#FF7A00] scale-125" : "bg-white/50 hover:bg-white/70"
+              index === currentSlide ? "bg-[#fff] scale-115" : "bg-white/50 hover:bg-white/70"
             }`}
           />
         ))}
@@ -124,7 +124,7 @@ export const HeroSlider = () => {
           className="text-4xl font-bold text-white mb-2"
           style={{opacity:1}}
         >
-          ChEA <span className="text-[#FF7A00]">EVENTS</span>
+          ChEA <span className="text-[#fff]">EVENTS</span>
         </motion.h1>
         <motion.p
           className="text-gray-200 text-lg"
